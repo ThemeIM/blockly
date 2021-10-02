@@ -82,17 +82,20 @@ const all_types = [{
       default: 'primary'
     },
     content: {
-      type: 'string'
+      type: 'string',
+      default: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea sequat, vel illum dolore eu feugiat nulla facili', 'blockly')
     },
     dismiss: {
       type: 'Boolean',
       default: true
     },
     backgroundColor: {
-      type: 'string'
+      type: 'string',
+      default: '#cce5ff'
     },
     textColor: {
-      type: 'string'
+      type: 'string',
+      default: '#004085'
     }
   },
   edit: props => {
@@ -8541,7 +8544,7 @@ function _extends() {
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkgrg_block"] = self["webpackChunkgrg_block"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkblockly"] = self["webpackChunkblockly"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	}();

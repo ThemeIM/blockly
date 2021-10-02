@@ -54,6 +54,7 @@ registerBlockType ( "blockly/alert-box", {
 			},
 			content: {
 				type: 'string',
+				default:__('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea sequat, vel illum dolore eu feugiat nulla facili','blockly')
 			},
 			dismiss: {
 				type: 'Boolean',
@@ -61,9 +62,11 @@ registerBlockType ( "blockly/alert-box", {
 			},
 			backgroundColor: {
 				type: 'string',
+				default:'#cce5ff'
 			},
 			textColor: {
 				type: 'string',
+				default:'#004085'
 			}
 
 		},

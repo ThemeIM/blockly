@@ -23,6 +23,7 @@ if(!function_exists('blockly_register_alert_box')):
                     ),
                     'content' =>array(
                         'type'   => 'string',
+                        'default'=>__('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea sequat, vel illum dolore eu feugiat nulla facili','blockly')
                     ),
                     'dismiss' =>array(
                         'type'    => 'Boolean',
@@ -30,9 +31,11 @@ if(!function_exists('blockly_register_alert_box')):
                     ),
                     'backgroundColor' => array(
                         'type' => 'string',
+                        'default'=>'#cce5ff'
                     ),
                     'textColor' => array(
                         'type'  => 'string',
+                        'default'=> '#004085'
                     )
                 ),
                 'render_callback' => 'blockly_render_alert_box',
@@ -46,13 +49,29 @@ add_action( 'init', 'blockly_register_alert_box' );
 //render fornt end alert box 
 if(!function_exists('blockly_render_alert_box')):
     function blockly_render_alert_box( $attributes ) {
+        $allowed_html_field = [
+            'a'=>[
+                'class'  => [],
+                'id' => [],
+                'href'=>[],
+                'target'=>[]
+            ],
+            'span'=>[
+                'class'  => [],
+                'id' => [],
+                'span'=>[]
+            ],
+            'br'=>[],
+            'strong'=>[],
+            'em'=>[],
+        ];
         $text_color = !empty($attributes['textColor'])?$attributes['textColor']:'#004085';
         ob_start(); ?>
 
-        <div style="background-color:<?php echo $attributes['backgroundColor']; ?>;color:<?php echo  $text_color; ?>;border-color:<?php echo $attributes['backgroundColor'] ?>" class="wp-block-blockly-alert-box blockly-alert blockly-alert-<?php echo isset($attributes['alert_type'])?$attributes['alert_type']:'primary'; ?>"  role="alert">
-            <?php echo $attributes['content']; ?>
+        <div style="background-color:<?php echo esc_attr($attributes['backgroundColor']); ?>;color:<?php echo esc_attr($text_color); ?>;border-color:<?php echo esc_attr($attributes['backgroundColor']); ?>" class="wp-block-blockly-alert-box blockly-alert blockly-alert-<?php echo isset($attributes['alert_type'])? esc_attr($attributes['alert_type']):'primary'; ?>"  role="alert">
+            <p><?php echo wp_kses($attributes['content'],$allowed_html_field); ?></p>
             <?php if( isset($attributes['dismiss']) && $attributes['dismiss']=== true ){ ?>
-                <button style="background:none!important;color:<?php echo  $text_color; ?>" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button style="background:none!important;color:<?php echo esc_attr($text_color); ?>" type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <?php } ?>
         </div>
 

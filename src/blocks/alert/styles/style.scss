@@ -186,3 +186,10 @@
     color:inherit;
     background:none;
   }
+  .blockly-alert{
+    button.close {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+    }
+  } 
