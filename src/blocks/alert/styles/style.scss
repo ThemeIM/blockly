@@ -1,0 +1,188 @@
+.blockly-alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
+  
+  .blockly-alert-heading {
+    color: inherit;
+  }
+  
+  .blockly-alert-link {
+    font-weight: 700;
+  }
+  
+  .alert-dismissible {
+    padding-right: 4rem;
+  }
+  
+  .alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.75rem 1.25rem;
+    color: inherit;
+  }
+  
+  .close:not(.toggle) {
+    background:none;
+  }
+  
+  .blockly-alert-primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+  }
+  
+  .blockly-alert-primary hr {
+    border-top-color: #9fcdff;
+  }
+  
+  .blockly-alert-primary .alert-link {
+    color: #002752;
+  }
+  
+  .blockly-alert-secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+  }
+  
+  .blockly-alert-secondary hr {
+    border-top-color: #c8cbcf;
+  }
+  
+  .blockly-alert-secondary .alert-link {
+    color: #202326;
+  }
+  
+  .blockly-alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  
+  .blockly-alert-success hr {
+    border-top-color: #b1dfbb;
+  }
+  
+  .blockly-alert-success .alert-link {
+    color: #0b2e13;
+  }
+  
+  .blockly-alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+  
+  .blockly-alert-info hr {
+    border-top-color: #abdde5;
+  }
+  
+  .blockly-alert-info .alert-link {
+    color: #062c33;
+  }
+  
+  .blockly-alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+  
+  .blockly-alert-warning hr {
+    border-top-color: #ffe8a1;
+  }
+  
+  .blockly-alert-warning .alert-link {
+    color: #533f03;
+  }
+  
+  .blockly-alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
+  .blockly-alert-danger hr {
+    border-top-color: #f1b0b7;
+  }
+  
+  .blockly-alert-danger .alert-link {
+    color: #491217;
+  }
+  
+  .blockly-alert-light {
+    color: #818182;
+    background-color: #fefefe;
+    border-color: #fdfdfe;
+  }
+  
+  .blockly-alert-light hr {
+    border-top-color: #ececf6;
+  }
+  
+  .blockly-alert-light .alert-link {
+    color: #686868;
+  }
+  
+  .blockly-alert-dark {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+  }
+  
+  .blockly-alert-dark hr {
+    border-top-color: #b9bbbe;
+  }
+  
+  .blockly-alert-dark .alert-link {
+    color: #040505;
+  }
+  
+  span.close{
+    margin-top:-30px !important;
+  }
+  
+  .close-admin {
+    float: right;
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1rem;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+  }
+  
+  .close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+  }
+  
+  
+  .close:not(:diblocklyled):not(.diblocklyled) {
+    cursor: pointer;
+  }
+  
+  button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+  }
+  
+  button.close:hover, 
+  button.close:active {
+    color:inherit;
+    background:none;
+  }
