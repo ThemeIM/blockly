@@ -165,14 +165,6 @@ function applyFontSettings( extraProps, blockType, attributes ) {
 			extraProps.style = applyStyle( attributes, blockType.name );
 		}
 
-		console.log('extraPropsextraPropsextraPropsextraPropsextraPropsextraPropsextraPropsextraPropsextraProps')
-		console.log(extraProps);
-		console.log('block type block type block type');
-		console.log(blockType);
-		console.log("attributes attributes");
-		console.log(attributes);
-	
-
 		const { fontFamily, lineHeight, fontWeight, letterSpacing, textTransform, noBottomSpacing, noTopSpacing } = attributes;
 
 		if ( fontFamily ) {

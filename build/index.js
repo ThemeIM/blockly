@@ -5903,14 +5903,10 @@ function FontFamilyPicker({
 
       ba = ba.replace(',' + event.target.value, '');
       ba = ba + ',' + event.target.value;
-      console.log("if ddddddsdfasdfasdfasdfasdfasdfasd");
-      console.log(meta);
     } else {
       link.href = 'https://fonts.googleapis.com/css?family=' + event.target.value.replace(/ /g, '+') + googleFontsAttr;
       document.head.appendChild(link);
       ba = event.target.value;
-      console.log("else ddddddsdfasdfasdfasdfasdfasdfasd");
-      console.log(meta);
     } //Save values to metadata
 
 
@@ -6492,8 +6488,6 @@ class TypographyControls extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__
       }
     };
 
-    console.log("typography typography typography typography typography typography ");
-    console.log(this.props.attributes);
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Toolbar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Dropdown, {
       className: classnames__WEBPACK_IMPORTED_MODULE_6___default()('components-dropdown-menu', 'components-blockly-typography-dropdown'),
       contentClassName: "components-dropdown-menu__popover components-blockly-typography-dropdown",
@@ -6912,12 +6906,6 @@ function applyFontSettings(extraProps, blockType, attributes) {
       extraProps.style = (0,_apply_style__WEBPACK_IMPORTED_MODULE_6__.default)(attributes, blockType.name);
     }
 
-    console.log('extraPropsextraPropsextraPropsextraPropsextraPropsextraPropsextraPropsextraPropsextraProps');
-    console.log(extraProps);
-    console.log('block type block type block type');
-    console.log(blockType);
-    console.log("attributes attributes");
-    console.log(attributes);
     const {
       fontFamily,
       lineHeight,

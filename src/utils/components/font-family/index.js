@@ -68,15 +68,11 @@ function FontFamilyPicker( { label, value, help, instanceId, onChange, className
 			}
 			ba = ba.replace( ',' + event.target.value, '' );
 			ba = ba + ',' + event.target.value;
-			console.log("if ddddddsdfasdfasdfasdfasdfasdfasd");
-			console.log(meta);
 
 		} else {
 			link.href = 'https://fonts.googleapis.com/css?family=' + event.target.value.replace( / /g, '+' ) + googleFontsAttr;
 			document.head.appendChild( link );
 			ba = event.target.value;
-			console.log("else ddddddsdfasdfasdfasdfasdfasdfasd");
-			console.log(meta);
 		}
 
 		//Save values to metadata

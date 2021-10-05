@@ -129,9 +129,6 @@ class TypographyControls extends Component {
 			}
 		};
 
-		console.log("typography typography typography typography typography typography ");
-		console.log(this.props.attributes);
-
 		return (
 			<Toolbar>
 			<Dropdown
