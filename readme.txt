@@ -21,7 +21,8 @@ Blockly is a Gutenberg blocks Plugin for bloging website. Our target is to make 
 4.  Custom Pricing Table
 5.  Custom Button
 6.  Highlight Text
-7.  Custom Alert or Notice Box .
+7.  Custom Alert or Notice Box
+8.  FAQs.
 
 
 = ABOUT THE AUTHOR =
@@ -56,6 +57,7 @@ Blockly adds its Gutenberg blocks to the new WordPress editor, so you can use th
 5. Pricing Table Block
 6. Highlight Text Block
 7. Alert or Notice box block
+8. FAQs
 
 
 == Changelog ==
