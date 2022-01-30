@@ -17,9 +17,10 @@ import './utils/extensions/typography';
 import './blocks/testimonial';
 import './blocks/author-profile-box';
 import './blocks/alert';
+import './blocks/faq';
 import './blocks/button';
 import './blocks/highlight';
-import './blocks/quote';
+import './blocks/quote'; 
 
 //pricing table
 import './blocks/pricing-table';

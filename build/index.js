@@ -1250,6 +1250,358 @@ class EditButtonBlock extends _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Co
 
 /***/ }),
 
+/***/ "./src/blocks/faq/index.js":
+/*!*********************************!*\
+  !*** ./src/blocks/faq/index.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/style.scss */ "./src/blocks/faq/styles/style.scss");
+/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/editor.scss */ "./src/blocks/faq/styles/editor.scss");
+
+
+/**
+ * BLOCK: Pricing Table
+ */
+// wordpress dependencies
+
+
+
+ //import css 
+
+
+ // Available alert types for a dropdown setting.
+
+const all_types = [{
+  value: 'primary',
+  label: 'Primary'
+}, {
+  value: 'secondary',
+  label: 'Secondary'
+}, {
+  value: 'success',
+  label: 'Success'
+}, {
+  value: 'warning',
+  label: 'Warning'
+}, {
+  value: 'danger',
+  label: 'Danger'
+}, {
+  value: 'info',
+  label: 'Info'
+}, {
+  value: 'light',
+  label: 'Light'
+}, {
+  value: 'dark',
+  label: 'Dark'
+}]; //register the block faq
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)("blockly/faq", {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('FAQ', 'blockly'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('A simple block for FAQs', 'blockly'),
+  category: 'blockly',
+  icon: {
+    src: 'bell',
+    background: 'transparent',
+    foreground: '#004085'
+  },
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('notice', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('message', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('blockly', 'blockly')],
+  example: {
+    attributes: {
+      content: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 'blockly')
+    }
+  },
+  attributes: {
+    faq_contents: {
+      type: 'array',
+      default: []
+    },
+    backgroundColor: {
+      type: 'string',
+      default: 'transparent'
+    },
+    titleBackgroundColor: {
+      type: 'string',
+      default: 'transparent'
+    },
+    titleTextColor: {
+      type: 'string',
+      default: '#004085'
+    },
+    contentBackgroundColor: {
+      type: 'string',
+      default: '#cce5ff'
+    },
+    contentTextColor: {
+      type: 'string',
+      default: '#004085'
+    },
+    borderRadius: {
+      type: 'number',
+      default: 0
+    },
+    padding: {
+      type: 'number',
+      default: 2
+    },
+    titleBorderRadius: {
+      type: 'number',
+      default: 0
+    },
+    titlePadding: {
+      type: 'number',
+      default: 2
+    },
+    contentBorderRadius: {
+      type: 'number',
+      default: 0
+    },
+    contentPadding: {
+      type: 'number',
+      default: 2
+    }
+  },
+  edit: props => {
+    const {
+      attributes: {
+        faq_contents,
+        backgroundColor,
+        textColor,
+        padding,
+        borderRadius,
+        titleBackgroundColor,
+        titleTextColor,
+        titlePadding,
+        titleBorderRadius,
+        contentBackgroundColor,
+        contentTextColor,
+        contentPadding,
+        contentBorderRadius
+      },
+      setAttributes
+    } = props;
+    const styles = {
+      backgroundColor,
+      color: textColor,
+      borderColor: backgroundColor,
+      borderRadius: borderRadius,
+      padding: padding
+    };
+    const titleStyles = {
+      backgroundColor: titleBackgroundColor,
+      color: titleTextColor,
+      borderColor: titleBackgroundColor,
+      borderRadius: titleBorderRadius,
+      padding: titlePadding
+    };
+    const contentStyles = {
+      backgroundColor: contentBackgroundColor,
+      color: contentTextColor,
+      borderColor: contentBackgroundColor,
+      borderRadius: contentBorderRadius,
+      padding: contentPadding
+    };
+
+    const handleAddFAQContent = () => {
+      const faq_contents = [...props.attributes.faq_contents];
+      faq_contents.push({
+        faq_title: '',
+        faq_content: ''
+      });
+      props.setAttributes({
+        faq_contents
+      });
+    };
+
+    const handleRemoveLocation = index => {
+      const faq_contents = [...props.attributes.faq_contents];
+      faq_contents.splice(index, 1);
+      props.setAttributes({
+        faq_contents
+      });
+    };
+
+    const handleTitleChange = (faq_title, index) => {
+      const faq_contents = [...props.attributes.faq_contents];
+      faq_contents[index].faq_title = faq_title;
+      props.setAttributes({
+        faq_contents
+      });
+    };
+
+    const handleContentChange = (faq_content, index) => {
+      const faq_contents = [...props.attributes.faq_contents];
+      faq_contents[index].faq_content = faq_content;
+      props.setAttributes({
+        faq_contents
+      });
+    };
+
+    let faqFields, faqDisplay;
+
+    if (props.attributes.faq_contents.length) {
+      faqFields = props.attributes.faq_contents.map((faq, index) => {
+        return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+          className: "blockly-faq",
+          role: "faq",
+          style: styles
+        }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+          tagName: "h2",
+          className: "title",
+          value: props.attributes.faq_contents[index].faq_title,
+          onChange: faq_title => handleTitleChange(faq_title, index),
+          placeholder: "Add text...",
+          format: "string",
+          style: titleStyles
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.RichText, {
+          tagName: "p",
+          className: "content",
+          value: props.attributes.faq_contents[index].faq_content,
+          onChange: faq_content => handleContentChange(faq_content, index),
+          placeholder: "Add text...",
+          format: "string",
+          style: contentStyles
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.IconButton, {
+          className: "blockly-faq-remove",
+          icon: "no-alt",
+          label: "Delete FAQ",
+          onClick: () => handleRemoveLocation(index)
+        }));
+      });
+    }
+
+    return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('General Settings', 'blockly'),
+      initialOpen: false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'blockly'),
+      value: padding,
+      onChange: value => setAttributes({
+        padding: value
+      }),
+      min: 0,
+      max: 10,
+      step: 1
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Radius', 'blockly'),
+      value: borderRadius,
+      onChange: value => setAttributes({
+        borderRadius: value
+      }),
+      min: 0,
+      max: 20,
+      step: 1
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.PanelColorSettings, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings'),
+      colorSettings: [{
+        value: backgroundColor,
+        onChange: backgroundColor => setAttributes({
+          backgroundColor
+        }),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color')
+      }]
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title Settings', 'blockly'),
+      initialOpen: false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'blockly'),
+      value: titlePadding,
+      onChange: value => setAttributes({
+        titlePadding: value
+      }),
+      min: 0,
+      max: 10,
+      step: 1
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Radius', 'blockly'),
+      value: titleBorderRadius,
+      onChange: value => setAttributes({
+        titleBorderRadius: value
+      }),
+      min: 0,
+      max: 20,
+      step: 1
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.PanelColorSettings, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings'),
+      colorSettings: [{
+        value: titleBackgroundColor,
+        onChange: titleBackgroundColor => setAttributes({
+          titleBackgroundColor
+        }),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color')
+      }, {
+        value: titleTextColor,
+        onChange: titleTextColor => setAttributes({
+          titleTextColor
+        }),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Text Color')
+      }]
+    })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Content Settings', 'blockly'),
+      initialOpen: false
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Padding', 'blockly'),
+      value: contentPadding,
+      onChange: value => setAttributes({
+        contentPadding: value
+      }),
+      min: 0,
+      max: 10,
+      step: 1
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Border Radius', 'blockly'),
+      value: contentBorderRadius,
+      onChange: value => setAttributes({
+        contentBorderRadius: value
+      }),
+      min: 0,
+      max: 20,
+      step: 1
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.PanelColorSettings, {
+      title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Color Settings'),
+      colorSettings: [{
+        value: contentBackgroundColor,
+        onChange: contentBackgroundColor => setAttributes({
+          contentBackgroundColor
+        }),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Background Color')
+      }, {
+        value: contentTextColor,
+        onChange: contentTextColor => setAttributes({
+          contentTextColor
+        }),
+        label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Text Color')
+      }]
+    }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "blockly-faq",
+      role: "faq",
+      style: styles
+    }, faqFields, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      isDefault: true,
+      onClick: handleAddFAQContent.bind(undefined)
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add Item')))];
+  },
+  save: props => {
+    return null;
+  }
+});
+
+/***/ }),
+
 /***/ "./src/blocks/global-styles/index.js":
 /*!*******************************************!*\
   !*** ./src/blocks/global-styles/index.js ***!
@@ -5657,17 +6009,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_testimonial__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blocks/testimonial */ "./src/blocks/testimonial/index.js");
 /* harmony import */ var _blocks_author_profile_box__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blocks/author-profile-box */ "./src/blocks/author-profile-box/index.js");
 /* harmony import */ var _blocks_alert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blocks/alert */ "./src/blocks/alert/index.js");
-/* harmony import */ var _blocks_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blocks/button */ "./src/blocks/button/index.js");
-/* harmony import */ var _blocks_highlight__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/highlight */ "./src/blocks/highlight/index.js");
-/* harmony import */ var _blocks_quote__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/quote */ "./src/blocks/quote/index.js");
-/* harmony import */ var _blocks_pricing_table__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/pricing-table */ "./src/blocks/pricing-table/index.js");
-/* harmony import */ var _blocks_pricing_table_inner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/pricing-table-inner */ "./src/blocks/pricing-table-inner/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_title__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/title */ "./src/blocks/pricing-table-inner/components/title/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_subtitle__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle */ "./src/blocks/pricing-table-inner/components/subtitle/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_subtitle2__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle2 */ "./src/blocks/pricing-table-inner/components/subtitle2/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_price__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/price */ "./src/blocks/pricing-table-inner/components/price/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_features__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/features */ "./src/blocks/pricing-table-inner/components/features/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_button__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/button */ "./src/blocks/pricing-table-inner/components/button/index.js");
+/* harmony import */ var _blocks_faq__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blocks/faq */ "./src/blocks/faq/index.js");
+/* harmony import */ var _blocks_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/button */ "./src/blocks/button/index.js");
+/* harmony import */ var _blocks_highlight__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/highlight */ "./src/blocks/highlight/index.js");
+/* harmony import */ var _blocks_quote__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/quote */ "./src/blocks/quote/index.js");
+/* harmony import */ var _blocks_pricing_table__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/pricing-table */ "./src/blocks/pricing-table/index.js");
+/* harmony import */ var _blocks_pricing_table_inner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/pricing-table-inner */ "./src/blocks/pricing-table-inner/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_title__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/title */ "./src/blocks/pricing-table-inner/components/title/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_subtitle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle */ "./src/blocks/pricing-table-inner/components/subtitle/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_subtitle2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle2 */ "./src/blocks/pricing-table-inner/components/subtitle2/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_price__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/price */ "./src/blocks/pricing-table-inner/components/price/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_features__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/features */ "./src/blocks/pricing-table-inner/components/features/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/button */ "./src/blocks/pricing-table-inner/components/button/index.js");
 /**
  * Gutenberg Blocks
  *
@@ -5681,6 +6034,7 @@ __webpack_require__.r(__webpack_exports__);
 //Global styles.
 
  //All block components include
+
 
 
 
@@ -8074,6 +8428,32 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./src/blocks/button/styles/style.scss ***!
   \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/blocks/faq/styles/editor.scss":
+/*!*******************************************!*\
+  !*** ./src/blocks/faq/styles/editor.scss ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/blocks/faq/styles/style.scss":
+/*!******************************************!*\
+  !*** ./src/blocks/faq/styles/style.scss ***!
+  \******************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

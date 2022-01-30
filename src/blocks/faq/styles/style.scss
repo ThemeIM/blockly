@@ -1,0 +1,56 @@
+.faq_area {
+  position: relative;
+}
+
+.accordion-item {
+  margin-bottom: 15px;
+  border-radius: 11px;
+  border: 0;
+}
+
+.accordion-body {
+  padding: 4rem 1.25rem;
+  border-radius: 10px;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #0c63e4;
+  background-color: #e7f1ff;
+  box-shadow: none;
+}
+
+img.faq_doted.position-absolute {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15%;
+  left: -100px;
+}
+
+img.faq_doted_two.position-absolute {
+  right: 50px;
+  width: 12%;
+  bottom: 0;
+}
+
+.accordion-item:first-of-type {
+  border-top-left-radius: 11px;
+  border-top-right-radius: 11px;
+}
+
+button.accordion-button.collapsed {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 30px #2B1B9A14;
+  border-radius: 8px;
+  border: 0;
+}
+
+button.accordion-button {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 22px 15px;
+}
+.mb-40{
+  margin-bottom: 40px;
+}

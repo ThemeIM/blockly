@@ -125,6 +125,7 @@ final class Blockly {
 		require_once BLY_INCLUDES . '/class-blockly-font-loader.php';
 		require_once BLY_INCLUDES . '/class-blockly-post-meta.php';
         require_once( BLY_SRC_BLOCKS . '/alert/index.php' );
+        require_once( BLY_SRC_BLOCKS . '/faq/index.php' );
     }
 
     /**
@@ -178,8 +179,10 @@ final class Blockly {
 	*/
     public function block_assets() {
         // Load the compiled styles.
+	    wp_register_style( 'blockly-bootstarp-css', plugin_dir_url(__FILE__) . 'assets/css/bootstrap.min.css', array(), BLY_VERSION );
 	    wp_register_style( 'blockly-blocks-style-css', plugin_dir_url(__FILE__) . 'build/style-index.css', array(), BLY_VERSION );
         wp_register_script( 'blockly-hide-alert-js', plugin_dir_url(__FILE__) . 'assets/js/hide-alert.js', array( 'jquery' ) );
+        wp_register_script( 'blockly-bootstarp-js', plugin_dir_url(__FILE__) . 'assets/js/bootstrap.bundle.min.js', array( 'jquery' ) );
 
     }
 
@@ -224,6 +227,9 @@ final class Blockly {
     public function enqueue_styles_scripts() {
         if ( has_block( 'blockly/alert-box' ) ) {
             wp_enqueue_script( 'blockly-hide-alert-js' );
+        }
+		if ( has_block( 'blockly/faq' ) ) {
+            wp_enqueue_script( 'blockly-bootstarp-js' );
         }
     }
 
