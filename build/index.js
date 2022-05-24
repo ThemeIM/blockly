@@ -3548,225 +3548,6 @@ class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Componen
 
 /***/ }),
 
-/***/ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js":
-/*!*********************************************************************!*\
-  !*** ./src/blocks/pricing-table-inner/components/subtitle2/edit.js ***!
-  \*********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _global_inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../global/inspector */ "./src/blocks/pricing-table-inner/components/global/inspector.js");
-/* harmony import */ var _utils_helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/helper */ "./src/utils/helper.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
-
-//wordpress dependencies
-
-
-
- //internal dependencies
-
-
- //external dependencie
-
-
-
-class Edit extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    var _computeFontSize;
-
-    const {
-      attributes: {
-        subtitle,
-        paddingTop,
-        paddingRight,
-        paddingBottom,
-        paddingLeft,
-        customFontSize
-      },
-      isSelected,
-      className,
-      setAttributes,
-      fallbackFontSize,
-      fontSize,
-      backgroundColor,
-      textColor
-    } = this.props;
-    const editClassName = classnames__WEBPACK_IMPORTED_MODULE_6___default()({
-      'bly-pricing-table-subtitle2': true,
-      'has-text-color': textColor.color,
-      'has-background': backgroundColor.color,
-      [backgroundColor.class]: backgroundColor.class,
-      [textColor.class]: textColor.class
-    }, (fontSize === null || fontSize === void 0 ? void 0 : fontSize.class) && {
-      [fontSize === null || fontSize === void 0 ? void 0 : fontSize.class]: fontSize === null || fontSize === void 0 ? void 0 : fontSize.class
-    });
-    const editStyles = {
-      backgroundColor: backgroundColor.color,
-      color: textColor.color,
-      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
-      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
-      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
-      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
-      fontSize: (_computeFontSize = (0,_utils_helper__WEBPACK_IMPORTED_MODULE_5__.computeFontSize)(fontSize)) !== null && _computeFontSize !== void 0 ? _computeFontSize : undefined
-    };
-    return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      key: 'bly-pricing-table-inner-component-subtitle-' + this.props.clientId
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_global_inspector__WEBPACK_IMPORTED_MODULE_4__.default, this.props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
-      tagName: "div",
-      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Price Subtitle', 'blockly'),
-      keepPlaceholderOnFocus: true,
-      value: subtitle,
-      onChange: value => setAttributes({
-        subtitle: value
-      }),
-      style: editStyles,
-      className: editClassName ? editClassName : undefined
-    }))];
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.compose)([(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withFontSizes)('fontSize'), (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withColors)('backgroundColor', {
-  textColor: 'color'
-})])(Edit));
-
-/***/ }),
-
-/***/ "./src/blocks/pricing-table-inner/components/subtitle2/index.js":
-/*!**********************************************************************!*\
-  !*** ./src/blocks/pricing-table-inner/components/subtitle2/index.js ***!
-  \**********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
-
-
-/**
- * BLOCK: Pricing Table - Subtitle2 Component
- */
-//wordpress dependencies
-
-
- //internal dependencie
-
- //external dependencie
-
- // Register the block
-
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)('blockly/pricing-table-subtitle2', {
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Product Subtitle', 'blockly'),
-  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Adds a product subtitle component with schema markup.', 'blockly'),
-  icon: 'cart',
-  category: 'blockly',
-  parent: ['blockly/pricing-table-inner'],
-  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('pricing table', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('subtitle', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('shop', 'blockly')],
-  attributes: {
-    subtitle: {
-      type: 'string'
-    },
-    fontSize: {
-      type: 'string'
-    },
-    customFontSize: {
-      type: 'number'
-    },
-    textColor: {
-      type: 'string'
-    },
-    customTextColor: {
-      type: 'string'
-    },
-    backgroundColor: {
-      type: 'string'
-    },
-    customBackgroundColor: {
-      type: 'string'
-    },
-    paddingTop: {
-      type: 'number',
-      default: 10
-    },
-    paddingRight: {
-      type: 'number',
-      default: 20
-    },
-    paddingBottom: {
-      type: 'number',
-      default: 10
-    },
-    paddingLeft: {
-      type: 'number',
-      default: 20
-    }
-  },
-  edit: _edit__WEBPACK_IMPORTED_MODULE_4__.default,
-  save: props => {
-    const {
-      subtitle,
-      fontSize,
-      customFontSize,
-      backgroundColor,
-      textColor,
-      customBackgroundColor,
-      customTextColor,
-      paddingTop,
-      paddingRight,
-      paddingBottom,
-      paddingLeft
-    } = props.attributes;
-    const fontSizeClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getFontSizeClass)(fontSize);
-    const textClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('color', textColor);
-    const backgroundClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('background-color', backgroundColor);
-    const className = classnames__WEBPACK_IMPORTED_MODULE_5___default()({
-      'has-background': backgroundColor || customBackgroundColor,
-      'bly-pricing-table-subtitle2': true,
-      [textClass]: textClass,
-      [backgroundClass]: backgroundClass,
-      [fontSizeClass]: fontSizeClass
-    }); // Setup styles
-
-    const styles = {
-      backgroundColor: backgroundClass ? undefined : customBackgroundColor,
-      color: textClass ? undefined : customTextColor,
-      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
-      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
-      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
-      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
-      fontSize: fontSizeClass ? undefined : customFontSize
-    };
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
-      tagName: "div",
-      value: subtitle,
-      className: className ? className : undefined,
-      style: styles
-    });
-  }
-});
-
-/***/ }),
-
 /***/ "./src/blocks/pricing-table-inner/components/subtitle/edit.js":
 /*!********************************************************************!*\
   !*** ./src/blocks/pricing-table-inner/components/subtitle/edit.js ***!
@@ -3962,6 +3743,225 @@ __webpack_require__.r(__webpack_exports__);
     const className = classnames__WEBPACK_IMPORTED_MODULE_5___default()({
       'has-background': backgroundColor || customBackgroundColor,
       'bly-pricing-table-subtitle': true,
+      [textClass]: textClass,
+      [backgroundClass]: backgroundClass,
+      [fontSizeClass]: fontSizeClass
+    }); // Setup styles
+
+    const styles = {
+      backgroundColor: backgroundClass ? undefined : customBackgroundColor,
+      color: textClass ? undefined : customTextColor,
+      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
+      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
+      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
+      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
+      fontSize: fontSizeClass ? undefined : customFontSize
+    };
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
+      tagName: "div",
+      value: subtitle,
+      className: className ? className : undefined,
+      style: styles
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js":
+/*!*********************************************************************!*\
+  !*** ./src/blocks/pricing-table-inner/components/subtitle2/edit.js ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _global_inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../global/inspector */ "./src/blocks/pricing-table-inner/components/global/inspector.js");
+/* harmony import */ var _utils_helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/helper */ "./src/utils/helper.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
+
+//wordpress dependencies
+
+
+
+ //internal dependencies
+
+
+ //external dependencie
+
+
+
+class Edit extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
+  render() {
+    var _computeFontSize;
+
+    const {
+      attributes: {
+        subtitle,
+        paddingTop,
+        paddingRight,
+        paddingBottom,
+        paddingLeft,
+        customFontSize
+      },
+      isSelected,
+      className,
+      setAttributes,
+      fallbackFontSize,
+      fontSize,
+      backgroundColor,
+      textColor
+    } = this.props;
+    const editClassName = classnames__WEBPACK_IMPORTED_MODULE_6___default()({
+      'bly-pricing-table-subtitle2': true,
+      'has-text-color': textColor.color,
+      'has-background': backgroundColor.color,
+      [backgroundColor.class]: backgroundColor.class,
+      [textColor.class]: textColor.class
+    }, (fontSize === null || fontSize === void 0 ? void 0 : fontSize.class) && {
+      [fontSize === null || fontSize === void 0 ? void 0 : fontSize.class]: fontSize === null || fontSize === void 0 ? void 0 : fontSize.class
+    });
+    const editStyles = {
+      backgroundColor: backgroundColor.color,
+      color: textColor.color,
+      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
+      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
+      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
+      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
+      fontSize: (_computeFontSize = (0,_utils_helper__WEBPACK_IMPORTED_MODULE_5__.computeFontSize)(fontSize)) !== null && _computeFontSize !== void 0 ? _computeFontSize : undefined
+    };
+    return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      key: 'bly-pricing-table-inner-component-subtitle-' + this.props.clientId
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_global_inspector__WEBPACK_IMPORTED_MODULE_4__.default, this.props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+      tagName: "div",
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Price Subtitle', 'blockly'),
+      keepPlaceholderOnFocus: true,
+      value: subtitle,
+      onChange: value => setAttributes({
+        subtitle: value
+      }),
+      style: editStyles,
+      className: editClassName ? editClassName : undefined
+    }))];
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.compose)([(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withFontSizes)('fontSize'), (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withColors)('backgroundColor', {
+  textColor: 'color'
+})])(Edit));
+
+/***/ }),
+
+/***/ "./src/blocks/pricing-table-inner/components/subtitle2/index.js":
+/*!**********************************************************************!*\
+  !*** ./src/blocks/pricing-table-inner/components/subtitle2/index.js ***!
+  \**********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
+
+
+/**
+ * BLOCK: Pricing Table - Subtitle2 Component
+ */
+//wordpress dependencies
+
+
+ //internal dependencie
+
+ //external dependencie
+
+ // Register the block
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)('blockly/pricing-table-subtitle2', {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Product Subtitle', 'blockly'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Adds a product subtitle component with schema markup.', 'blockly'),
+  icon: 'cart',
+  category: 'blockly',
+  parent: ['blockly/pricing-table-inner'],
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('pricing table', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('subtitle', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('shop', 'blockly')],
+  attributes: {
+    subtitle: {
+      type: 'string'
+    },
+    fontSize: {
+      type: 'string'
+    },
+    customFontSize: {
+      type: 'number'
+    },
+    textColor: {
+      type: 'string'
+    },
+    customTextColor: {
+      type: 'string'
+    },
+    backgroundColor: {
+      type: 'string'
+    },
+    customBackgroundColor: {
+      type: 'string'
+    },
+    paddingTop: {
+      type: 'number',
+      default: 10
+    },
+    paddingRight: {
+      type: 'number',
+      default: 20
+    },
+    paddingBottom: {
+      type: 'number',
+      default: 10
+    },
+    paddingLeft: {
+      type: 'number',
+      default: 20
+    }
+  },
+  edit: _edit__WEBPACK_IMPORTED_MODULE_4__.default,
+  save: props => {
+    const {
+      subtitle,
+      fontSize,
+      customFontSize,
+      backgroundColor,
+      textColor,
+      customBackgroundColor,
+      customTextColor,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft
+    } = props.attributes;
+    const fontSizeClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getFontSizeClass)(fontSize);
+    const textClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('color', textColor);
+    const backgroundClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('background-color', backgroundColor);
+    const className = classnames__WEBPACK_IMPORTED_MODULE_5___default()({
+      'has-background': backgroundColor || customBackgroundColor,
+      'bly-pricing-table-subtitle2': true,
       [textClass]: textClass,
       [backgroundClass]: backgroundClass,
       [fontSizeClass]: fontSizeClass
@@ -5354,6 +5354,207 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/blocks/section/components/edit.js":
+/*!***********************************************!*\
+  !*** ./src/blocks/section/components/edit.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    background_image,
+    show_media,
+    background_color
+  } = attributes;
+
+  const onSelectBg = newImage => {
+    setAttributes({
+      background_image: newImage.sizes.full.url,
+      show_media: false
+    });
+  };
+
+  const onChangeColor = newColor => {
+    setAttributes({
+      background_color: newColor
+    });
+  };
+
+  const onChangeBgChange = () => {
+    setAttributes({
+      show_media: true
+    });
+  };
+
+  const onClickRemoveBg = () => {
+    setAttributes({
+      background_image: '',
+      show_media: true
+    });
+  };
+
+  const mystyle = {
+    backgroundImage: `url(${background_image})`
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Background Settings"
+  }, show_media && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
+    onSelect: onSelectBg,
+    allowedTypes: ['image'],
+    multiple: false,
+    labels: {
+      title: 'The Image'
+    }
+  }), background_image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("img", {
+    src: background_image
+  }), background_image && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    title: "Change Background Image",
+    className: "btn is-primary",
+    onClick: onChangeBgChange
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Change', 'blockly')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    title: "Change Background Image",
+    className: "btn is-primary",
+    onClick: onClickRemoveBg
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_4__.__)('Remove', 'blockly'))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
+    className: "blockly-full"
+  }), {
+    style: mystyle
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "container"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null))));
+}
+
+/***/ }),
+
+/***/ "./src/blocks/section/components/save.js":
+/*!***********************************************!*\
+  !*** ./src/blocks/section/components/save.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ save; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+function save({
+  attributes
+}) {
+  const {
+    background_image
+  } = attributes;
+  const mystyle = {
+    backgroundImage: `url(${background_image})`
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps.save({
+    className: 'blockly-full'
+  }), {
+    style: mystyle
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "container"
+  }, console.log(background_image), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks.Content, null)));
+}
+
+/***/ }),
+
+/***/ "./src/blocks/section/index.js":
+/*!*************************************!*\
+  !*** ./src/blocks/section/index.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/edit */ "./src/blocks/section/components/edit.js");
+/* harmony import */ var _components_save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/save */ "./src/blocks/section/components/save.js");
+/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/editor.scss */ "./src/blocks/section/styles/editor.scss");
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/style.scss */ "./src/blocks/section/styles/style.scss");
+/**
+ * BLOCK: Testimonial
+ */
+//wordpress dependencies
+
+ //internal dependencies
+
+
+
+
+ // Register the block testimonial
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('blockly/section', {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Section', 'blockly'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Add a Section.', 'blockly'),
+  icon: {
+    src: 'columns',
+    background: '#cce5ff',
+    foreground: '#004085'
+  },
+  category: 'blockly',
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('section', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('columns', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('blockly', 'blockly')],
+  attributes: {
+    background_image: {
+      type: 'string',
+      default: ''
+    },
+    background_color: {
+      type: 'string',
+      default: ''
+    },
+    show_media: {
+      type: 'boolean',
+      default: true
+    }
+  },
+  supports: {
+    color: {
+      background: true,
+      gradients: true
+    },
+    spacing: {
+      padding: true,
+      margin: true
+    }
+  },
+  edit: _components_edit__WEBPACK_IMPORTED_MODULE_2__.default,
+  save: _components_save__WEBPACK_IMPORTED_MODULE_3__.default
+});
+
+/***/ }),
+
 /***/ "./src/blocks/testimonial/components/edit.js":
 /*!***************************************************!*\
   !*** ./src/blocks/testimonial/components/edit.js ***!
@@ -6013,14 +6214,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blocks/button */ "./src/blocks/button/index.js");
 /* harmony import */ var _blocks_highlight__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./blocks/highlight */ "./src/blocks/highlight/index.js");
 /* harmony import */ var _blocks_quote__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./blocks/quote */ "./src/blocks/quote/index.js");
-/* harmony import */ var _blocks_pricing_table__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/pricing-table */ "./src/blocks/pricing-table/index.js");
-/* harmony import */ var _blocks_pricing_table_inner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/pricing-table-inner */ "./src/blocks/pricing-table-inner/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_title__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/title */ "./src/blocks/pricing-table-inner/components/title/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_subtitle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle */ "./src/blocks/pricing-table-inner/components/subtitle/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_subtitle2__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle2 */ "./src/blocks/pricing-table-inner/components/subtitle2/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_price__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/price */ "./src/blocks/pricing-table-inner/components/price/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_features__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/features */ "./src/blocks/pricing-table-inner/components/features/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_button__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/button */ "./src/blocks/pricing-table-inner/components/button/index.js");
+/* harmony import */ var _blocks_section__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/section */ "./src/blocks/section/index.js");
+/* harmony import */ var _blocks_pricing_table__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/pricing-table */ "./src/blocks/pricing-table/index.js");
+/* harmony import */ var _blocks_pricing_table_inner__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/pricing-table-inner */ "./src/blocks/pricing-table-inner/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_title__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/title */ "./src/blocks/pricing-table-inner/components/title/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_subtitle__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle */ "./src/blocks/pricing-table-inner/components/subtitle/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_subtitle2__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle2 */ "./src/blocks/pricing-table-inner/components/subtitle2/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_price__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/price */ "./src/blocks/pricing-table-inner/components/price/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_features__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/features */ "./src/blocks/pricing-table-inner/components/features/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_button__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/button */ "./src/blocks/pricing-table-inner/components/button/index.js");
 /**
  * Gutenberg Blocks
  *
@@ -6034,6 +6236,7 @@ __webpack_require__.r(__webpack_exports__);
 //Global styles.
 
  //All block components include
+
 
 
 
@@ -8558,6 +8761,32 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************!*\
   !*** ./src/blocks/quote/styles/style.scss ***!
   \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/blocks/section/styles/editor.scss":
+/*!***********************************************!*\
+  !*** ./src/blocks/section/styles/editor.scss ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/blocks/section/styles/style.scss":
+/*!**********************************************!*\
+  !*** ./src/blocks/section/styles/style.scss ***!
+  \**********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
