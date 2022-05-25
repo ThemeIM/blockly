@@ -21,7 +21,8 @@ import './blocks/faq';
 import './blocks/button';
 import './blocks/highlight';
 import './blocks/quote'; 
-import './blocks/section'
+import './blocks/section';
+import './blocks/vertical-list';
 
 //pricing table
 import './blocks/pricing-table';

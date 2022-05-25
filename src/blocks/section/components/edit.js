@@ -1,10 +1,7 @@
 import {
-	useBlockProps,
 	InspectorControls,
 	InnerBlocks, 
 	MediaPlaceholder,
-	withColors,
-	PanelColorSettings
 } from '@wordpress/block-editor';
 import { PanelBody, Button, __experimentalBoxControl as BoxControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
@@ -23,9 +20,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const onClickRemoveBg = () => {
 		setAttributes({ background_image: '', show_media: true})
 	}
-	const mystyle = {
-		backgroundImage: `url(${background_image})`,
-	  }; 
+
 	return (
 		<>
 		<InspectorControls>
