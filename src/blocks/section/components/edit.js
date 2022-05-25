@@ -25,7 +25,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	}
 	const mystyle = {
 		backgroundImage: `url(${background_image})`,
-	  };
+	  }; 
 	return (
 		<>
 		<InspectorControls>
@@ -45,7 +45,8 @@ export default function Edit( { attributes, setAttributes } ) {
 					</div>}
 				</PanelBody>
 			</InspectorControls>
-		<div { ...useBlockProps( { className: "blockly-full"} ) } style={mystyle}>
+		<div className='Editor'>
+			{background_image && <div className='bg-image'><img src={background_image} /></div>}
 		    <div className='container'>
 			  <InnerBlocks />
 			</div>
