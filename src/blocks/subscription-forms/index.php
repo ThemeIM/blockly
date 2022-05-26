@@ -48,9 +48,6 @@ add_action( 'init', 'blockly_register_subscription' );
 //render fornt end alert box 
 if(!function_exists('blockly_render_subscription')):
     function blockly_render_subscription( $attributes ) {
-        echo '<pre>';
-        print_r($attributes);
-        echo '</pre>';
         ob_start();  ?>
 
           <div class="footer-top-area">
