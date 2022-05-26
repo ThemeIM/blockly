@@ -24,6 +24,7 @@ import './blocks/quote';
 import './blocks/section';
 import './blocks/vertical-list';
 import './blocks/social-list';
+import './blocks/subscription-forms';
 
 //pricing table
 import './blocks/pricing-table';

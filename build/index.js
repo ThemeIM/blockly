@@ -5773,6 +5773,205 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/blocks/subscription-forms/components/edit.js":
+/*!**********************************************************!*\
+  !*** ./src/blocks/subscription-forms/components/edit.js ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Edit; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    actionUrl,
+    members,
+    customers,
+    downloades
+  } = attributes;
+
+  const changeActionUrl = newUrl => {
+    setAttributes({
+      actionUrl: newUrl
+    });
+  };
+
+  const changeMembersNumber = newNumber => {
+    setAttributes({
+      members: newNumber
+    });
+  };
+
+  const changeCustomersNumber = newNumber => {
+    setAttributes({
+      customers: newNumber
+    });
+  };
+
+  const changeDownloadesNumber = newNumber => {
+    setAttributes({
+      downloades: newNumber
+    });
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Forms', 'blockly')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "title"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Action URL', 'blockly')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    value: actionUrl,
+    onChange: changeActionUrl,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Action Url', 'blockly')
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Counter Number', 'blockly')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "title"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Members Number', 'blockly')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    value: members,
+    onChange: changeMembersNumber,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Members Number', 'blockly')
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "title"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Customers', 'blockly')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    value: customers,
+    onChange: changeCustomersNumber,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Customers Number', 'blockly')
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "title"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Downloades', 'blockly')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    value: downloades,
+    onChange: changeDownloadesNumber,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Downloades Number', 'blockly')
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "footer-top-area"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "row justify-content-center align-items-center mb-30-none"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col-xl-8 col-lg-6 mb-30"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "footer-subscribe-area"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
+    class: "subscribe-form",
+    action: "#"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "email",
+    class: "form--control",
+    placeholder: "Enter Your mail",
+    autocomplete: "off"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "submit",
+    class: "btn--base"
+  }, "Subscribe Now ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("i", {
+    class: "fas fa-paper-plane ml-2"
+  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col-xl-4 col-lg-6 mb-30"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "footer-statistics-area"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "row justify-content-center mb-20-none"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "statistics-item"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    class: "title"
+  }, members, "+"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Members"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "statistics-item"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    class: "title"
+  }, customers, "+"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Customers"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "statistics-item"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    class: "title"
+  }, downloades, "+"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Downloads")))))))));
+}
+
+/***/ }),
+
+/***/ "./src/blocks/subscription-forms/index.js":
+/*!************************************************!*\
+  !*** ./src/blocks/subscription-forms/index.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/edit */ "./src/blocks/subscription-forms/components/edit.js");
+/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./styles/editor.scss */ "./src/blocks/subscription-forms/styles/editor.scss");
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/style.scss */ "./src/blocks/subscription-forms/styles/style.scss");
+/**
+ * BLOCK: Testimonial
+ */
+//wordpress dependencies
+
+ //internal dependencies
+
+ // import save from './components/save';
+
+
+ // Register the block testimonial
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__.registerBlockType)('blockly/subscription-forms', {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Subscription Forms', 'blockly'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Add a Subscription Forms.', 'blockly'),
+  icon: {
+    src: 'forms',
+    background: '#cce5ff',
+    foreground: '#004085'
+  },
+  category: 'blockly',
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('subscription', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('forms', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('nav', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('mailchimp', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('blockly', 'blockly')],
+  attributes: {
+    actionUrl: {
+      type: 'string',
+      default: ''
+    },
+    members: {
+      type: 'string',
+      default: '1500'
+    },
+    customers: {
+      type: 'string',
+      default: '4000'
+    },
+    downloades: {
+      type: 'string',
+      default: '25060'
+    }
+  },
+  edit: _components_edit__WEBPACK_IMPORTED_MODULE_2__.default,
+  save: props => {
+    return null;
+  }
+});
+
+/***/ }),
+
 /***/ "./src/blocks/testimonial/components/edit.js":
 /*!***************************************************!*\
   !*** ./src/blocks/testimonial/components/edit.js ***!
@@ -6676,14 +6875,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_section__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./blocks/section */ "./src/blocks/section/index.js");
 /* harmony import */ var _blocks_vertical_list__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./blocks/vertical-list */ "./src/blocks/vertical-list/index.js");
 /* harmony import */ var _blocks_social_list__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./blocks/social-list */ "./src/blocks/social-list/index.js");
-/* harmony import */ var _blocks_pricing_table__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/pricing-table */ "./src/blocks/pricing-table/index.js");
-/* harmony import */ var _blocks_pricing_table_inner__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/pricing-table-inner */ "./src/blocks/pricing-table-inner/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_title__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/title */ "./src/blocks/pricing-table-inner/components/title/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_subtitle__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle */ "./src/blocks/pricing-table-inner/components/subtitle/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_subtitle2__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle2 */ "./src/blocks/pricing-table-inner/components/subtitle2/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_price__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/price */ "./src/blocks/pricing-table-inner/components/price/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_features__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/features */ "./src/blocks/pricing-table-inner/components/features/index.js");
-/* harmony import */ var _blocks_pricing_table_inner_components_button__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/button */ "./src/blocks/pricing-table-inner/components/button/index.js");
+/* harmony import */ var _blocks_subscription_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./blocks/subscription-forms */ "./src/blocks/subscription-forms/index.js");
+/* harmony import */ var _blocks_pricing_table__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./blocks/pricing-table */ "./src/blocks/pricing-table/index.js");
+/* harmony import */ var _blocks_pricing_table_inner__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./blocks/pricing-table-inner */ "./src/blocks/pricing-table-inner/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_title__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/title */ "./src/blocks/pricing-table-inner/components/title/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_subtitle__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle */ "./src/blocks/pricing-table-inner/components/subtitle/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_subtitle2__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/subtitle2 */ "./src/blocks/pricing-table-inner/components/subtitle2/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_price__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/price */ "./src/blocks/pricing-table-inner/components/price/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_features__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/features */ "./src/blocks/pricing-table-inner/components/features/index.js");
+/* harmony import */ var _blocks_pricing_table_inner_components_button__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./blocks/pricing-table-inner/components/button */ "./src/blocks/pricing-table-inner/components/button/index.js");
 /**
  * Gutenberg Blocks
  *
@@ -6697,6 +6897,7 @@ __webpack_require__.r(__webpack_exports__);
 //Global styles.
 
  //All block components include
+
 
 
 
@@ -9276,6 +9477,32 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************!*\
   !*** ./src/blocks/social-list/styles/style.scss ***!
   \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/blocks/subscription-forms/styles/editor.scss":
+/*!**********************************************************!*\
+  !*** ./src/blocks/subscription-forms/styles/editor.scss ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/blocks/subscription-forms/styles/style.scss":
+/*!*********************************************************!*\
+  !*** ./src/blocks/subscription-forms/styles/style.scss ***!
+  \*********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

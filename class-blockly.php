@@ -126,6 +126,7 @@ final class Blockly {
 		require_once BLY_INCLUDES . '/class-blockly-post-meta.php';
         require_once( BLY_SRC_BLOCKS . '/alert/index.php' );
         require_once( BLY_SRC_BLOCKS . '/faq/index.php' );
+        require_once( BLY_SRC_BLOCKS . '/subscription-forms/index.php' );
     }
 
     /**
