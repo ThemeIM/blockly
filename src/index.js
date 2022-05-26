@@ -23,6 +23,7 @@ import './blocks/highlight';
 import './blocks/quote'; 
 import './blocks/section';
 import './blocks/vertical-list';
+import './blocks/social-list';
 
 //pricing table
 import './blocks/pricing-table';
