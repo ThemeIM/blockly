@@ -304,6 +304,17 @@ button.accordion-button {
 .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > div[data-type="blockly/section"] .bg-image img {
   width: 100%;
 }
+
+.footer-list {
+  padding: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+.footer-list li:hover a {
+  color: #6cd342;
+  padding-left: 5px;
+}
 /*!**************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/blocks/pricing-table-inner/styles/editor.scss ***!
   \**************************************************************************************************************************************************************************************************************************************************************************/

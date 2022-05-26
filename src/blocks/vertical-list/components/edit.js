@@ -9,7 +9,7 @@ import { useState } from '@wordpress/element'
 
 export default function Edit( { attributes, setAttributes } ) {
 	const [selectLink, setSelectLink] = useState();
-	const { list } =  attributes;
+	const { list, sectionTitle } =  attributes;
 	const onClickAddNewData = ( newData ) => {
 		setAttributes({list: [...list, {link:'', titlt: '', icon:''}]});
 	}
@@ -20,13 +20,33 @@ export default function Edit( { attributes, setAttributes } ) {
 		  setAttributes({list: getList});
 	}
 
+	const removeItem = ( key ) => {
+		const geArr = [...list];
+		geArr.splice(key, 1);
+		setAttributes({list: geArr});
+	}
+	
+	const titleUpdate = (newTitle) => {
+		setAttributes({sectionTitle : newTitle})
+	}
+
 	return (
 		<>
 		<InspectorControls>
 			<PanelBody title='Add New Item'>
 				<div className='Add Item'>
 					<div className='item-group'>
-					<ul>
+						<div>
+							<h3 className="title">{__('List Title', 'blockly')}</h3>
+							<TextControl 
+								value={sectionTitle}
+								onChange={ titleUpdate }
+								placeholder = {__('Title', 'blockly')}
+							/>
+						</div>
+						<hr/>
+						<h3 className="title">{__('Add New Item', 'List Title')}</h3>
+					<ul style={{padding: '0'}}>
 						{list && list.map((listData, key) => {
 							return (
 								<li key={key} >
@@ -53,28 +73,32 @@ export default function Edit( { attributes, setAttributes } ) {
 										placeholder = {__('Icon', 'blockly')}
 										/>
 										 </div>
+										
 										</div>
 									</Button>
+									<Button title='Remove' onClick={ () => removeItem(key) } className="btn btn-danger text-white">Remove</Button>
 								</li>
 								
 							)
 						})}
-				   <li><Button onClick={ onClickAddNewData }>+</Button></li>
+				   <li><Button onClick={ onClickAddNewData } className="btn btn--primary text-white">Add New</Button></li>
 					</ul>
 					</div>
 				</div>
 			</PanelBody>
 		</InspectorControls>
 		<div className='Editor'>
-			{console.log(selectLink)}
-			<ul>
-				{list && list.map((listData, key) => {
-					return (
-						<li key={key}>{listData.title && listData.title}</li>
-					)
-				})}
-				<li><Button onClick={ onClickAddNewData }>+</Button></li>
-			</ul>
+			<div class="footer-widget">
+				{sectionTitle && <h4 class="title">{sectionTitle}</h4>}
+				
+				<ul class="footer-list">
+					{list && list.map((listData, key) => {
+						return (
+							<li key={key}><a href="">{listData.title && listData.title}</a></li>
+						)
+					})}
+				</ul>
+			</div>
 		</div>
 		</>
 	);

@@ -6224,7 +6224,8 @@ function Edit({
 }) {
   const [selectLink, setSelectLink] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)();
   const {
-    list
+    list,
+    sectionTitle
   } = attributes;
 
   const onClickAddNewData = newData => {
@@ -6245,13 +6246,39 @@ function Edit({
     });
   };
 
+  const removeItem = key => {
+    const geArr = [...list];
+    geArr.splice(key, 1);
+    setAttributes({
+      list: geArr
+    });
+  };
+
+  const titleUpdate = newTitle => {
+    setAttributes({
+      sectionTitle: newTitle
+    });
+  };
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: "Add New Item"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "Add Item"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "item-group"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, list && list.map((listData, key) => {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "title"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('List Title', 'blockly')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    value: sectionTitle,
+    onChange: titleUpdate,
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Title', 'blockly')
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "title"
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Add New Item', 'List Title')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    style: {
+      padding: '0'
+    }
+  }, list && list.map((listData, key) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: key
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
@@ -6278,18 +6305,29 @@ function Edit({
         onChangeLinkValue('icon', icon);
       },
       placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_3__.__)('Icon', 'blockly')
-    })))));
+    })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      title: "Remove",
+      onClick: () => removeItem(key),
+      className: "btn btn-danger text-white"
+    }, "Remove"));
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-    onClick: onClickAddNewData
-  }, "+"))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    onClick: onClickAddNewData,
+    className: "btn btn--primary text-white"
+  }, "Add New"))))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "Editor"
-  }, console.log(selectLink), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", null, list && list.map((listData, key) => {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "footer-widget"
+  }, sectionTitle && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    class: "title"
+  }, sectionTitle), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    class: "footer-list"
+  }, list && list.map((listData, key) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
       key: key
-    }, listData.title && listData.title);
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-    onClick: onClickAddNewData
-  }, "+")))));
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: ""
+    }, listData.title && listData.title));
+  })))));
 }
 
 /***/ }),
@@ -6314,7 +6352,23 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, "hello page list"));
+  const {
+    list,
+    sectionTitle
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    class: "footer-widget"
+  }, sectionTitle && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", {
+    class: "title"
+  }, sectionTitle), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("ul", {
+    class: "footer-list"
+  }, list && list.map((listData, key) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", {
+      key: key
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      href: listData.link
+    }, listData.title && listData.title));
+  }))));
 }
 
 /***/ }),
@@ -6351,7 +6405,7 @@ __webpack_require__.r(__webpack_exports__);
   title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Vertical List', 'blockly'),
   description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Add a Vertical List.', 'blockly'),
   icon: {
-    src: 'list',
+    src: 'admin-links',
     background: '#cce5ff',
     foreground: '#004085'
   },
@@ -6369,18 +6423,12 @@ __webpack_require__.r(__webpack_exports__);
         title: 'hello',
         icon: ''
       }]
+    },
+    sectionTitle: {
+      type: 'string',
+      default: ''
     }
   },
-  // supports: {
-  // 	color: {
-  // 		background: true,
-  // 		gradients: true
-  // 	},
-  // 	spacing: {
-  // 		padding: true,
-  // 		margin: true
-  // 	}
-  // },
   edit: _components_edit__WEBPACK_IMPORTED_MODULE_2__.default,
   save: _components_save__WEBPACK_IMPORTED_MODULE_3__.default
 });

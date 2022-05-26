@@ -18,7 +18,7 @@ registerBlockType( 'blockly/vertical-list', {
 		'blockly'
 	),
 	icon: {
-        src: 'list',
+        src: 'admin-links',
         background: '#cce5ff',
         foreground: '#004085'
     },
@@ -38,18 +38,11 @@ registerBlockType( 'blockly/vertical-list', {
 				{link:'hello.com', title: 'hello', icon:''}
 			]
 		},
+		sectionTitle: {
+			type: 'string',
+			default: ''
+		}
 	},
-	// supports: {
-	// 	color: {
-	// 		background: true,
-	// 		gradients: true
-	// 	},
-	// 	spacing: {
-	// 		padding: true,
-	// 		margin: true
-	// 	}
-	// },
-
 	edit: Edit,
 	save,
 } );

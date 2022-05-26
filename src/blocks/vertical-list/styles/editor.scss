@@ -20,3 +20,12 @@
         }
     }
 }
+.footer-list {
+    padding: 0;
+    margin-left: 0;
+    list-style: none;
+}
+.footer-list li:hover a{
+    color: #6cd342;
+    padding-left: 5px;
+}
