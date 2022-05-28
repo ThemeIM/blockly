@@ -25,6 +25,7 @@ import './blocks/section';
 import './blocks/vertical-list';
 import './blocks/social-list';
 import './blocks/subscription-forms';
+import './blocks/blog';
 
 //pricing table
 import './blocks/pricing-table';
