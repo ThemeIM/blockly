@@ -974,19 +974,83 @@ function Edit({
   attributes,
   setAttributes
 }) {
+  const {
+    numberOfPosts,
+    order,
+    orderBy,
+    categories
+  } = attributes;
+  const catIDs = categories && categories.length > 0 ? categories.map(cat => cat.id) : [];
   const posts = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
     return select('core').getEntityRecords('postType', 'post', {
-      _embed: true
+      per_page: numberOfPosts,
+      _embed: true,
+      order,
+      orderby: orderBy,
+      categories: catIDs
+    });
+  }, [numberOfPosts, order, orderBy, categories]);
+  const allCats = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_4__.useSelect)(select => {
+    return select('core').getEntityRecords('taxonomy', 'category', {
+      per_page: -1
     });
   }, []);
+  const catSuggestions = {};
+
+  if (allCats) {
+    for (let i = 0; i < allCats.length; i++) {
+      const cat = allCats[i];
+      catSuggestions[cat.name] = cat;
+    }
+  }
+
+  const onDisplayFeaturedImageChange = value => {
+    setAttributes({
+      displayFeaturedImage: value
+    });
+  };
+
+  const onNumberOfItemsChange = value => {
+    setAttributes({
+      numberOfPosts: value
+    });
+  };
+
+  const onCategoryChange = values => {
+    const hasNoSuggestions = values.some(value => typeof value === 'string' && !catSuggestions[value]);
+    if (hasNoSuggestions) return;
+    const updatedCats = values.map(token => {
+      return typeof token === 'string' ? catSuggestions[token] : token;
+    });
+    setAttributes({
+      categories: updatedCats
+    });
+  };
+
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: "Add New Social Item"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    title: "Post Query"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.QueryControls, {
+    numberOfItems: numberOfPosts,
+    onNumberOfItemsChange: onNumberOfItemsChange,
+    maxItems: 10,
+    minItems: 1,
+    orderBy: orderBy,
+    onOrderByChange: value => setAttributes({
+      orderBy: value
+    }),
+    order: order,
+    onOrderChange: value => setAttributes({
+      order: value
+    }),
+    categorySuggestions: catSuggestions,
+    selectedCategories: categories,
+    onCategoryChange: onCategoryChange
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "Editor"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     class: "blog-section ptb-120"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: ""
+    class: "blog-wrapper"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     class: "blog-tab"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("nav", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -1108,17 +1172,23 @@ __webpack_require__.r(__webpack_exports__);
   category: 'blockly',
   keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('blog', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('tab', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('nav', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('blockly', 'blockly')],
   attributes: {
-    list: {
+    numberOfPosts: {
+      type: 'number',
+      default: 9
+    },
+    order: {
+      type: 'string',
+      default: 'desc'
+    },
+    orderBy: {
+      type: 'string',
+      default: 'date'
+    },
+    categories: {
       type: 'array',
-      default: [{
-        link: 'https://facebook.com',
-        title: 'facebook',
-        icon: 'fab fa-facebook-f'
-      }, {
-        link: 'https://twitter.com',
-        title: 'twitter',
-        icon: 'fab fa-twitter'
-      }]
+      items: {
+        type: 'object'
+      }
     }
   },
   edit: _components_edit__WEBPACK_IMPORTED_MODULE_2__.default,
@@ -3737,6 +3807,225 @@ class Inspector extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Componen
 
 /***/ }),
 
+/***/ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js":
+/*!*********************************************************************!*\
+  !*** ./src/blocks/pricing-table-inner/components/subtitle2/edit.js ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
+/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _global_inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../global/inspector */ "./src/blocks/pricing-table-inner/components/global/inspector.js");
+/* harmony import */ var _utils_helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/helper */ "./src/utils/helper.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
+
+//wordpress dependencies
+
+
+
+ //internal dependencies
+
+
+ //external dependencie
+
+
+
+class Edit extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
+  render() {
+    var _computeFontSize;
+
+    const {
+      attributes: {
+        subtitle,
+        paddingTop,
+        paddingRight,
+        paddingBottom,
+        paddingLeft,
+        customFontSize
+      },
+      isSelected,
+      className,
+      setAttributes,
+      fallbackFontSize,
+      fontSize,
+      backgroundColor,
+      textColor
+    } = this.props;
+    const editClassName = classnames__WEBPACK_IMPORTED_MODULE_6___default()({
+      'bly-pricing-table-subtitle2': true,
+      'has-text-color': textColor.color,
+      'has-background': backgroundColor.color,
+      [backgroundColor.class]: backgroundColor.class,
+      [textColor.class]: textColor.class
+    }, (fontSize === null || fontSize === void 0 ? void 0 : fontSize.class) && {
+      [fontSize === null || fontSize === void 0 ? void 0 : fontSize.class]: fontSize === null || fontSize === void 0 ? void 0 : fontSize.class
+    });
+    const editStyles = {
+      backgroundColor: backgroundColor.color,
+      color: textColor.color,
+      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
+      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
+      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
+      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
+      fontSize: (_computeFontSize = (0,_utils_helper__WEBPACK_IMPORTED_MODULE_5__.computeFontSize)(fontSize)) !== null && _computeFontSize !== void 0 ? _computeFontSize : undefined
+    };
+    return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      key: 'bly-pricing-table-inner-component-subtitle-' + this.props.clientId
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_global_inspector__WEBPACK_IMPORTED_MODULE_4__.default, this.props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+      tagName: "div",
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Price Subtitle', 'blockly'),
+      keepPlaceholderOnFocus: true,
+      value: subtitle,
+      onChange: value => setAttributes({
+        subtitle: value
+      }),
+      style: editStyles,
+      className: editClassName ? editClassName : undefined
+    }))];
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.compose)([(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withFontSizes)('fontSize'), (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withColors)('backgroundColor', {
+  textColor: 'color'
+})])(Edit));
+
+/***/ }),
+
+/***/ "./src/blocks/pricing-table-inner/components/subtitle2/index.js":
+/*!**********************************************************************!*\
+  !*** ./src/blocks/pricing-table-inner/components/subtitle2/index.js ***!
+  \**********************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
+
+
+/**
+ * BLOCK: Pricing Table - Subtitle2 Component
+ */
+//wordpress dependencies
+
+
+ //internal dependencie
+
+ //external dependencie
+
+ // Register the block
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)('blockly/pricing-table-subtitle2', {
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Product Subtitle', 'blockly'),
+  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Adds a product subtitle component with schema markup.', 'blockly'),
+  icon: 'cart',
+  category: 'blockly',
+  parent: ['blockly/pricing-table-inner'],
+  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('pricing table', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('subtitle', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('shop', 'blockly')],
+  attributes: {
+    subtitle: {
+      type: 'string'
+    },
+    fontSize: {
+      type: 'string'
+    },
+    customFontSize: {
+      type: 'number'
+    },
+    textColor: {
+      type: 'string'
+    },
+    customTextColor: {
+      type: 'string'
+    },
+    backgroundColor: {
+      type: 'string'
+    },
+    customBackgroundColor: {
+      type: 'string'
+    },
+    paddingTop: {
+      type: 'number',
+      default: 10
+    },
+    paddingRight: {
+      type: 'number',
+      default: 20
+    },
+    paddingBottom: {
+      type: 'number',
+      default: 10
+    },
+    paddingLeft: {
+      type: 'number',
+      default: 20
+    }
+  },
+  edit: _edit__WEBPACK_IMPORTED_MODULE_4__.default,
+  save: props => {
+    const {
+      subtitle,
+      fontSize,
+      customFontSize,
+      backgroundColor,
+      textColor,
+      customBackgroundColor,
+      customTextColor,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft
+    } = props.attributes;
+    const fontSizeClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getFontSizeClass)(fontSize);
+    const textClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('color', textColor);
+    const backgroundClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('background-color', backgroundColor);
+    const className = classnames__WEBPACK_IMPORTED_MODULE_5___default()({
+      'has-background': backgroundColor || customBackgroundColor,
+      'bly-pricing-table-subtitle2': true,
+      [textClass]: textClass,
+      [backgroundClass]: backgroundClass,
+      [fontSizeClass]: fontSizeClass
+    }); // Setup styles
+
+    const styles = {
+      backgroundColor: backgroundClass ? undefined : customBackgroundColor,
+      color: textClass ? undefined : customTextColor,
+      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
+      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
+      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
+      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
+      fontSize: fontSizeClass ? undefined : customFontSize
+    };
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
+      tagName: "div",
+      value: subtitle,
+      className: className ? className : undefined,
+      style: styles
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./src/blocks/pricing-table-inner/components/subtitle/edit.js":
 /*!********************************************************************!*\
   !*** ./src/blocks/pricing-table-inner/components/subtitle/edit.js ***!
@@ -3932,225 +4221,6 @@ __webpack_require__.r(__webpack_exports__);
     const className = classnames__WEBPACK_IMPORTED_MODULE_5___default()({
       'has-background': backgroundColor || customBackgroundColor,
       'bly-pricing-table-subtitle': true,
-      [textClass]: textClass,
-      [backgroundClass]: backgroundClass,
-      [fontSizeClass]: fontSizeClass
-    }); // Setup styles
-
-    const styles = {
-      backgroundColor: backgroundClass ? undefined : customBackgroundColor,
-      color: textClass ? undefined : customTextColor,
-      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
-      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
-      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
-      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
-      fontSize: fontSizeClass ? undefined : customFontSize
-    };
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
-      tagName: "div",
-      value: subtitle,
-      className: className ? className : undefined,
-      style: styles
-    });
-  }
-});
-
-/***/ }),
-
-/***/ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js":
-/*!*********************************************************************!*\
-  !*** ./src/blocks/pricing-table-inner/components/subtitle2/edit.js ***!
-  \*********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/compose */ "@wordpress/compose");
-/* harmony import */ var _wordpress_compose__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _global_inspector__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../global/inspector */ "./src/blocks/pricing-table-inner/components/global/inspector.js");
-/* harmony import */ var _utils_helper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../utils/helper */ "./src/utils/helper.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_6__);
-
-//wordpress dependencies
-
-
-
- //internal dependencies
-
-
- //external dependencie
-
-
-
-class Edit extends _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Component {
-  render() {
-    var _computeFontSize;
-
-    const {
-      attributes: {
-        subtitle,
-        paddingTop,
-        paddingRight,
-        paddingBottom,
-        paddingLeft,
-        customFontSize
-      },
-      isSelected,
-      className,
-      setAttributes,
-      fallbackFontSize,
-      fontSize,
-      backgroundColor,
-      textColor
-    } = this.props;
-    const editClassName = classnames__WEBPACK_IMPORTED_MODULE_6___default()({
-      'bly-pricing-table-subtitle2': true,
-      'has-text-color': textColor.color,
-      'has-background': backgroundColor.color,
-      [backgroundColor.class]: backgroundColor.class,
-      [textColor.class]: textColor.class
-    }, (fontSize === null || fontSize === void 0 ? void 0 : fontSize.class) && {
-      [fontSize === null || fontSize === void 0 ? void 0 : fontSize.class]: fontSize === null || fontSize === void 0 ? void 0 : fontSize.class
-    });
-    const editStyles = {
-      backgroundColor: backgroundColor.color,
-      color: textColor.color,
-      paddingTop: paddingTop ? paddingTop + 'px' : undefined,
-      paddingRight: paddingRight ? paddingRight + 'px' : undefined,
-      paddingBottom: paddingBottom ? paddingBottom + 'px' : undefined,
-      paddingLeft: paddingLeft ? paddingLeft + 'px' : undefined,
-      fontSize: (_computeFontSize = (0,_utils_helper__WEBPACK_IMPORTED_MODULE_5__.computeFontSize)(fontSize)) !== null && _computeFontSize !== void 0 ? _computeFontSize : undefined
-    };
-    return [(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-      key: 'bly-pricing-table-inner-component-subtitle-' + this.props.clientId
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_global_inspector__WEBPACK_IMPORTED_MODULE_4__.default, this.props), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
-      tagName: "div",
-      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Price Subtitle', 'blockly'),
-      keepPlaceholderOnFocus: true,
-      value: subtitle,
-      onChange: value => setAttributes({
-        subtitle: value
-      }),
-      style: editStyles,
-      className: editClassName ? editClassName : undefined
-    }))];
-  }
-
-}
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,_wordpress_compose__WEBPACK_IMPORTED_MODULE_2__.compose)([(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withFontSizes)('fontSize'), (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.withColors)('backgroundColor', {
-  textColor: 'color'
-})])(Edit));
-
-/***/ }),
-
-/***/ "./src/blocks/pricing-table-inner/components/subtitle2/index.js":
-/*!**********************************************************************!*\
-  !*** ./src/blocks/pricing-table-inner/components/subtitle2/index.js ***!
-  \**********************************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
-/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./edit */ "./src/blocks/pricing-table-inner/components/subtitle2/edit.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
-/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_5__);
-
-
-/**
- * BLOCK: Pricing Table - Subtitle2 Component
- */
-//wordpress dependencies
-
-
- //internal dependencie
-
- //external dependencie
-
- // Register the block
-
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_2__.registerBlockType)('blockly/pricing-table-subtitle2', {
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Product Subtitle', 'blockly'),
-  description: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Adds a product subtitle component with schema markup.', 'blockly'),
-  icon: 'cart',
-  category: 'blockly',
-  parent: ['blockly/pricing-table-inner'],
-  keywords: [(0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('pricing table', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('subtitle', 'blockly'), (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('shop', 'blockly')],
-  attributes: {
-    subtitle: {
-      type: 'string'
-    },
-    fontSize: {
-      type: 'string'
-    },
-    customFontSize: {
-      type: 'number'
-    },
-    textColor: {
-      type: 'string'
-    },
-    customTextColor: {
-      type: 'string'
-    },
-    backgroundColor: {
-      type: 'string'
-    },
-    customBackgroundColor: {
-      type: 'string'
-    },
-    paddingTop: {
-      type: 'number',
-      default: 10
-    },
-    paddingRight: {
-      type: 'number',
-      default: 20
-    },
-    paddingBottom: {
-      type: 'number',
-      default: 10
-    },
-    paddingLeft: {
-      type: 'number',
-      default: 20
-    }
-  },
-  edit: _edit__WEBPACK_IMPORTED_MODULE_4__.default,
-  save: props => {
-    const {
-      subtitle,
-      fontSize,
-      customFontSize,
-      backgroundColor,
-      textColor,
-      customBackgroundColor,
-      customTextColor,
-      paddingTop,
-      paddingRight,
-      paddingBottom,
-      paddingLeft
-    } = props.attributes;
-    const fontSizeClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getFontSizeClass)(fontSize);
-    const textClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('color', textColor);
-    const backgroundClass = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.getColorClassName)('background-color', backgroundColor);
-    const className = classnames__WEBPACK_IMPORTED_MODULE_5___default()({
-      'has-background': backgroundColor || customBackgroundColor,
-      'bly-pricing-table-subtitle2': true,
       [textClass]: textClass,
       [backgroundClass]: backgroundClass,
       [fontSizeClass]: fontSizeClass

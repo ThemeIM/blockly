@@ -31,12 +31,23 @@ registerBlockType( 'blockly/blog', {
 		__( 'blockly', 'blockly' ),
 	],
 	attributes: {
-		list: {
+		numberOfPosts: {
+			type: 'number',
+			default: 9
+		},
+		order: {
+			type: 'string',
+			default: 'desc'
+		},
+		orderBy: {
+			type: 'string',
+			default: 'date'
+		},
+		categories: {
 			type: 'array',
-			default: [
-				{link:'https://facebook.com', title: 'facebook', icon:'fab fa-facebook-f'},
-				{link:'https://twitter.com', title: 'twitter', icon:'fab fa-twitter'}
-			]
+			items:{
+				type: 'object'
+			} 
 		}
 	},
 	edit: Edit,
