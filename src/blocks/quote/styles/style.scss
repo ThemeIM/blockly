@@ -1,0 +1,123 @@
+//colors
+$color_link_5B5B5B: #5B5B5B;
+// Breakdown variable
+$breakpoint-notebook: 1036px;
+$breakpoint-tablet-large: 910px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 590px;
+
+//custom quote design
+.bly-quote-box-wrap {
+    background-color: #f4f4f4;
+    color: $color_link_5B5B5B;
+    padding: 31px;
+    border-radius: 21px;
+
+  .bly-quote-box-container {
+    .message {
+        font-family: Jost, sans-serif;
+        //font-size: 16px;
+        font-size: inherit;
+        font-weight: 300;
+        letter-spacing: 0.8px;
+        line-height: 1.5;
+    }
+
+    .name-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+
+        hr {
+        width: 30px;
+        margin-right: 10px;
+        }
+
+        .name {
+        font-family: Jost, sans-serif;
+        font-weight: 500;
+        //font-size: 20px;
+        font-size: inherit;
+        text-align: center;
+        letter-spacing: 0;
+        }
+    }
+  }
+}
+
+.quote-bg-icon-center {
+    .bly-quote-box-container{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 35px 38px 46px;
+        
+        svg {
+            position: absolute;
+            width: 18%;
+            // top: 30px;
+        }
+
+        .message {
+            font-weight: 400;
+            font-size: inherit;
+            letter-spacing: 1.2px;
+            line-height: 1.5;
+            color: $color_link_5B5B5B;
+            text-align: center;
+        }
+    }
+}
+
+// Responsive Design of author
+
+@media screen and (max-width: $breakpoint-notebook) {
+    .bly-quote-box-wrap {
+        width: 90vw;
+    }
+
+    .quote-bg-icon-center {
+        .bly-quote-box-container{
+            .message {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: $breakpoint-tablet-large) {
+    .quote-bg-icon-center {
+        .bly-quote-box-container{
+            .message {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+    .quote-bg-icon-center {
+        svg {
+            width: 100% !important;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .quote-bg-icon-center {
+        svg {
+            width: 100% !important;
+            top: auto !important;
+        }
+    
+        .bly-quote-box-container{
+            .message {
+                font-size: 16px;
+            }
+        }
+    }
+}
