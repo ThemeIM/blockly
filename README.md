@@ -10,3 +10,4 @@ Blockly currently includes the following blocks:
 6.  Highlight Text
 7.  Custom Alert or Notice Box
 8.  FAQs.
+9. Site Header (Navbar)
