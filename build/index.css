@@ -609,5 +609,22 @@ div[data-type="blockly/pricing-table-price"] .block-editor-block-list__block-edi
 .wp-block-blockly-pricing-table-button.bly-block-button span {
   display: block;
 }
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/blocks/site-header/styles/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+span.remove_page {
+  border: 1px solid;
+  border-radius: 12%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 21px;
+  position: absolute;
+  right: 12px;
+  top: 61px;
+  font-size: 17px;
+  font-weight: 300;
+  display: inline;
+}
 
 /*# sourceMappingURL=index.css.map*/

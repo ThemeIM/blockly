@@ -37,3 +37,5 @@ import './blocks/pricing-table-inner/components/subtitle2';
 import './blocks/pricing-table-inner/components/price';
 import './blocks/pricing-table-inner/components/features';
 import './blocks/pricing-table-inner/components/button';
+// header
+import './blocks/site-header'
