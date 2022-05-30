@@ -1,4 +1,5 @@
 /node_modules/
+/build/
 /vendor/
 /views/assets/js/
 /views/assets/css/pm-style.css

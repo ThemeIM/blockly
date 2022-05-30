@@ -26,6 +26,7 @@ import './blocks/vertical-list';
 import './blocks/social-list';
 import './blocks/subscription-forms';
 import './blocks/blog';
+import './blocks/search';
 // template parts
 import './blocks/site-header';
 
