@@ -3,7 +3,7 @@ import { snake_ify } from '../Helpers'
 export default function SettingsInput({ value = '', label = '', setAttributeValue, attributeName }) {
     let id = snake_ify(label)
     return (
-        <div className="form-group">
+        <div className="form-group setting-input-group">
             <label htmlFor={ id }>{ label }</label>
             <input type="text"
                 id={id}

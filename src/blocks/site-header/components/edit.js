@@ -5,9 +5,11 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody, Button, TextControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
+import ImageInput from "./imageInput";
 import SettingsInput from "./SettingsInput";
 import SettingsListIconInput from "./SettingsListIconInput";
 import SettingsListInput from "./SettingsListInput";
+import '../styles/editor.scss'
 
 export default function Edit({ attributes, setAttributes }) {
     const {
@@ -16,7 +18,10 @@ export default function Edit({ attributes, setAttributes }) {
         freeItems,
         pricePlan,
         hire,
-        login
+        login,
+        logo,
+        productDropdownIcon,
+        cartIcon
     } = attributes;
 
     /** page functions */
@@ -69,11 +74,26 @@ export default function Edit({ attributes, setAttributes }) {
                     <div className="col-md-6">
                         <SettingsInput label="Free Items link" value={freeItems} setAttributeValue={setAttributeValue} attributeName={'freeItems'} />
                         <SettingsInput label="Pricing link" value={pricePlan} setAttributeValue={setAttributeValue} attributeName={'pricePlan'} />
+                        <SettingsInput label="Cart icon class" value={cartIcon} setAttributeValue={setAttributeValue} attributeName={'cartIcon'} />
                     </div>
                     <div className="col-md-6">
                         <SettingsInput label="Hire us link" value={hire} setAttributeValue={setAttributeValue} attributeName={'hire'} />
                         <SettingsInput label="Login link" value={login} setAttributeValue={setAttributeValue} attributeName={'login'} />
                     </div>
+
+                    <ImageInput
+                        title={'Site Logo Image'}
+                        name={'logo'}
+                        value={logo}
+                        setterFunction={setAttributes}
+                    />
+                    <ImageInput
+                        title={'Product Dropdown Image'}
+                        name={'productDropdownIcon'}
+                        value={productDropdownIcon}
+                        setterFunction={setAttributes}
+                    />
+
                     <div className="col-md-12">
                         <h5>Pages</h5>
                         {
@@ -87,7 +107,7 @@ export default function Edit({ attributes, setAttributes }) {
                             )) 
                         }
                         <div className="text-center mt-3">
-                            <button className="btn btn-primary px-5" onClick={() => addPage()}>Add Page</button>
+                            <button className="btn btn-style-1 px-5" onClick={() => addPage()}>Add Page</button>
                         </div>
                     </div>
                     <div className="col-md-12">
@@ -103,7 +123,7 @@ export default function Edit({ attributes, setAttributes }) {
                             )) 
                         }
                         <div className="text-center mt-3">
-                            <button className="btn btn-primary px-5" onClick={() => addProduct()}>Add Product</button>
+                            <button className="btn btn-style-1 px-5" onClick={() => addProduct()}>Add Product</button>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,17 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
-export default function save({ attributes, setAttributes }) {
-    const { pages, products, freeItems, pricePlan, hire, login } = attributes;
+export default function Save({ attributes, setAttributes }) {
+    const {
+        pages,
+        products,
+        freeItems,
+        pricePlan,
+        hire,
+        login,
+        logo,
+        productDropdownIcon,
+        cartIcon
+    } = attributes;
 
     return (
         <header class="header-section">
@@ -15,7 +25,7 @@ export default function save({ attributes, setAttributes }) {
                                     href="index.html"
                                 >
                                     <img
-                                        src="assets/images/logo/logo.png"
+                                        src={ logo }
                                         alt="site-logo"
                                     />
                                 </a>
@@ -73,7 +83,7 @@ export default function save({ attributes, setAttributes }) {
                                         <div class="toggle-menu product-nav">
                                             <span class="icon">
                                                 <img
-                                                    src="assets/images/icon/icon-9.png"
+                                                    src={ productDropdownIcon }
                                                     alt="icon"
                                                 />
                                             </span>
@@ -100,7 +110,7 @@ export default function save({ attributes, setAttributes }) {
                                         <div class="header-cart-area">
                                             <div class="header-cart-action">
                                                 <span class="icon">
-                                                    <i class="las la-shopping-cart"></i>
+                                                    <i class={ cartIcon }></i>
                                                 </span>
                                                 <span class="cart-badge">
                                                     2
