@@ -10,25 +10,86 @@ import { RawHTML } from '@wordpress/element';
 import { format, dateI18n, __experimentalGetSettings } from '@wordpress/date';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const posts = useSelect(
-		(select) => {
-			return select('core').getEntityRecords('postType', 'post', {
-				_embed: true,
+	const { numberOfPosts, order, orderBy, categories } = attributes;
+
+	const catIDs =
+	categories && categories.length > 0
+		? categories.map((cat) => cat.id)
+		: [];
+		const posts = useSelect(
+			(select) => {
+				return select('core').getEntityRecords('postType', 'post', {
+					per_page: numberOfPosts,
+					_embed: true,
+					order,
+					orderby: orderBy,
+					categories: catIDs,
+				});
+			},
+			[numberOfPosts, order, orderBy, categories]
+		);
+
+		const allCats = useSelect((select) => {
+			return select('core').getEntityRecords('taxonomy', 'category', {
+				per_page: -1,
 			});
-		},
-		[]
-	);
-	
+		}, []);
+
+		const catSuggestions = {};
+		if (allCats) {
+			for (let i = 0; i < allCats.length; i++) {
+				const cat = allCats[i];
+				catSuggestions[cat.name] = cat;
+			}
+		}
+
+		const onDisplayFeaturedImageChange = (value) => {
+			setAttributes({ displayFeaturedImage: value });
+		};
+		const onNumberOfItemsChange = (value) => {
+			setAttributes({ numberOfPosts: value });
+		};
+
+		const onCategoryChange = (values) => {
+			const hasNoSuggestions = values.some(
+				(value) => typeof value === 'string' && !catSuggestions[value]
+			);
+			if (hasNoSuggestions) return;
+
+			const updatedCats = values.map((token) => {
+				return typeof token === 'string' ? catSuggestions[token] : token;
+			});
+
+			setAttributes({ categories: updatedCats });
+		};
+
 	return (
 		<>
 		<InspectorControls>
-			<PanelBody title='Add New Social Item'>
-				
+			<PanelBody title='Post Query'>
+			<QueryControls
+						numberOfItems={numberOfPosts}
+						onNumberOfItemsChange={onNumberOfItemsChange}
+						maxItems={10}
+						minItems={1}
+						orderBy={orderBy}
+						onOrderByChange={(value) =>
+							setAttributes({ orderBy: value })
+						}
+						order={order}
+						onOrderChange={(value) =>
+							setAttributes({ order: value })
+						}
+						categorySuggestions={catSuggestions}
+						selectedCategories={categories}
+						onCategoryChange={onCategoryChange}
+					/>
+
 			</PanelBody>
 		</InspectorControls>
 		<div className='Editor'>
 		<section class="blog-section ptb-120">
-    <div class="">
+       <div class="blog-wrapper">
         <div class="blog-tab">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">

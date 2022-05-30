@@ -6,7 +6,7 @@ import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
 //internal dependencies
 import Edit from './components/edit';
-import save from './components/save';
+import Save from './components/save';
 import './styles/editor.scss';
 import './styles/style.scss';
 
@@ -58,7 +58,19 @@ registerBlockType( 'blockly/site-header', {
 			type: 'string',
 			default: ''
 		},
+		logo: {
+			type: 'string',
+			default: ''
+		},
+		productDropdownIcon: {
+			type: 'string',
+			default: ''
+		},
+		cartIcon: {
+			type: 'string',
+			default: ''
+		}
 	},
 	edit: Edit,
-	save,
+	save: Save,
 } );
