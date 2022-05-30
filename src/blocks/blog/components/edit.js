@@ -93,10 +93,15 @@ export default function Edit( { attributes, setAttributes } ) {
         <div class="blog-tab">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link show active" id="guide-tab" data-toggle="tab" data-target="#guide" type="button" role="tab" aria-controls="guide" aria-selected="false">Guide</button>
-                    <button class="nav-link show" id="tutorial-tab" data-toggle="tab" data-target="#tutorial" type="button" role="tab" aria-controls="tutorial " aria-selected="false">Tutorial</button>
-                    <button class="nav-link show" id="marketing-tab" data-toggle="tab" data-target="#marketing" type="button" role="tab" aria-controls="marketing " aria-selected="true">Marketing Tips</button>
-                    <button class="nav-link show" id="code-tab" data-toggle="tab" data-target="#code" type="button" role="tab" aria-controls="code" aria-selected="false">Code Snippet</button>
+                    <button class="nav-link show active">All</button>
+					{categories && categories.map( (cat) => {
+						return (
+							<>
+							   <button class="nav-link show" key={cat.id}>{cat.value ? cat.value : cat.name}</button>
+							   {console.log(cat.name)}
+							</>
+						);
+					} )}
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">

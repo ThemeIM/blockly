@@ -26,6 +26,8 @@ import './blocks/vertical-list';
 import './blocks/social-list';
 import './blocks/subscription-forms';
 import './blocks/blog';
+// template parts
+import './blocks/site-header';
 
 //pricing table
 import './blocks/pricing-table';
