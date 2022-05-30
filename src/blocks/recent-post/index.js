@@ -9,7 +9,7 @@ import './styles/style.scss';
 
 // Register the block testimonial
 registerBlockType( 'blockly/recent-post', {
-	title: __( 'Blog', 'blockly' ),
+	title: __( 'Recent Blog', 'blockly' ),
 	description: __(
 		'Add a recent blog widget',
 		'blockly'
@@ -30,7 +30,7 @@ registerBlockType( 'blockly/recent-post', {
 	attributes: {
 		numberOfPosts: {
 			type: 'number',
-			default: 9
+			default: 5
 		},
 		order: {
 			type: 'string',
@@ -42,9 +42,7 @@ registerBlockType( 'blockly/recent-post', {
 		},
 		categories: {
 			type: 'array',
-			items:{
-				type: 'object'
-			} 
+			default: []
 		}
 	},
 	edit: Edit,
