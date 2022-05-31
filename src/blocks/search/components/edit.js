@@ -1,11 +1,16 @@
 import {
 	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck 
 } from '@wordpress/block-editor';
-import { PanelBody, SelectControl } from '@wordpress/components';
+import { PanelBody, SelectControl, Button } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-export default function Edit( { attributes, setAttributes } ) {
-	const { searchStyle } = attributes;
 
+export default function Edit( { attributes, setAttributes } ) {
+	const { searchStyle, backgroudImage, iconImage  } = attributes;
+    const removeBackground = () => {
+		setAttributes({backgroudImage: ''});
+	}
 	return (
 		<>
 		<InspectorControls>
@@ -21,6 +26,48 @@ export default function Edit( { attributes, setAttributes } ) {
 					__nextHasNoMarginBottom
 				/> 
 		   </PanelBody>
+		   {(searchStyle == 2) && (
+			   <PanelBody title={__('Background', 'blockly')} >
+				<MediaUploadCheck>
+					<MediaUpload
+						allowedTypes={ ['image'] }
+						onSelect={ ( media ) =>
+							//console.log( media.sizes.full.url );
+							setAttributes({backgroudImage: media.sizes.full.url})
+						}
+						render={({open}) => (
+							<Button 
+							className={backgroudImage ? 'editor-post-featured-image__preview' : 'editor-post-featured-image__toggle' } 
+								onClick={open} >
+									{backgroudImage ? <div><img src={backgroudImage}/></div> : 'Select Image'}
+							</Button>
+						)}
+					/>
+					{backgroudImage && <Button isLink isDestructive onClick={removeBackground}>Remove</Button>}
+				</MediaUploadCheck>
+		 	 </PanelBody>
+		   )}
+		   {(searchStyle == 2) && (
+			   <PanelBody title={__('Icon', 'blockly')} >
+				<MediaUploadCheck>
+					<MediaUpload
+						allowedTypes={ ['image'] }
+						onSelect={ ( media ) =>
+							//console.log( media.sizes.full.url );
+							setAttributes({iconImage: media.sizes.full.url})
+						}
+						render={({open}) => (
+							<Button 
+							className={iconImage ? 'editor-post-featured-image__preview' : 'editor-post-featured-image__toggle' } 
+								onClick={open} >
+									{iconImage ? <div><img src={iconImage}/></div> : 'Select Image'}
+							</Button>
+						)}
+					/>
+					{iconImage && <Button isLink isDestructive onClick={() => setAttributes({iconImage: ''})}>Remove</Button>}
+				</MediaUploadCheck>
+		 	 </PanelBody>
+		   )}
 		</InspectorControls>
 		<div className='search-wrapper'>
 			{(searchStyle == 1) && (
@@ -36,15 +83,20 @@ export default function Edit( { attributes, setAttributes } ) {
 			)}
 			{(searchStyle == 2) && (
 			<div class="banner-section inner-banner-section">
-			<div class="banner-element">
-				<img src="assets/images/element/element-5.png" alt="element" />
-			</div>
+				{console.log(backgroudImage)}
+			
+				{backgroudImage && (
+					<div class="banner-element">
+							<img src={backgroudImage} alt="element" />
+					</div>
+				)}
+			
 				<div class="row justify-content-center">
 					<div class="col-xl-10">
 						<div class="product-category-search-area two">
 							<form class="product-search-form">
 								<input type="text" class="form--control" placeholder="Search For Knowelduge" autocomplete="off" />
-								<button type="submit" class="submit-btn"><img src="assets/images/icon/icon-11.png" alt="icon"/></button>
+								{iconImage && <button type="submit" class="submit-btn"><img src={iconImage} alt="icon"/></button>}
 							</form>
 						</div>
 					</div>

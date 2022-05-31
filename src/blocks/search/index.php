@@ -29,7 +29,12 @@ add_action( 'init', 'blockly_register_search' );
 //render fornt end alert box 
 if(!function_exists('blockly_render_search')):
     function blockly_render_search( $attributes ) {
-        ob_start();  ?>
+         ob_start();  
+         $style = isset($attributes['searchStyle']) ? $attributes['searchStyle']: '1';
+         $background_Image = isset($attributes['backgroudImage']) ? $attributes['backgroudImage']: '';
+         $icon_image = isset($attributes['iconImage']) ? $attributes['iconImage']: '';
+         if($style == 1){
+        ?>
             <div class="widget-box blog-widget-box mb-30">
                 <h4 class="widget-title">Search</h4>
                 <div class="search-widget-box">
@@ -39,6 +44,32 @@ if(!function_exists('blockly_render_search')):
                     </form>
                 </div>
             </div>
-        <?php return ob_get_clean(); 
+          <?php } else{
+              ?>
+              <section class="banner-section inner-banner-section">
+                <?php if($background_Image != '') : ?>
+                <div class="banner-element">
+                    <img src="<?php echo esc_url($background_Image); ?>" alt="element">
+                </div>
+                <?php endif; ?>
+                <div class="form-wrapper">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+                            <div class="product-category-search-area two">
+                                <form role="search" method="get" class="product-search-form" action="<?php echo home_url( '/' ); ?>">
+                                    <input type="text" class="form--control" name="s" placeholder="Search For Knowelduge" autocomplete="off" value="<?php echo get_search_query() ?>">
+                                    <?php if($icon_image != '') : ?>
+                                        <button type="submit" class="submit-btn">
+                                            <img src="<?php echo esc_url($icon_image); ?>" alt="icon">
+                                        </button>
+                                    <?php endif; ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</section>
+          
+        <?php } return ob_get_clean(); 
     }
 endif;
