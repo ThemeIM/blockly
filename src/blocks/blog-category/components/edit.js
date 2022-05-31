@@ -59,8 +59,6 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ categories: updatedCats });
 	};
 
-	console.log(categories);
-
 	return (
 		<>
 			{/* sidebar */}
