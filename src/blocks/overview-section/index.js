@@ -1,17 +1,18 @@
 //wordpress dependencies
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
-//internal dependencies
-import Edit from './components/edit';
+
+import Edit from './components/edit'
+import Save from './components/save'
 
 import './styles/editor.scss';
 import './styles/style.scss';
 
 // Register the block testimonial
-registerBlockType( 'blockly/recent-post', {
-	title: __( 'Recent Blog', 'blockly' ),
+registerBlockType( 'blockly/overview-section', {
+	title: __( 'Overview section', 'blockly' ),
 	description: __(
-		'Add a recent blog widget',
+		'Add an Overview section',
 		'blockly'
 	),
 	icon: {
@@ -21,32 +22,32 @@ registerBlockType( 'blockly/recent-post', {
     },
 	category: 'blockly',
 	keywords: [
-		__( 'recent-blog', 'blockly' ),
+		__( 'overview', 'blockly' ),
 		__( 'widget', 'blockly' ),
 		__( 'tab', 'blockly' ),
 		__( 'nav', 'blockly' ),
 		__( 'blockly', 'blockly' ),
 	],
 	attributes: {
-		numberOfPosts: {
-			type: 'number',
-			default: 5
-		},
-		order: {
+		title: {
 			type: 'string',
-			default: 'desc'
+			default: 'This is awesome!'
 		},
-		orderBy: {
+		subtitle: {
 			type: 'string',
-			default: 'date'
+			default: 'This is quite awesome'
 		},
-		categories: {
-			type: 'array',
-			default: []
+		image: {
+			type: 'string',
+			default: ''
+		}
+	},
+	example: {
+		attributes: {
+			title: __('Something awesome is about to happen!'),
+			subtitle: __('Ensure to follow requirements when developing solutions what the you must be muted on this journey.')
 		}
 	},
 	edit: Edit,
-	save: props => {
-		return null;
-	}
+	save: Save
 } );

@@ -1,17 +1,17 @@
 //wordpress dependencies
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
-//internal dependencies
-import Edit from './components/edit';
+
+import Edit from './components/edit'
 
 import './styles/editor.scss';
 import './styles/style.scss';
 
 // Register the block testimonial
-registerBlockType( 'blockly/recent-post', {
-	title: __( 'Recent Blog', 'blockly' ),
+registerBlockType( 'blockly/blog-category', {
+	title: __( 'Blog Category', 'blockly' ),
 	description: __(
-		'Add a recent blog widget',
+		'Add a Blog Category widget',
 		'blockly'
 	),
 	icon: {
@@ -21,7 +21,7 @@ registerBlockType( 'blockly/recent-post', {
     },
 	category: 'blockly',
 	keywords: [
-		__( 'recent-blog', 'blockly' ),
+		__( 'blog-category', 'blockly' ),
 		__( 'widget', 'blockly' ),
 		__( 'tab', 'blockly' ),
 		__( 'nav', 'blockly' ),

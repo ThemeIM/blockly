@@ -6,10 +6,11 @@ import {
 import { PanelBody, Button, TextControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import ImageInput from "./imageInput";
-import SettingsInput from "./SettingsInput";
+import SettingsInput from '../../../utils/form/SettingsInput'
 import SettingsListIconInput from "./SettingsListIconInput";
 import SettingsListInput from "./SettingsListInput";
 import '../styles/editor.scss'
+
 
 export default function Edit({ attributes, setAttributes }) {
     const {

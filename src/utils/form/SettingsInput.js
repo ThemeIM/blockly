@@ -1,4 +1,5 @@
-import { snake_ify } from '../Helpers'
+import { snake_ify } from "../Helpers"
+import './style/editor.scss'
 
 export default function SettingsInput({ value = '', label = '', setAttributeValue, attributeName }) {
     let id = snake_ify(label)

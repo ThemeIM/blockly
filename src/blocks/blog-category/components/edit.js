@@ -8,23 +8,21 @@ import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { RawHTML, useState } from '@wordpress/element';
 import { format, dateI18n, __experimentalGetSettings } from '@wordpress/date';
-import CategoryDropdown from './categoryDropdown';
-import RecentPost from './recentPost';
 
 export default function Edit({ attributes, setAttributes }) {
 	const { numberOfPosts, order, orderBy, categories } = attributes;
 
 	const catIDs = typeof categories.map === 'function' && [...categories.map((cat) => cat.id)] || []
-	const posts = useSelect(
-		select => select('core').getEntityRecords('postType', 'post', {
-			per_page: numberOfPosts,
-			_embed: true,
-			order,
-			orderby: orderBy,
-			categories: catIDs,
-		}),
-		[numberOfPosts, order, orderBy, categories]
-	);
+	// const posts = useSelect(
+	// 	select => select('core').getEntityRecords('postType', 'post', {
+	// 		per_page: numberOfPosts,
+	// 		_embed: true,
+	// 		order,
+	// 		orderby: orderBy,
+	// 		categories: catIDs,
+	// 	}),
+	// 	[numberOfPosts, order, orderBy, categories]
+	// );
 
 	const allCategories = useSelect((select) => {
 		return select('core').getEntityRecords('taxonomy', 'category', {
@@ -61,13 +59,6 @@ export default function Edit({ attributes, setAttributes }) {
 		setAttributes({ categories: updatedCats });
 	};
 
-	const getFeaturedImage = post => {
-		return post._embedded &&
-			post._embedded['wp:featuredmedia'] &&
-			post._embedded['wp:featuredmedia'].length &&
-			post._embedded['wp:featuredmedia'][0];
-	}
-
 	return (
 		<>
 			{/* sidebar */}
@@ -93,21 +84,16 @@ export default function Edit({ attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 
-			{/* main body */}
 			<div class="widget-box blog-widget-box mb-30">
-				<h4 class="widget-title">Recent Posts</h4>
-				<div class="popular-widget-box">
-					{
-						posts && typeof posts.map === 'function' && posts.map((post, index) => (
-							<RecentPost
-								key={index}
-								date={post.date}
-								title={post.title?.rendered ?? ''}
-								image={getFeaturedImage(post)}
-								post_url={post.link ?? '#0'}
-							/>
-						))
-					}
+				<h4 class="widget-title">Categories</h4>
+				<div class="category-widget-box">
+					<ul class="category-list">
+						{
+							categories.map((category, index) => (
+								<li><a href="#0"><i class="fas fa-chevron-right" key={index}></i> {category.name} <span>4</span></a></li>
+							))
+						}
+					</ul>
 				</div>
 			</div>
 		</>
