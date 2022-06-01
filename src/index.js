@@ -29,6 +29,9 @@ import './blocks/blog';
 import './blocks/search';
 // template parts
 import './blocks/site-header';
+// single post 
+import './blocks/single-post-meta';
+import './blocks/single-post-share';
 
 //pricing table
 import './blocks/pricing-table';
@@ -41,6 +44,6 @@ import './blocks/pricing-table-inner/components/price';
 import './blocks/pricing-table-inner/components/features';
 import './blocks/pricing-table-inner/components/button';
 import './blocks/recent-post'
-import './blocks/blog-category'
-import './blocks/blog-tag'
-import './blocks/overview-section'
+// import './blocks/blog-category'
+// import './blocks/blog-tag'
+// import './blocks/overview-section'

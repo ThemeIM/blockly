@@ -129,6 +129,9 @@ final class Blockly {
         require_once( BLY_SRC_BLOCKS . '/subscription-forms/index.php' );
         require_once( BLY_SRC_BLOCKS . '/blog/index.php' );
         require_once( BLY_SRC_BLOCKS . '/search/index.php' );
+        require_once( BLY_SRC_BLOCKS . '/single-post-meta/index.php' );
+        require_once( BLY_SRC_BLOCKS . '/single-post-share/index.php' );
+        require_once( BLY_SRC_BLOCKS . '/recent-post/index.php' );
     }
 
     /**
