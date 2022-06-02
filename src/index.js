@@ -29,6 +29,9 @@ import './blocks/blog';
 import './blocks/search';
 // template parts
 import './blocks/site-header';
+// single post 
+import './blocks/single-post-meta';
+import './blocks/single-post-share';
 
 //pricing table
 import './blocks/pricing-table';
