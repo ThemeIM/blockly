@@ -1,7 +1,7 @@
 export default function SettingsListIconInput({ onChangePageItem, removePage, page, index }) {
     return (
         <div className="card" style={{ maxWidth: '100%' }}>
-            <span class="remove_page" onClick={() => removePage(index)}>x</span>
+            <span className="remove_page" onClick={() => removePage(index)}>x</span>
             <div className="card-body">
                 <div className="row">
                     <div className="col-md-4">

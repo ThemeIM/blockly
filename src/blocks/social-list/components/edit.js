@@ -74,11 +74,11 @@ export default function Edit( { attributes, setAttributes } ) {
 			</PanelBody>
 		</InspectorControls>
 		<div className='Editor'>
-			<div class="footer-widget">				
-				<ul class="footer-social">
+			<div className="footer-widget">				
+				<ul className="footer-social">
 					{list && list.map((listData, key) => {
 						return (
-							<li key={key}><a href={listData.link}><i class={listData.icon}></i></a></li>
+							<li key={key}><a href={listData.link}><i className={listData.icon}></i></a></li>
 						)
 					})}
 				</ul>

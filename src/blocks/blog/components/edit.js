@@ -88,25 +88,25 @@ export default function Edit( { attributes, setAttributes } ) {
 			</PanelBody>
 		</InspectorControls>
 		<div className='Editor'>
-		<section class="blog-section ptb-120">
-       <div class="blog-wrapper">
-        <div class="blog-tab">
+		<section className="blog-section ptb-120">
+       <div className="blog-wrapper">
+        <div className="blog-tab">
             <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-link show active">All</button>
+                <div className="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button className="nav-link show active">All</button>
 					{categories && categories.map( (cat) => {
 						return (
 							<>
-							   <button class="nav-link show" key={cat.id}>{cat.value ? cat.value : cat.name}</button>
+							   <button className="nav-link show" key={cat.id}>{cat.value ? cat.value : cat.name}</button>
 							   {console.log(cat.name)}
 							</>
 						);
 					} )}
                 </div>
             </nav>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade active show" id="guide" role="tabpanel" aria-labelledby="guide-tab">
-                    <div class="row justify-content-center mb-60-none">
+            <div className="tab-content" id="nav-tabContent">
+                <div className="tab-pane fade active show" id="guide" role="tabpanel" aria-labelledby="guide-tab">
+                    <div className="row justify-content-center mb-60-none">
                         {posts && posts.map((post) => {
 							const featuredImage =
 							post._embedded &&
@@ -114,11 +114,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							post._embedded['wp:featuredmedia'].length > 0 &&
 							post._embedded['wp:featuredmedia'][0];
 							return (
-								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-60">
-                            <div class="blog-item">
+								<div className="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-60">
+                            <div className="blog-item">
 								{featuredImage && console.log(featuredImage.source_url)}
 							{ featuredImage && (
-								 <div class="blog-thumb">
+								 <div className="blog-thumb">
 									<img
 										src={
 											featuredImage.source_url
@@ -127,9 +127,9 @@ export default function Edit( { attributes, setAttributes } ) {
 									/>
 									</div>
 								)}
-                                <div class="blog-content">
-                                    <div class="blog-post-meta">
-                                        <span class="date"> 24th March, 2021</span>
+                                <div className="blog-content">
+                                    <div className="blog-post-meta">
+                                        <span className="date"> 24th March, 2021</span>
                                     </div>
                                
 										<h4 className='title'>
@@ -153,8 +153,8 @@ export default function Edit( { attributes, setAttributes } ) {
                 </div>
             </div>
         </div>
-        <div class="all-btn two text-center mt-100">
-            <a href="blog.html" class="btn--base active">Load More</a>
+        <div className="all-btn two text-center mt-100">
+            <a href="blog.html" className="btn--base active">Load More</a>
         </div>
     </div>
 </section>

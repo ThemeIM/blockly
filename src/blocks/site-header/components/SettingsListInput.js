@@ -1,7 +1,7 @@
 export default function SettingsListInput({ onChangeProductItem, removeProduct, product, index }) {
     return (
         <div className="card" style={{ maxWidth: '100%' }}>
-            <span class="remove_page" onClick={() => removeProduct(index)}>x</span>
+            <span className="remove_page" onClick={() => removeProduct(index)}>x</span>
             <div className="card-body">
                 <div className="row">
                     <div className="col-md-6">

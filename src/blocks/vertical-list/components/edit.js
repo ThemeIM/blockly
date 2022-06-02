@@ -88,10 +88,10 @@ export default function Edit( { attributes, setAttributes } ) {
 			</PanelBody>
 		</InspectorControls>
 		<div className='Editor'>
-			<div class="footer-widget">
-				{sectionTitle && <h4 class="title">{sectionTitle}</h4>}
+			<div className="footer-widget">
+				{sectionTitle && <h4 className="title">{sectionTitle}</h4>}
 				
-				<ul class="footer-list">
+				<ul className="footer-list">
 					{list && list.map((listData, key) => {
 						return (
 							<li key={key}><a href="">{listData.title && listData.title}</a></li>
