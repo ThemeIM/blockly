@@ -36,6 +36,7 @@ if(!function_exists('blockly_render_recent_post')):
        ];
 
        $get_post = get_posts($args);
+       ob_start();
         ?>
           <div class="widget-box blog-widget-box mb-30">
                         <h4 class="widget-title">Recent Posts</h4>
