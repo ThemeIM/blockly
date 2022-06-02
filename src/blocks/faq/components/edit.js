@@ -1,6 +1,9 @@
 import { Fragment } from 'react'
 import SettingsInput from '../../../utils/form/SettingsInput'
 import FormContainer from '../../../utils/form/formContainer'
+import { useState } from 'react'
+import '../styles/editor.scss'
+import '../styles/style.scss'
 
 export default function Edit(props) {
     const { attributes: {
@@ -8,24 +11,28 @@ export default function Edit(props) {
         description,
         faq_items
     }, setAttributes } = props;
+    const [state, setState] = useState([ ...faq_items ]);
 
     const setAttributeByKey = (key, value) => setAttributes({ [key] : value })
+
     const addFaqItem = () => {
-
-        console.log('===[ adding... ]===');
-        typeof faq_items.map === 'function' && faq_items.map((faq_item, index) => 
-            console.log({ faq_item, index })
-        )
-
-        setAttributes({
-            faq_items: [ ...faq_items, {question: '', answer: ''}]
-        })
+        let new_state = [ ...state, {question: '', answer: ''} ]
+        setState(new_state)
+        setAttributes({ faq_items: new_state })
     }
 
     const updateFaqItem = (index, type, data) => {
-        let all_faq_items = faq_items
-        item[index][type] = data
+        let all_faq_items = [ ...state ]
+        all_faq_items[index][type] = data
+        setState(all_faq_items)
         return setAttributes({ faq_items: all_faq_items })
+    }
+
+    const removeFaqItem = index => {
+        let new_state = [ ...faq_items ]
+        new_state.splice(index, 1)
+        setState(new_state)
+        setAttributes({ faq_items: new_state })
     }
 
     return (
@@ -39,13 +46,15 @@ export default function Edit(props) {
                         <h6>FAQ Items</h6>
                     </div>
                     {
-                        typeof faq_items.map === 'function' && faq_items.map((faq_item, index) => (
-                            <div key={index} className>
+                        typeof faq_items.map === 'function' && faq_items.map((single_faq_item, index) => (
+                            <div key={index} className="faq-input-item">
+                                {/* <a className='remove-item' href="#0">x</a> */}
+                                <button className="btn remove-item" onClick={e => removeFaqItem(index)}>x</button>
                                 <div className="form-group setting-input-group" key={index}>
                                     <input type="text"
                                         id={`faq_${index}`}
                                         className="form-control"
-                                        value={ faq_item.question }
+                                        value={ single_faq_item['question'] }
                                         onChange={e => updateFaqItem(index, 'question', e.target.value)}
                                     />
                                 </div>
@@ -53,10 +62,16 @@ export default function Edit(props) {
                                     <input type="text"
                                         id={`faq_${index}`}
                                         className="form-control"
-                                        value={ faq_item.question }
+                                        value={ single_faq_item['answer'] }
                                         onChange={e => updateFaqItem(index, 'answer', e.target.value)}
                                     />
                                 </div>
+                                {/* <div className="col-md-4">
+                                    <div className="form-group setting-input-group">
+                                        <label htmlFor={ `page_${index}_link` }>Link</label>
+                                        <input type="text" id={`page_${index}_link`} className="form-control" value={ page.link } onChange={e => onChangePageItem({ index, link: e.target.value })} />
+                                    </div>
+                                </div> */}
                             </div>
                         ))
                     }

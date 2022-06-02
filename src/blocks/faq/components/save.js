@@ -1,3 +1,5 @@
+import '../styles/style.scss'
+
 export default function Save({ attributes, setAttributes }) {
     const { title, description, faq_items } = attributes
 
@@ -19,8 +21,8 @@ export default function Save({ attributes, setAttributes }) {
                     <div className="col-xl-10 col-lg-12">
                         <div className="faq-wrapper">
                             {
-                                typeof faq_items === 'function' && faq_items.map((faq_item, index) => (
-                                    <div className="faq-item active open" key={index}>
+                                typeof faq_items.map === 'function' && faq_items.map((faq_item, index) => (
+                                    <div className="faq-item" key={index}>
                                         <h3 className="faq-title">
                                             <span className="title">
                                                 <span>

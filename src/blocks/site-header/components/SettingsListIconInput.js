@@ -17,10 +17,10 @@ export default function SettingsListIconInput({ onChangePageItem, removePage, pa
                         </div>
                     </div>
                     <div className="col-md-4">
-                    <div className="form-group setting-input-group">
-                        <label htmlFor={ `page_${index}_link` }>Link</label>
-                        <input type="text" id={`page_${index}_link`} className="form-control" value={ page.link } onChange={e => onChangePageItem({ index, link: e.target.value })} />
-                    </div>
+                        <div className="form-group setting-input-group">
+                            <label htmlFor={ `page_${index}_link` }>Link</label>
+                            <input type="text" id={`page_${index}_link`} className="form-control" value={ page.link } onChange={e => onChangePageItem({ index, link: e.target.value })} />
+                        </div>
                     </div>
                 </div>
             </div>
