@@ -34,7 +34,7 @@ export default function Edit(props) {
         setState(new_state)
         setAttributes({ faq_items: new_state })
     }
-
+ 
     return (
         <FormContainer>
             <div className="row p-3">
