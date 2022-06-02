@@ -8,9 +8,9 @@ import Save from './components/save';
 import './styles/style.scss';
 import './styles/editor.scss';
 
-registerBlockType ( "blockly/faq", {
-		title: __( 'FAQ', 'blockly'  ),
-		description: __( 'A simple block for FAQs', 'blockly' ),
+registerBlockType ( "blockly/feature", {
+		title: __( 'Feature', 'blockly'  ),
+		description: __( 'A simple block for features listing', 'blockly' ),
 		category: 'blockly',
 		icon: {
 			src: 'bell',
@@ -18,33 +18,30 @@ registerBlockType ( "blockly/faq", {
 			foreground: '#004085',
 		},
 		keywords: [
-			__( 'faq', 'blockly' ),
+			__( 'feature', 'blockly' ),
 			__( 'notice', 'blockly' ),
 			__( 'message', 'blockly' ),
 			__( 'blockly', 'blockly' ),
 		],
 		attributes: {
-			title: {
-				type: 'string',
-				default: 'Frequently Asked Questions'
-			},
-			description: {
-				type: 'string',
-				default: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.'
-			},
-			faq_items: {
+			items: {
 				type: 'array',
 				default: [
 					{
-						question: 'What is ThemeI\'M Market?',
-						answer: 'Download thousands of free & premium WordPress Theme, HTML , bootstrap template, flutter app, & graphic assets for your UI, UX design project Browse All Resources'
+						icon_image: '',
+						info: '24x7 Hours Instant Support',
 					}
 				]
 			}
 		},
 		example: {
 			attributes: {
-				content: __( 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 'blockly' ),
+				items: [
+					{
+						icon_image: '',
+						info: '24x7 Hours Instant Support',
+					}
+				],
 			},
 		},
         edit: Edit,

@@ -48,7 +48,6 @@ export default function Edit(props) {
                     {
                         typeof faq_items.map === 'function' && faq_items.map((single_faq_item, index) => (
                             <div key={index} className="faq-input-item">
-                                {/* <a className='remove-item' href="#0">x</a> */}
                                 <button className="btn remove-item" onClick={e => removeFaqItem(index)}>x</button>
                                 <div className="form-group setting-input-group" key={index}>
                                     <input type="text"
@@ -66,12 +65,6 @@ export default function Edit(props) {
                                         onChange={e => updateFaqItem(index, 'answer', e.target.value)}
                                     />
                                 </div>
-                                {/* <div className="col-md-4">
-                                    <div className="form-group setting-input-group">
-                                        <label htmlFor={ `page_${index}_link` }>Link</label>
-                                        <input type="text" id={`page_${index}_link`} className="form-control" value={ page.link } onChange={e => onChangePageItem({ index, link: e.target.value })} />
-                                    </div>
-                                </div> */}
                             </div>
                         ))
                     }
