@@ -33,7 +33,7 @@ if(!function_exists('blockly_render_blog_single_meta')):
         global $post;
         $author_id=$post->post_author; 
         ?>
-            <div class="blog-section ptb-120">
+            <div class="blog-section">
             <div className="auther-meta">
 				  <ul className='author-meta-list list-unstyled list-inline'> 
 				    <li class="list-inline-item"><span>By</span> <?php the_author_meta( 'user_nicename' , $author_id ) ?></li>

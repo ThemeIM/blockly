@@ -33,6 +33,9 @@ import './blocks/site-header';
 import './blocks/single-post-meta';
 import './blocks/single-post-share';
 
+// default qeury 
+import './blocks/themeim-loop-query';
+
 //pricing table
 import './blocks/pricing-table';
 import './blocks/pricing-table-inner';
