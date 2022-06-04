@@ -58,34 +58,34 @@ export default function Edit( { attributes, setAttributes } ) {
 				</div>
 			</PanelBody>
 		</InspectorControls>
-		<div class="footer-top-area">
-                <div class="row justify-content-center align-items-center mb-30-none">
-                    <div class="col-xl-8 col-lg-6 mb-30">
-                        <div class="footer-subscribe-area">
-                            <form class="subscribe-form" action='#'>
-                                <input type="email" class="form--control" placeholder="Enter Your mail" autocomplete="off" />
-                                <button type="submit" class="btn--base">Subscribe Now <i class="fas fa-paper-plane ml-2"></i></button>
+		<div className="footer-top-area">
+                <div className="row justify-content-center align-items-center mb-30-none">
+                    <div className="col-xl-8 col-lg-6 mb-30">
+                        <div className="footer-subscribe-area">
+                            <form className="subscribe-form" action='#'>
+                                <input type="email" className="form--control" placeholder="Enter Your mail" autocomplete="off" />
+                                <button type="submit" className="btn--base">Subscribe Now <i className="fas fa-paper-plane ml-2"></i></button>
                             </form>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-6 mb-30">
-                        <div class="footer-statistics-area">
-                            <div class="row justify-content-center mb-20-none">
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20">
-                                    <div class="statistics-item">
-                                        <h4 class="title">{members}+</h4>
+                    <div className="col-xl-4 col-lg-6 mb-30">
+                        <div className="footer-statistics-area">
+                            <div className="row justify-content-center mb-20-none">
+                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20">
+                                    <div className="statistics-item">
+                                        <h4 className="title">{members}+</h4>
                                         <p>Members</p>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20">
-                                    <div class="statistics-item">
-                                        <h4 class="title">{customers}+</h4>
+                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20">
+                                    <div className="statistics-item">
+                                        <h4 className="title">{customers}+</h4>
                                         <p>Customers</p>
                                     </div>
                                 </div>
-                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20">
-                                    <div class="statistics-item">
-                                        <h4 class="title">{downloades}+</h4>
+                                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xxs-4 mb-20">
+                                    <div className="statistics-item">
+                                        <h4 className="title">{downloades}+</h4>
                                         <p>Downloads</p>
                                     </div>
                                 </div>

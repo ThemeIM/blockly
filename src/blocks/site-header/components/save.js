@@ -14,14 +14,14 @@ export default function Save({ attributes, setAttributes }) {
     } = attributes;
 
     return (
-        <header class="header-section">
-            <div class="header">
-                <div class="header-bottom-area">
-                    <div class="container custom-container">
-                        <div class="header-menu-content">
-                            <nav class="navbar navbar-expand-xl p-0">
+        <header className="header-section">
+            <div className="header">
+                <div className="header-bottom-area">
+                    <div className="container custom-container">
+                        <div className="header-menu-content">
+                            <nav className="navbar navbar-expand-xl p-0">
                                 <a
-                                    class="site-logo site-title"
+                                    className="site-logo site-title"
                                     href="index.html"
                                 >
                                     <img
@@ -30,7 +30,7 @@ export default function Save({ attributes, setAttributes }) {
                                     />
                                 </a>
                                 <button
-                                    class="navbar-toggler ml-auto"
+                                    className="navbar-toggler ml-auto"
                                     type="button"
                                     data-toggle="collapse"
                                     data-target="#navbarSupportedContent"
@@ -38,25 +38,25 @@ export default function Save({ attributes, setAttributes }) {
                                     aria-expanded="false"
                                     aria-label="Toggle navigation"
                                 >
-                                    <span class="toggle-bar"></span>
+                                    <span className="toggle-bar"></span>
                                 </button>
                                 <div
-                                    class="toggle-menu collapse navbar-collapse"
+                                    className="toggle-menu collapse navbar-collapse"
                                     id="navbarSupportedContent"
                                 >
-                                    <ul class="navbar-nav main-menu">
-                                        <li class="menu_has_children">
+                                    <ul className="navbar-nav main-menu">
+                                        <li className="menu_has_children">
                                             <a href="#0">
-                                                <div class="toggle-menu">
+                                                <div className="toggle-menu">
                                                     Browse{" "}
-                                                    <i class="fas fa-chevron-down"></i>
+                                                    <i className="fas fa-chevron-down"></i>
                                                 </div>
                                             </a>
-                                            <ul class="sub-menu">
+                                            <ul className="sub-menu">
                                                 { typeof pages.map === 'function' && pages.map((page, index) => (
 													<li key={index}>
 														<a href={page.link}>
-															<i class="las la-hand-holding-heart"></i>{" "}
+															<i className="las la-hand-holding-heart"></i>{" "}
 															{page.title}
 														</a>
 													</li>
@@ -66,10 +66,10 @@ export default function Save({ attributes, setAttributes }) {
                                     </ul>
                                 </div>
                                 <div
-                                    class="collapse navbar-collapse"
+                                    className="collapse navbar-collapse"
                                     id="navbarSupportedContent"
                                 >
-                                    <ul class="navbar-nav main-menu ml-auto">
+                                    <ul className="navbar-nav main-menu ml-auto">
                                         <li>
                                             <a href={freeItems}>
                                                 Free items
@@ -79,22 +79,22 @@ export default function Save({ attributes, setAttributes }) {
                                             <a href={pricePlan}>Pricing</a>
                                         </li>
                                     </ul>
-                                    <div class="header-right">
-                                        <div class="toggle-menu product-nav">
-                                            <span class="icon">
+                                    <div className="header-right">
+                                        <div className="toggle-menu product-nav">
+                                            <span className="icon">
                                                 <img
                                                     src={ productDropdownIcon }
                                                     alt="icon"
                                                 />
                                             </span>
-                                            <span class="product-nav-menu">
+                                            <span className="product-nav-menu">
                                                 {" "}
                                                 <a href="#">
                                                     Our Products
                                                 </a>{" "}
                                             </span>
-                                            <div class="product-navigation">
-                                                <ul class="product-nav-list">
+                                            <div className="product-navigation">
+                                                <ul className="product-nav-list">
 													{
 														typeof products.map === 'function' && products.map((product, index) => (
 															<li key={index}>
@@ -107,108 +107,108 @@ export default function Save({ attributes, setAttributes }) {
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="header-cart-area">
-                                            <div class="header-cart-action">
-                                                <span class="icon">
-                                                    <i class={ cartIcon }></i>
+                                        <div className="header-cart-area">
+                                            <div className="header-cart-action">
+                                                <span className="icon">
+                                                    <i className={ cartIcon }></i>
                                                 </span>
-                                                <span class="cart-badge">
+                                                <span className="cart-badge">
                                                     2
                                                 </span>
                                             </div>
-                                            <div class="cart-widget-dropdown">
-                                                <div class="cart-widget">
-                                                    <div class="cart-widget-item">
-                                                        <div class="cart-widget-item-left">
-                                                            <div class="cart-widget-thumb">
+                                            <div className="cart-widget-dropdown">
+                                                <div className="cart-widget">
+                                                    <div className="cart-widget-item">
+                                                        <div className="cart-widget-item-left">
+                                                            <div className="cart-widget-thumb">
                                                                 <img
                                                                     src="assets/images/cart/cart-1.png"
                                                                     alt="cart"
                                                                 />
                                                             </div>
-                                                            <div class="cart-widget-content">
-                                                                <h6 class="title">
+                                                            <div className="cart-widget-content">
+                                                                <h6 className="title">
                                                                     Dialer –
                                                                     WordPress
                                                                     Theme
                                                                 </h6>
-                                                                <span class="sub-title">
+                                                                <span className="sub-title">
                                                                     1 Item
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="cart-widget-item-right">
-                                                            <div class="cart-cross-btn">
+                                                        <div className="cart-widget-item-right">
+                                                            <div className="cart-cross-btn">
                                                                 <span>
-                                                                    <i class="las la-times"></i>
+                                                                    <i className="las la-times"></i>
                                                                 </span>
                                                             </div>
-                                                            <div class="cart-widget-price">
+                                                            <div className="cart-widget-price">
                                                                 <span>$59</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="cart-widget">
-                                                    <div class="cart-widget-item">
-                                                        <div class="cart-widget-item-left">
-                                                            <div class="cart-widget-thumb">
+                                                <div className="cart-widget">
+                                                    <div className="cart-widget-item">
+                                                        <div className="cart-widget-item-left">
+                                                            <div className="cart-widget-thumb">
                                                                 <img
                                                                     src="assets/images/cart/cart-2.png"
                                                                     alt="cart"
                                                                 />
                                                             </div>
-                                                            <div class="cart-widget-content">
-                                                                <h6 class="title">
+                                                            <div className="cart-widget-content">
+                                                                <h6 className="title">
                                                                     WordPress
                                                                     theme design
                                                                     to HTML5
                                                                 </h6>
-                                                                <span class="sub-title">
+                                                                <span className="sub-title">
                                                                     1 Item
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="cart-widget-item-right">
-                                                            <div class="cart-cross-btn">
+                                                        <div className="cart-widget-item-right">
+                                                            <div className="cart-cross-btn">
                                                                 <span>
-                                                                    <i class="las la-times"></i>
+                                                                    <i className="las la-times"></i>
                                                                 </span>
                                                             </div>
-                                                            <div class="cart-widget-price">
+                                                            <div className="cart-widget-price">
                                                                 <span>$49</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="cart-widget">
-                                                    <div class="cart-widget-item">
-                                                        <div class="cart-widget-item-left">
-                                                            <div class="cart-widget-thumb">
+                                                <div className="cart-widget">
+                                                    <div className="cart-widget-item">
+                                                        <div className="cart-widget-item-left">
+                                                            <div className="cart-widget-thumb">
                                                                 <img
                                                                     src="assets/images/cart/cart-3.png"
                                                                     alt="cart"
                                                                 />
                                                             </div>
-                                                            <div class="cart-widget-content">
-                                                                <h6 class="title">
+                                                            <div className="cart-widget-content">
+                                                                <h6 className="title">
                                                                     SERP &amp;
                                                                     Crowd
                                                                     Competitor
                                                                     Analysis
                                                                 </h6>
-                                                                <span class="sub-title">
+                                                                <span className="sub-title">
                                                                     1 Item
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <div class="cart-widget-item-right">
-                                                            <div class="cart-cross-btn">
+                                                        <div className="cart-widget-item-right">
+                                                            <div className="cart-cross-btn">
                                                                 <span>
-                                                                    <i class="las la-times"></i>
+                                                                    <i className="las la-times"></i>
                                                                 </span>
                                                             </div>
-                                                            <div class="cart-widget-price">
+                                                            <div className="cart-widget-price">
                                                                 <span>$29</span>
                                                             </div>
                                                         </div>
@@ -216,21 +216,21 @@ export default function Save({ attributes, setAttributes }) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="header-action-area">
-                                            <div class="header-action">
+                                        <div className="header-action-area">
+                                            <div className="header-action">
                                                 <a
                                                     href={hire}
-                                                    class="btn--base"
+                                                    className="btn--base"
                                                 >
                                                     Hire Us{" "}
-                                                    <i class="fas fa-paper-plane ml-2"></i>
+                                                    <i className="fas fa-paper-plane ml-2"></i>
                                                 </a>
                                                 <a
                                                     href={login}
-                                                    class="btn--base active"
+                                                    className="btn--base active"
                                                 >
                                                     Login{" "}
-                                                    <i class="icon-Group-788 ml-2"></i>
+                                                    <i className="icon-Group-788 ml-2"></i>
                                                 </a>
                                             </div>
                                         </div>

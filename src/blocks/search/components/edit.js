@@ -71,32 +71,32 @@ export default function Edit( { attributes, setAttributes } ) {
 		</InspectorControls>
 		<div className='search-wrapper'>
 			{(searchStyle == 1) && (
-			<div class="widget-box blog-widget-box mb-30">
-					<h4 class="widget-title">Search</h4>
-					<div class="search-widget-box">
-						<form class="search-form">
-							<input type="text" name="s" class="form--control" placeholder="Search" autocomplete="off" />
-							<button type="submit"><i class="icon-Search"></i></button>
+			<div className="widget-box blog-widget-box mb-30">
+					<h4 className="widget-title">Search</h4>
+					<div className="search-widget-box">
+						<form className="search-form">
+							<input type="text" name="s" className="form--control" placeholder="Search" autocomplete="off" />
+							<button type="submit"><i className="icon-Search"></i></button>
 						</form>
 					</div>
 				</div>
 			)}
 			{(searchStyle == 2) && (
-			<div class="banner-section inner-banner-section">
+			<div className="banner-section inner-banner-section">
 				{console.log(backgroudImage)}
 			
 				{backgroudImage && (
-					<div class="banner-element">
+					<div className="banner-element">
 							<img src={backgroudImage} alt="element" />
 					</div>
 				)}
 			
-				<div class="row justify-content-center">
-					<div class="col-xl-10">
-						<div class="product-category-search-area two">
-							<form class="product-search-form">
-								<input type="text" class="form--control" placeholder="Search For Knowelduge" autocomplete="off" />
-								{iconImage && <button type="submit" class="submit-btn"><img src={iconImage} alt="icon"/></button>}
+				<div className="row justify-content-center">
+					<div className="col-xl-10">
+						<div className="product-category-search-area two">
+							<form className="product-search-form">
+								<input type="text" className="form--control" placeholder="Search For Knowelduge" autocomplete="off" />
+								{iconImage && <button type="submit" className="submit-btn"><img src={iconImage} alt="icon"/></button>}
 							</form>
 						</div>
 					</div>

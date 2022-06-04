@@ -94,9 +94,9 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			{/* main body */}
-			<div class="widget-box blog-widget-box mb-30">
-				<h4 class="widget-title">Recent Posts</h4>
-				<div class="popular-widget-box">
+			<div className="widget-box blog-widget-box mb-30">
+				<h4 className="widget-title">Recent Posts</h4>
+				<div className="popular-widget-box">
 					{
 						posts && typeof posts.map === 'function' && posts.map((post, index) => (
 							<RecentPost

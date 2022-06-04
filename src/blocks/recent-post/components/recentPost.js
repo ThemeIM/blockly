@@ -44,13 +44,13 @@ export default function RecentPost({ date, title, image, post_url }) {
     }
 
     return (
-        <div class="single-popular-item d-flex flex-wrap align-items-center">
-            <div class="popular-item-thumb">
+        <div className="single-popular-item d-flex flex-wrap align-items-center">
+            <div className="popular-item-thumb">
                 <img src={image?.source_url} alt={image?.alt_text} />
             </div>
-            <div class="popular-item-content">
-                <span class="blog-date">{format_date(date)}</span>
-                <h4 class="title">
+            <div className="popular-item-content">
+                <span className="blog-date">{format_date(date)}</span>
+                <h4 className="title">
                     <a href={post_url}>
                     {
                         title 

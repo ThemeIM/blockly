@@ -59,8 +59,8 @@ export default class Edit extends Component {
 
                
 				{ style_type == 'style_one' && (
-					<div class="blockly-testimonial-wrap-symbol-container">
-						<div class="blockly-testimonial-wrap-symbol-inner">
+					<div className="blockly-testimonial-wrap-symbol-container">
+						<div className="blockly-testimonial-wrap-symbol-inner">
 							<svg
 								id="testimonial-quote-icon"
 								data-name="testimonial-quote-icon"
@@ -72,14 +72,14 @@ export default class Edit extends Component {
 								<path
 									id="Path_55"
 									data-name="Path 55"
-									class="cls-1"
+									className="cls-1"
 									d="M594.485,126.2a19.85,19.85,0,0,0-1.136,39.667A27.876,27.876,0,0,1,585.7,179.44c10.963,0,28.639-14.951,28.639-33.395A19.851,19.851,0,0,0,594.485,126.2Z"
 									transform="translate(-526.041 -126.195)"
 								/>
 								<path
 									id="Path_56"
 									data-name="Path 56"
-									class="cls-1"
+									className="cls-1"
 									d="M527.434,126.2a19.85,19.85,0,0,0-1.136,39.667,27.876,27.876,0,0,1-7.652,13.578c10.964,0,28.639-14.951,28.639-33.395A19.851,19.851,0,0,0,527.434,126.2Z"
 									transform="translate(-507.583 -126.195)"
 								/>
@@ -91,7 +91,7 @@ export default class Edit extends Component {
 			 <div className="bly-testimonial-text">
 
 				{ style_type == 'style_two' && (
-					<div class="bly-testiominal-image-wrap-upper">
+					<div className="bly-testiominal-image-wrap-upper">
 						<svg
 							id="quotes-upper"
 							xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +132,7 @@ export default class Edit extends Component {
 				/>
 
 				{ style_type == 'style_two' && (
-					<div class="bly-testiominal-image-wrap-lower">
+					<div className="bly-testiominal-image-wrap-lower">
 						<svg
 							id="quotes-lower"
 							xmlns="http://www.w3.org/2000/svg"

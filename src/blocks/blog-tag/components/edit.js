@@ -47,10 +47,10 @@ export default function Edit({ attributes, setAttributes }) {
 			</InspectorControls>
 
 			{/* main */}
-			<div class="widget-box blog-widget-box">
-                <h4 class="widget-title">Tags</h4>
-				<div class="tag-widget-box">
-					<ul class="tag-list">
+			<div className="widget-box blog-widget-box">
+                <h4 className="widget-title">Tags</h4>
+				<div className="tag-widget-box">
+					<ul className="tag-list">
 						{
 							typeof selectedTags.map === 'function' && selectedTags.map((tag, i) => (
 								<li><a href={tag.link ?? ''}>{ tag.label }</a></li>
