@@ -35,3 +35,23 @@ span.remove_page {
         background-color: var(--wp-admin-theme-color-darker-10);
     }
 }
+.faq-input-item {
+    border: 1px solid grey;
+    padding: 25px;
+    margin: 10px 0;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    box-shadow: 4px 4px 11px -1px rgba(0,0,0,0.15);
+    position: relative;
+    -webkit-box-shadow: 4px 4px 11px -1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 4px 4px 11px -1px rgba(0,0,0,0.15);
+}
+.remove-item {
+    position: absolute;
+    right: 3px;
+    top: 4px;
+    z-index: 2;
+    line-height: 20px;
+    border: 1px solid grey;
+    border-radius: 50%;
+}

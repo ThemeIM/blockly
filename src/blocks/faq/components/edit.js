@@ -34,7 +34,7 @@ export default function Edit(props) {
         setState(new_state)
         setAttributes({ faq_items: new_state })
     }
- 
+
     return (
         <FormContainer>
             <div className="row p-3">
@@ -69,7 +69,7 @@ export default function Edit(props) {
                         ))
                     }
                     <div className="text-center">
-                        <button className="btn btn-primary px-4" onClick={addFaqItem}>Add FAQ</button>
+                        <button className="btn btn-primary px-4 btn-style-1" onClick={addFaqItem}>Add FAQ</button>
                     </div>
                 </div>
             </div>
