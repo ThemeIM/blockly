@@ -23,7 +23,7 @@ registerBlockType( 'blockly/price-plan', {
 	category: 'blockly',
 	keywords: [
 		__( 'price', 'blockly' ),
-		__( 'price-plan', 'blockly' ),
+		__( 'plan', 'blockly' ),
 		__( 'widget', 'blockly' ),
 		__( 'tab', 'blockly' ),
 		__( 'nav', 'blockly' ),
@@ -45,6 +45,8 @@ registerBlockType( 'blockly/price-plan', {
 			plans: [
 				{
 					type: 'Elite',
+					popular_text: '',
+					badge_color: 'green',
 					details: '1 Month Access to This Products',
 					price: 49,
 					duration: '3 month',
