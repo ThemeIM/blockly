@@ -34,7 +34,7 @@ export default function Edit(props) {
         setState(new_state)
         setAttributes({ faq_items: new_state })
     }
- 
+
     return (
         <FormContainer>
             <div className="row p-3">
@@ -48,7 +48,6 @@ export default function Edit(props) {
                     {
                         typeof faq_items.map === 'function' && faq_items.map((single_faq_item, index) => (
                             <div key={index} className="faq-input-item">
-                                {/* <a className='remove-item' href="#0">x</a> */}
                                 <button className="btn remove-item" onClick={e => removeFaqItem(index)}>x</button>
                                 <div className="form-group setting-input-group" key={index}>
                                     <input type="text"
@@ -66,17 +65,11 @@ export default function Edit(props) {
                                         onChange={e => updateFaqItem(index, 'answer', e.target.value)}
                                     />
                                 </div>
-                                {/* <div className="col-md-4">
-                                    <div className="form-group setting-input-group">
-                                        <label htmlFor={ `page_${index}_link` }>Link</label>
-                                        <input type="text" id={`page_${index}_link`} className="form-control" value={ page.link } onChange={e => onChangePageItem({ index, link: e.target.value })} />
-                                    </div>
-                                </div> */}
                             </div>
                         ))
                     }
                     <div className="text-center">
-                        <button className="btn btn-primary px-4" onClick={addFaqItem}>Add FAQ</button>
+                        <button className="btn btn-primary px-4 btn-style-1" onClick={addFaqItem}>Add FAQ</button>
                     </div>
                 </div>
             </div>

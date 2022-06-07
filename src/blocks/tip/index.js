@@ -9,10 +9,10 @@ import './styles/editor.scss';
 import './styles/style.scss';
 
 // Register the block testimonial
-registerBlockType( 'blockly/price-plan', {
-	title: __( 'Price plan section', 'blockly' ),
+registerBlockType( 'blockly/tip', {
+	title: __( 'Tip section', 'blockly' ),
 	description: __(
-		'Add a price plan section',
+		'Add a Tip section',
 		'blockly'
 	),
 	icon: {
@@ -22,9 +22,7 @@ registerBlockType( 'blockly/price-plan', {
     },
 	category: 'blockly',
 	keywords: [
-		__( 'price', 'blockly' ),
-		__( 'plan', 'blockly' ),
-		__( 'widget', 'blockly' ),
+		__( 'tip', 'blockly' ),
 		__( 'tab', 'blockly' ),
 		__( 'nav', 'blockly' ),
 		__( 'blockly', 'blockly' ),
@@ -34,31 +32,15 @@ registerBlockType( 'blockly/price-plan', {
 			type: 'string',
 			default: 'Price plan'
 		},
-		plans: {
-			type: 'array',
-			default: []
-		}
+		tip: {
+			type: 'string',
+			default: 'Lorem ipsum dolores sit'
+		},
 	},
 	example: {
 		attributes: {
 			title: __('Price plan'),
-			plans: [
-				{
-					type: 'Elite',
-					popular_text: '',
-					badge_color: 'green',
-					details: '1 Month Access to This Products',
-					price: 49,
-					duration: '3 month',
-					cta_text: 'GO PRO',
-					cta_url: '/go-pro',
-					features: [
-						'03 WordPress Theme',
-						'02 Code Script',
-						'10 HTML + UI Assets'
-					]
-				}
-			]
+			tip: __('Lorem ipsum dolores sit')
 		}
 	},
 	edit: Edit,

@@ -1,4 +1,3 @@
-//wordpress dependencies
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
 
@@ -9,10 +8,10 @@ import './styles/editor.scss';
 import './styles/style.scss';
 
 // Register the block testimonial
-registerBlockType( 'blockly/price-plan', {
-	title: __( 'Price plan section', 'blockly' ),
+registerBlockType( 'blockly/table-section', {
+	title: __( 'Table section', 'blockly' ),
 	description: __(
-		'Add a price plan section',
+		'Add a table section',
 		'blockly'
 	),
 	icon: {
@@ -22,43 +21,40 @@ registerBlockType( 'blockly/price-plan', {
     },
 	category: 'blockly',
 	keywords: [
-		__( 'price', 'blockly' ),
-		__( 'plan', 'blockly' ),
-		__( 'widget', 'blockly' ),
+		__( 'table', 'blockly' ),
 		__( 'tab', 'blockly' ),
 		__( 'nav', 'blockly' ),
 		__( 'blockly', 'blockly' ),
 	],
 	attributes: {
-		title: {
+		table_style: {
 			type: 'string',
-			default: 'Price plan'
+			default: 'normal' // normal | striped
 		},
-		plans: {
+		column_names: {
 			type: 'array',
-			default: []
+			default: [
+				'Column 1',
+				'Column 2',
+			]
+		},
+		rows: {
+			type: 'array',
+			default: [
+				['Test 1', 'Test 2']
+			]
 		}
 	},
 	example: {
 		attributes: {
-			title: __('Price plan'),
-			plans: [
-				{
-					type: 'Elite',
-					popular_text: '',
-					badge_color: 'green',
-					details: '1 Month Access to This Products',
-					price: 49,
-					duration: '3 month',
-					cta_text: 'GO PRO',
-					cta_url: '/go-pro',
-					features: [
-						'03 WordPress Theme',
-						'02 Code Script',
-						'10 HTML + UI Assets'
-					]
-				}
-			]
+			table_style: 'normal',
+			column_names: [
+				'Column 1',
+				'Column 2',
+			],
+			rows: [
+				['Test 1', 'Test 2']
+			],
 		}
 	},
 	edit: Edit,
