@@ -70,7 +70,14 @@ export default function Edit({ attributes, setAttributes }) {
             rows: [...rows, [...column_names.map((column) => "")]],
         });
 
-    const updateColumn = index => {}
+    const updateColumn = (index, data) => {
+        const all_columns = [ ...column_names ]
+        all_columns[index] = data
+        setAttributes({ column_names: all_columns })
+        setState(state + 1)
+    }
+
+    const updateRow = () => {}
 
     return (
         <>
