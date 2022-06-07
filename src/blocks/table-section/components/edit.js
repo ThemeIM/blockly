@@ -11,28 +11,10 @@ import {
 
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 
-import PlanInput from "./planInput";
-
 export default function Edit({ attributes, setAttributes }) {
     const { table_style, column_names, rows } = attributes;
     let [state, setState] = useState(0);
 
-    /*
-        {
-			table_style: 'normal',
-			column_names: [
-				'Column 1',
-				'Column 2',
-			],
-			rows: [
-				['Test 1', 'Test 2']
-			],
-		}
-    */
-
-    /**
-     * ==================== ==================== ====================
-     */
     const addColumn = () => {
         // add column name
         setAttributes({ column_names: [ ...column_names, '' ] })
