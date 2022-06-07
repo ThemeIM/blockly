@@ -30,27 +30,6 @@ export default function Edit({ attributes, setAttributes }) {
 		}
     */
 
-    const updatePlan = (index, key, value) => {
-        let all_plans = plans;
-        all_plans[index][key] = value;
-        setState(++state);
-        return setAttributes({ plans: all_plans });
-    };
-
-    const addFeature = (plan_index) => {
-        let all_plans = plans;
-        all_plans[plan_index]["features"].push("");
-        setState(++state);
-        return setAttributes({ plans: all_plans });
-    };
-
-    const updateFeature = (plan_index, feature_index, data) => {
-        let all_plans = plans;
-        all_plans[plan_index]["features"][feature_index] = data;
-        setState(++state);
-        return setAttributes({ plans: all_plans });
-    };
-
     /**
      * ==================== ==================== ====================
      */
@@ -70,14 +49,19 @@ export default function Edit({ attributes, setAttributes }) {
             rows: [...rows, [...column_names.map((column) => "")]],
         });
 
-    const updateColumn = (index, data) => {
+    const updateColumnName = (index, data) => {
         const all_columns = [ ...column_names ]
         all_columns[index] = data
         setAttributes({ column_names: all_columns })
         setState(state + 1)
     }
 
-    const updateRow = () => {}
+    const updateRow = (row_index, cell_index, data) => {
+        const all_rows = [ ...rows ]
+        all_rows[row_index][cell_index] = data
+        setAttributes({ rows: [ ...all_rows ] })
+        setState(state + 1)
+    }
 
     return (
         <>
@@ -101,9 +85,15 @@ export default function Edit({ attributes, setAttributes }) {
                                 <tr>
                                     {
                                         typeof column_names.map === 'function' && column_names.map((column, index) => (
-                                            <th key={index}>{ column }</th>
+                                            <th key={index}>
+                                                {/* updateColumnName */}
+                                                { column }
+                                            </th>
                                         ))
                                     }
+                                </tr>
+                                <tr>
+                                    <Button onClick={addColumn}>+</Button>
                                 </tr>
                             </thead>
                             <tbody>
@@ -118,14 +108,22 @@ export default function Edit({ attributes, setAttributes }) {
                                         </tr>
                                     ))
                                 }
+                                <tr>
+                                    <Button onClick={addRow} >Add Row</Button>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div style={{ paddingTop: "15px" }}>
+
+
+
+
+
+                    {/* <div style={{ paddingTop: "15px" }}>
                         <Button variant="secondary" onClick={addRow}>
                             Add Plan
                         </Button>
-                    </div>
+                    </div> */}
 
 
 
