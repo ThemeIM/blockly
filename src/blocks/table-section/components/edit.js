@@ -80,9 +80,7 @@ export default function Edit({ attributes, setAttributes }) {
                                             </th>
                                         ))
                                     }
-                                </tr>
-                                <tr>
-                                    <Button onClick={addColumn}>+</Button>
+                                    <Button variant="secondary" onClick={addColumn}>+</Button>
                                 </tr>
                             </thead>
                             <tbody>
@@ -108,7 +106,7 @@ export default function Edit({ attributes, setAttributes }) {
                                     ))
                                 }
                                 <tr>
-                                    <Button onClick={addRow}>Add Row</Button>
+                                    <Button variant="secondary" onClick={addRow}>Add Row</Button>
                                 </tr>
                             </tbody>
                         </table>

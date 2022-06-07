@@ -100,7 +100,7 @@ $bg--base: #6CD342; // Background base color
             }
             &::before {
                 position: absolute;
-                content: url("../images/check.svg");
+                // content: url("../images/check.svg");
                 text-align: center;
                 top: 0;
                 left: 0;
@@ -274,7 +274,7 @@ blockquote {
             }
             &::before {
                 position: absolute;
-                content: url("../images/check.svg");
+                // content: url("../images/check.svg");
                 text-align: center;
                 top: 25px;
                 left: 25px;
@@ -334,7 +334,7 @@ blockquote {
             }
             &::before {
                 position: absolute;
-                content: url("../images/check.svg");
+                // content: url("../images/check.svg");
                 text-align: center;
                 top: 25px;
                 left: 20px;
