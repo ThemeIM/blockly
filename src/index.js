@@ -22,6 +22,7 @@ import './blocks/button';
 import './blocks/highlight';
 import './blocks/quote'; 
 import './blocks/section';
+import './blocks/product-content';
 import './blocks/vertical-list';
 import './blocks/social-list';
 import './blocks/subscription-forms';
@@ -48,7 +49,7 @@ import './blocks/pricing-table-inner/components/features';
 import './blocks/pricing-table-inner/components/button';
 import './blocks/recent-post'
 import './blocks/blog-category'
-import './blocks/blog-tag'
+//import './blocks/blog-tag'
 import './blocks/overview-section'
 import './blocks/faq'
 import './blocks/feature'
