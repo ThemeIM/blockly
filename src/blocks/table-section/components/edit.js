@@ -51,15 +51,26 @@ export default function Edit({ attributes, setAttributes }) {
         return setAttributes({ plans: all_plans });
     };
 
+    /**
+     * ==================== ==================== ====================
+     */
     const addColumn = () => {
-        // add column
-        // 
+        // add column name
+        setAttributes({ column_names: [ ...column_names, '' ] })
+
+        // add column in each row
+        let all_rows = [ ...rows ]
+        all_rows.map(row_arr => row_arr.push(''))
+        setAttributes({ rows: [ ...all_rows ] })
+        setState(state + 1)
     }
 
     const addRow = () =>
         setAttributes({
             rows: [...rows, [...column_names.map((column) => "")]],
         });
+
+    const updateColumn = index => {}
 
     return (
         <>
