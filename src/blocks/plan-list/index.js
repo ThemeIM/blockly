@@ -50,5 +50,5 @@ registerBlockType( 'blockly/plan-list', {
 		}
 	},
 	edit: Edit,
-	save: Save
+	save: () => null //Save
 } );
