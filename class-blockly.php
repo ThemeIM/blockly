@@ -151,6 +151,7 @@ final class Blockly {
         add_action('init',array($this,'block_assets'));
         add_action( 'enqueue_block_editor_assets', array($this,'editor_assets' ));
         add_action( 'wp_enqueue_scripts', array($this,'enqueue_styles_scripts' ));
+		add_action( 'wp_enqueue_scripts', array($this,'block_assets' ));
 		add_filter( 'block_categories_all', array($this,'add_custom_block_category') );
         add_action( 'wp_ajax_get_posts_default', [$this, 'get_posts_default'] );
 		add_action( 'wp_ajax_nopriv_get_posts_default', [$this, 'get_posts_default'] );
@@ -193,6 +194,7 @@ final class Blockly {
         wp_register_script( 'blockly-hide-alert-js', plugin_dir_url(__FILE__) . 'assets/js/hide-alert.js', array( 'jquery' ) );
 		wp_register_script( 'blockly-blog-js', plugin_dir_url(__FILE__) . 'assets/js/blog.js', array( 'jquery' ) );
 		wp_register_script( 'blockly-bootstarp-js', plugin_dir_url(__FILE__) . 'assets/js/bootstrap.bundle.min.js', array( 'jquery' ) );
+		wp_enqueue_style('blockly-blocks-style-css');
     }
 
     /**

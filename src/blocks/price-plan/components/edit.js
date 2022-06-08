@@ -160,10 +160,18 @@ export default function Edit({ attributes, setAttributes }) {
                                                         <PlanInput
                                                             placeholder={`Feature-${feature_index + 1}`}
                                                             value={feature}
+                                                            feature_index={feature_index}
+                                                            plan_index={index}
                                                             callback={ value => updateFeature(
                                                                     index,
                                                                     feature_index,
                                                                     value
+                                                                )
+                                                            }
+                                                            is_closable={true}
+                                                            closeCallback={ () => removeFeature(
+                                                                plan_index,
+                                                                feature_index
                                                                 )
                                                             }
                                                         />
