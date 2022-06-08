@@ -3,6 +3,8 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 export default function Save({ attributes }) {
     const { title, plans } = attributes;
 
+   
+
     return (
         <div class="plan-list-area">
             <h5 class="title">{ title }</h5>
