@@ -36,8 +36,6 @@ export default function Edit({ attributes, setAttributes }) {
 
     const blockProps = useBlockProps();
 
-    console.log(plans);
-
     return (
         <>
             <Card>

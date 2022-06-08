@@ -1,27 +1,29 @@
 import "../styles/style.scss";
 
 export default function Save({ attributes, setAttributes }) {
-    const { title, table_of_contents } = attributes;
+    const { item_style, feature_list } = attributes
+
+    let list_data = ''
+
+    typeof feature_list.map === 'function' && feature_list.map((feature, i) => {
+        list_data += <li key={i}>{ feature }</li>
+    })
+
+    if (item_style == bordered) {
+        return (
+            <div className="feature-list-area">
+                <ul className="feature-list">
+                    { list_data }
+                </ul>
+            </div>
+        )
+    }
 
     return (
-        <div className="blog-list-area">
-            <div className="blog-list-header">
-                <h4 className="title">{title}</h4>
-                <span className="hide">Hide</span>
-            </div>
-            <ul className="blog-list">
-                {
-                    typeof table_of_contents.map === 'function' && table_of_contents.map((toc, i) => (
-                        <li>
-                            <a href={`#${toc.link}`}>Introduction</a>
-                            <ul>
-                                <li>Beginner level</li>
-                                <li>Advance level</li>
-                            </ul>
-                        </li>
-                    ))
-                }
+        <div className="blog-content-list-area">
+            <ul className="blog-content-list">
+                { list_data }
             </ul>
         </div>
-    );
+    )
 }

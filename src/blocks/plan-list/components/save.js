@@ -10,7 +10,6 @@ export default function Save({ attributes }) {
                 {
                     typeof plans.map === 'function' && plans.map((plan, i) => (
                         <li key={i}>{plan}</li>
-                        // <li><span class="plan-title">Hyper 1</span> – Starts from <span class="price-title">$129.99/mo</span></li>
                     ))
                 }
             </ul>
