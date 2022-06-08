@@ -133,6 +133,7 @@ final class Blockly {
         require_once( BLY_SRC_BLOCKS . '/single-post-share/index.php' );
         require_once( BLY_SRC_BLOCKS . '/recent-post/index.php' );
         require_once( BLY_SRC_BLOCKS . '/themeim-loop-query/index.php' );
+        require_once( BLY_SRC_BLOCKS . '/product-archive/product.php' );
     }
 
     /**

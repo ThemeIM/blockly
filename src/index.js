@@ -58,3 +58,5 @@ import './blocks/tip'
 import './blocks/table-section'
 import './blocks/plan-list'
 import './blocks/feature-list'
+//  WooCommerce 
+import './blocks/product-archive';
