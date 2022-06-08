@@ -9,8 +9,7 @@ export default function save( { attributes } ) {
 		<div
         
 			{ ...useBlockProps.save({className: 'blockly-full product-content-inner'}) } style={mystyle} >
-                
-			        <InnerBlocks.Content />
+			    <InnerBlocks.Content />
 		</div>
 	);
 }
