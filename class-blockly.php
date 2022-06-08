@@ -134,6 +134,7 @@ final class Blockly {
         require_once( BLY_SRC_BLOCKS . '/recent-post/index.php' );
         require_once( BLY_SRC_BLOCKS . '/themeim-loop-query/index.php' );
         require_once( BLY_SRC_BLOCKS . '/product-archive/product.php' );
+        require_once( BLY_SRC_BLOCKS . '/plan-list/index.php' );
     }
 
     /**
@@ -190,6 +191,7 @@ final class Blockly {
     public function block_assets() {
         // Load the compiled styles.
 	    wp_register_style( 'blockly-bootstarp-css', plugin_dir_url(__FILE__) . 'assets/css/bootstrap.min.css', array(), BLY_VERSION );
+	    wp_register_style( 'blockly-common-style', plugin_dir_url(__FILE__) . 'assets/css/common.css', array(), BLY_VERSION );
 	    wp_register_style( 'blockly-blocks-style-css', plugin_dir_url(__FILE__) . 'build/style-index.css', array(), BLY_VERSION );
 	    wp_register_style( 'blockly-blog-style', plugin_dir_url(__FILE__) . 'assets/css/blog.css', array(), BLY_VERSION );
         wp_register_script( 'blockly-hide-alert-js', plugin_dir_url(__FILE__) . 'assets/js/hide-alert.js', array( 'jquery' ) );
@@ -251,6 +253,7 @@ final class Blockly {
 			        'nonce' => wp_create_nonce('blockly-post')
 			) );
         }
+		wp_enqueue_style('blockly-common-style');
     }
    public function get_posts_default() {	
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'blockly-post' ) ) {
