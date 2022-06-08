@@ -1,0 +1,41 @@
+// $white: #ffffff;
+// $bg--base: #6CD342; // Background base color
+// $font_heading: 'Poppins', sans-serif;
+
+// .widget-box {
+//     background-color: #ffffff;
+//     padding: 25px;
+//     border-radius: 8px;
+//     z-index: 2;
+//     overflow: hidden;
+//     &.service-widget-box{
+//         padding: 0;
+//     }
+//     .widget-title{
+//         margin-bottom: 20px;
+//         font-weight: 600;
+//     }
+// }
+// .blog-widget-box{
+//     background-color: #F9F9F9;
+//     .widget-title{
+//         margin-bottom: 20px;
+//         font-weight: 700;
+//         font-family: $font_heading;
+//         position: relative;
+//         z-index: 2;
+//         &::before{
+//             position: absolute;
+//             content: '';
+//             top: 0;
+//             left: -25px;
+//             width: 3px;
+//             height: 20px;
+//             background-color: $bg--base;
+//         }
+//     }
+// }
+.feature-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
