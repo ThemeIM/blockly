@@ -1,0 +1,9 @@
+.plan-list-area .plan-list li::before {
+    content: url("../images/check.svg")
+}
+.feature-list-area .feature-list li::before {
+    content: url("../images/check.svg")
+}
+.blog-content-list-area .blog-content-list li::before {
+    content: url("../images/check.svg")
+}

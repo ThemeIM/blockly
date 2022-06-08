@@ -1,5 +1,3 @@
-
-
 export default function Save({ attributes, setAttributes }) {
     const { item_style, feature_list } = attributes
 
@@ -19,7 +17,7 @@ export default function Save({ attributes, setAttributes }) {
 
     return (
         <div className="blog-content-list-area">
-            <ul className="blog-content-list" data-x={ typeof feature_list.map }>
+            <ul className="blog-content-list">
                 {
                     typeof feature_list.map === 'function' && feature_list.map((feature, i) => (
                         <li key={i}>{ feature.feature }</li>
