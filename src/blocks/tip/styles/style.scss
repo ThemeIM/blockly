@@ -1,3 +1,28 @@
- .blockly-full{
-   max-width: 100% !important;
- }
+.blockly-full {
+    max-width: 100% !important;
+}
+.blog-desc-area {
+    margin-top: 50px;
+    .blog-desc {
+        background: transparent
+            linear-gradient(270deg, #ffffff00 0%, #506ecf33 100%) 0% 0%
+            no-repeat padding-box;
+        padding: 30px;
+        border-radius: 5px;
+        font-size: 20px;
+        line-height: 40px;
+        border-left: 5px solid rgba(80, 110, 207, 0.5);
+        @media only screen and (max-width: 991px) {
+            padding: 20px;
+            font-size: 16px;
+            line-height: 30px;
+        }
+        .title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            @media only screen and (max-width: 991px) {
+                font-size: 18px;
+            }
+        }
+    }
+}
