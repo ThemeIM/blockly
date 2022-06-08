@@ -15,8 +15,8 @@ export default function Edit({ attributes, setAttributes }) {
             <FormContainer>
                 <div className="row p-3">
                     <div className="col-md-12">
-                        <SettingsInput label="Free Items link" value={title} setAttributeValue={setAttributeByKey} attributeName={'title'} />
-                        <SettingsInput label="Pricing link" value={subtitle} setAttributeValue={setAttributeByKey} attributeName={'subtitle'} />
+                        <SettingsInput label="Title" value={title} setAttributeValue={setAttributeByKey} attributeName={'title'} />
+                        <SettingsInput label="Subtitle" value={subtitle} setAttributeValue={setAttributeByKey} attributeName={'subtitle'} />
                         <SettingsImage
                             image_url={image}
                             title={title}
