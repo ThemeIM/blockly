@@ -1,12 +1,10 @@
-import '../styles/style.scss'
-
 export default function Save({ attributes, setAttributes }) {
     const { title, description, faq_items } = attributes
 
     return (
         <section className="faq-section ptb-120">
             <div className="faq-element">
-                <img src="assets/images/element/element-20.png" alt="element" />
+                <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-20.png`} alt="element" />
             </div>
             <div className="container">
                 <div className="row justify-content-center">

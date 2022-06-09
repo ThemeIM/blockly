@@ -18,13 +18,13 @@ export default function Save({ attributes }) {
                     </div>
                     <div className="plan-element-one">
                         <img
-                            src="assets/images/element/element-25.png"
+                            src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-25.png`}
                             alt="element"
                         />
                     </div>
                     <div className="plan-element-two">
                         <img
-                            src="assets/images/element/element-26.png"
+                            src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-26.png`}
                             alt="element"
                         />
                     </div>

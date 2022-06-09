@@ -11,7 +11,7 @@ export default function save( { attributes } ) {
 			<div className="popular-widget-box">
 				<div className="single-popular-item d-flex flex-wrap align-items-center">
 					<div className="popular-item-thumb">
-						<img src="assets/images/blog/small-blog-1.png" alt="blog" />
+						<img src={`${ blocklyBlockData['blockly_url'] }assets/images/blog/small-blog-1.png`} alt="blog" />
 					</div>
 					<div className="popular-item-content">
 						<span className="blog-date">Aug 23,2021</span>
@@ -21,7 +21,7 @@ export default function save( { attributes } ) {
 				</div>
 				<div className="single-popular-item d-flex flex-wrap align-items-center">
 					<div className="popular-item-thumb">
-						<img src="assets/images/blog/small-blog-2.png" alt="blog" />
+						<img src={`${ blocklyBlockData['blockly_url'] }assets/images/blog/small-blog-2.png`} alt="blog" />
 					</div>
 					<div className="popular-item-content">
 						<span className="blog-date">Aug 23,2021</span>
@@ -31,7 +31,7 @@ export default function save( { attributes } ) {
 				</div>
 				<div className="single-popular-item d-flex flex-wrap align-items-center">
 					<div className="popular-item-thumb">
-						<img src="assets/images/blog/small-blog-3.png" alt="blog" />
+						<img src={`${ blocklyBlockData['blockly_url'] }assets/images/blog/small-blog-3.png`} alt="blog" />
 					</div>
 					<div className="popular-item-content">
 						<span className="blog-date">Aug 23,2021</span>
@@ -41,7 +41,7 @@ export default function save( { attributes } ) {
 				</div>
 				<div className="single-popular-item d-flex flex-wrap align-items-center">
 					<div className="popular-item-thumb">
-						<img src="assets/images/blog/small-blog-4.png" alt="blog" />
+						<img src={`${ blocklyBlockData['blockly_url'] }assets/images/blog/small-blog-4.png`} alt="blog" />
 					</div>
 					<div className="popular-item-content">
 						<span className="blog-date">Aug 23,2021</span>

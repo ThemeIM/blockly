@@ -6,16 +6,16 @@ export default function Save({ attributes }) {
     return (
         <section className="overview-section ptb-120">
             <div className="overview-element-one">
-                <img src="assets/images/element/element-27.png" alt="element" />
+                <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-27.png`} alt="element" />
             </div>
             <div className="overview-element-two">
-                <img src="assets/images/element/element-28.png" alt="element" />
+                <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-28.png`} alt="element" />
             </div>
             <div className="container custom-container">
                 <div className="overview-area">
                     <div className="overview-element-three">
                         <img
-                            src="assets/images/element/element-29.png"
+                            src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-29.png`}
                             alt="element"
                         />
                     </div>
@@ -31,19 +31,19 @@ export default function Save({ attributes }) {
                                 <img src={image} alt="element" />
                                 <div className="overview-thumb-element-one">
                                     <img
-                                        src="assets/images/element/element-31.png"
+                                        src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-31.png`}
                                         alt="element"
                                     />
                                 </div>
                                 <div className="overview-thumb-element-two">
                                     <img
-                                        src="assets/images/element/element-32.png"
+                                        src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-32.png`}
                                         alt="element"
                                     />
                                 </div>
                                 <div className="overview-thumb-element-three">
                                     <img
-                                        src="assets/images/element/element-33.png"
+                                        src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-33.png`}
                                         alt="element"
                                     />
                                 </div>
