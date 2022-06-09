@@ -7,7 +7,7 @@ import Save from './components/save';
 // import './styles/editor.scss';
 
 registerBlockType ( "blockly/feature", {
-		title: __( 'Feature', 'blockly'  ),
+		title: __( 'Feature section', 'blockly'  ),
 		description: __( 'A simple block for features listing', 'blockly' ),
 		category: 'blockly',
 		icon: {

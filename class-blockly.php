@@ -211,6 +211,7 @@ final class Blockly {
 
         $user_data = wp_get_current_user();
         unset( $user_data->user_pass, $user_data->user_email );
+
         // Pass in REST URL.
         wp_localize_script(
             'blockly-blocks-js',
@@ -222,12 +223,15 @@ final class Blockly {
                 'is_wpe'        => function_exists( 'is_wpe' ),
             )
         );
+
+		// blockly block data
 		wp_localize_script(
 			'blockly-blocks-js',
 			'blocklyBlockData',
 			array(
-				'blocklyNonce'               => wp_create_nonce( 'blocklyNonce' ),
-				'typographyControlsEnabled'   => true,
+				'blocklyNonce'					=> wp_create_nonce( 'blocklyNonce' ),
+				'typographyControlsEnabled'   	=> true,
+				'blockly_url' 					=> plugin_dir_url(__FILE__),
 			)
 		);
 
@@ -253,7 +257,18 @@ final class Blockly {
 			) );
         }
 		wp_enqueue_style('blockly-common-style');
+
+		// add global script
+		wp_enqueue_script('blockly-global', plugin_dir_url(__FILE__).'/assets/js/global.js');
+		wp_localize_script( 'blockly-global', 'blockly_global', [
+				'blockly_url' => plugin_dir_url(__FILE__),
+			]
+    	);
+		wp_add_inline_script( 'blockly-global', 'const MYSCRIPT = ' . json_encode( array(
+			'blockly_url' => plugin_dir_url(__FILE__),
+		) ), 'before' );
     }
+
    public function get_posts_default() {	
 		if ( ! wp_verify_nonce( $_POST['nonce'], 'blockly-post' ) ) {
 			die ( 'this not valid request');

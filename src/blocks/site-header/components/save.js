@@ -122,7 +122,7 @@ export default function Save({ attributes, setAttributes }) {
                                                         <div className="cart-widget-item-left">
                                                             <div className="cart-widget-thumb">
                                                                 <img
-                                                                    src="assets/images/cart/cart-1.png"
+                                                                    src={`${ blocklyBlockData['blockly_url'] }assets/images/cart/cart-1.png`}
                                                                     alt="cart"
                                                                 />
                                                             </div>
@@ -154,7 +154,7 @@ export default function Save({ attributes, setAttributes }) {
                                                         <div className="cart-widget-item-left">
                                                             <div className="cart-widget-thumb">
                                                                 <img
-                                                                    src="assets/images/cart/cart-2.png"
+                                                                    src={`${ blocklyBlockData['blockly_url'] }assets/images/cart/cart-2.png`}
                                                                     alt="cart"
                                                                 />
                                                             </div>
@@ -186,7 +186,7 @@ export default function Save({ attributes, setAttributes }) {
                                                         <div className="cart-widget-item-left">
                                                             <div className="cart-widget-thumb">
                                                                 <img
-                                                                    src="assets/images/cart/cart-3.png"
+                                                                    src={`${ blocklyBlockData['blockly_url'] }assets/images/cart/cart-3.png`}
                                                                     alt="cart"
                                                                 />
                                                             </div>
