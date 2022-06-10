@@ -20,6 +20,9 @@ function blockly_product_listing() {
         die ( 'Busted!');
     }
     ?>
+     <div class="ajax-preloader position-absolute">
+        <div class="loader"></div>
+    </div>
     <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
         <div class="row justify-content-center mb-30-none">
             <?php 
@@ -29,6 +32,14 @@ function blockly_product_listing() {
             'posts_per_page' => 4,
             'paged' => $paged
             );
+            if(isset($_POST['cat']) && !empty($_POST['cat'])){
+                $args['tax_query'] =
+                    [
+                        'taxonomy' => 'movie_genre',
+                        'field'    => 'id',
+                        'terms'    => $_POST['cat'],
+                    ];
+            }
 
             $loop = new \WP_Query($args);
             if($loop ->have_posts()){

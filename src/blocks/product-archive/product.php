@@ -66,18 +66,52 @@ if(!function_exists('blockly_render_product_list')):
                 <nav class="product-inner-tab">
                     <div class="responsive-nav-three d-block d-lg-none">Products</div>
                     <div class="nav nav-tabs res-nav-tab-three" id="nav-tab" role="tablist">
-                        <button class="nav-link" id="portfolio-tab" data-toggle="tab" data-target="#portfolio" type="button" role="tab" aria-controls="portfolio" aria-selected="true">Portfolio</button>
-                        <button class="nav-link" id="creative-tab" data-toggle="tab" data-target="#creative" type="button" role="tab" aria-controls="creative" aria-selected="true">Creative</button>
-                        <button class="nav-link" id="education-tab" data-toggle="tab" data-target="#education" type="button" role="tab" aria-controls="education" aria-selected="true">Education</button>
-                        <button class="nav-link" id="technology-tab" data-toggle="tab" data-target="#technology" type="button" role="tab" aria-controls="technology" aria-selected="true">Technology</button>
+                        <?php 
+                        $uncat_remove = get_term_by( 'name', 'Uncategorized', 'product_cat' );
+
+                         $args = array(
+                            'taxonomy' => 'product_cat',
+                            'hide_empty' => true,
+                            'exclude' => $uncat_remove->term_id,
+                        );
+                        $get_current_cat = [];
+                        $categories = get_terms($args);
+                         if(!empty($categories)){
+                             foreach($categories as $key=>$cat){ ?>
+                                 <button class="nav-link" data-cat="<?php echo esc_attr($cat->term_id) ?>"><?php echo esc_html($cat->name); ?></button>
+                                 <?php 
+                                 array_push($get_current_cat, $cat->term_id);
+                                 if($key ==3){
+                                     break;
+                                 }
+                             }
+                         }
+                         ?>
+
+
                         <div class="product-tab-select">
-                            <select class="form--control">
-                                <option value="1">More</option>
-                                <option value="2">Entertainment</option>
-                                <option value="3">Health & Beauty</option>
-                                <option value="4">Restaurants & Cafes</option>
-                                <option value="5">Non Profit</option>
-                            </select>
+                            <?php 
+                            
+                            array_push($get_current_cat, $uncat_remove->term_id);
+                            $args2 = array(
+                                'taxonomy' => 'product_cat',
+                                'hide_empty' => true,
+                                'exclude' => array_values($get_current_cat),
+                            );
+                            $get_more_cat = get_terms($args2);
+                            ?>
+                            <ul>
+                                <li>
+                                    <button>More category</button>
+                                </li>
+                                <?php if(!empty($get_more_cat)){
+                                    foreach($get_more_cat as $cat){?>
+                                     <li>
+                                       <button data-id="<?php echo esc_attr($cat->term_id) ?>"><?php echo esc_html($cat->name); ?></button>
+                                   </li>
+                                <?php }
+                                } ?>
+                            </ul>
                         </div>
                     </div>
                     <div class="product-tab-right">
@@ -207,7 +241,9 @@ if(!function_exists('blockly_render_product_list')):
                     </div>
                 </div>
                 <div class="tab-content ajax-content-load position-relative" id="nav-tabContent">
-                    <div class="ajax-preloader position-absolute"></div>
+                    <div class="ajax-preloader position-absolute">
+                        <div class="loader"></div>
+                    </div>
                     <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
                         <div class="row justify-content-center mb-30-none">
                            <?php 

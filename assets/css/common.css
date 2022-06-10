@@ -7,3 +7,35 @@
 .blog-content-list-area .blog-content-list li::before {
     content: url("../images/check.svg")
 }
+/**ajax preloader**/
+.ajax-preloader{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999999;
+    background: #ffffffc2;
+    right: 0;
+    padding-top: 21%;
+    padding-left: 45%;
+    display: none;
+}
+.loader {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    border: 5px solid #6CD342;
+    border-top-color: #002147;
+    box-sizing: border-box;
+    background: transparent;
+    animation: loading 1s linear infinite;
+  }
+  
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    0% {
+      transform: rotate(360deg);
+    }
+  }
+  
