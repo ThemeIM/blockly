@@ -66,6 +66,7 @@ if(!function_exists('blockly_render_product_list')):
                 <nav class="product-inner-tab">
                     <div class="responsive-nav-three d-block d-lg-none">Products</div>
                     <div class="nav nav-tabs res-nav-tab-three" id="nav-tab" role="tablist">
+                        <div class="selected-cat d-none" data-scat=""></div>
                         <?php 
                         $uncat_remove = get_term_by( 'name', 'Uncategorized', 'product_cat' );
 
@@ -107,7 +108,7 @@ if(!function_exists('blockly_render_product_list')):
                                 <?php if(!empty($get_more_cat)){
                                     foreach($get_more_cat as $cat){?>
                                      <li>
-                                       <button data-id="<?php echo esc_attr($cat->term_id) ?>"><?php echo esc_html($cat->name); ?></button>
+                                       <button data-cat="<?php echo esc_attr($cat->term_id) ?>"><?php echo esc_html($cat->name); ?></button>
                                    </li>
                                 <?php }
                                 } ?>
@@ -124,11 +125,10 @@ if(!function_exists('blockly_render_product_list')):
                             <div class="product-sort-btn">
                                 <span class="sub-title">Short by :</span>
                                 <div class="product-sort-select">
-                                    <select class="form--control">
-                                        <option value="1">Recent</option>
-                                        <option value="2">Featured</option>
-                                        <option value="3">New</option>
-                                        <option value="4">Top</option>
+                                    <select class="form--control blockly_current_order">
+                                        <option value="title" selected>Title</option>
+                                        <option value="date">New</option>
+                                        <option value="name">Top</option>
                                     </select>
                                 </div>
                             </div>

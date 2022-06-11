@@ -26,19 +26,33 @@ function blockly_product_listing() {
     <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
         <div class="row justify-content-center mb-30-none">
             <?php 
+             echo '<pre>';
+             print_r($_POST['orderby']);
+             echo '</pre>';
             $paged = $_POST['paged'];
-            $args = array(
-            'post_type' => 'product',
-            'posts_per_page' => 4,
-            'paged' => $paged
-            );
             if(isset($_POST['cat']) && !empty($_POST['cat'])){
-                $args['tax_query'] =
-                    [
-                        'taxonomy' => 'movie_genre',
-                        'field'    => 'id',
-                        'terms'    => $_POST['cat'],
-                    ];
+                $args = array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 4,
+                    'paged' => $paged,
+                    'order'   => 'DESC',
+                    'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
+                    'tax_query' => [
+                        [
+                            'taxonomy' => 'product_cat',
+                               'terms' => $_POST['cat'],
+                               'field' => 'id',
+                        ]
+                    ]
+                    );
+            }else{
+                $args = array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 4,
+                    'paged' => $paged,
+                    'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
+                    'order'   => 'DESC',
+                );  
             }
 
             $loop = new \WP_Query($args);
