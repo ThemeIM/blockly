@@ -26,14 +26,64 @@ function blockly_product_listing() {
     <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
         <div class="row justify-content-center mb-30-none">
             <?php 
-             echo '<pre>';
-             print_r($_POST['orderby']);
-             echo '</pre>';
+             
+            if(isset($_POST['advance']) && $_POST['filter']){
+             $prodcut_lable = [];
+             $product_ad_cat = [];
+             $product_ad_tag = [];
+             $product_ad_feature = [];
+             foreach($_POST['filter'] as $masic){
+                if($masic['name'] == 'labels') {
+                     array_push($prodcut_lable, $masic['value']); 
+                }
+                if($masic['name'] == 'advance-cat') {
+                    array_push($product_ad_cat, $masic['value']); 
+               }
+               if($masic['name'] == 'advance-tags') {
+                array_push($product_ad_tag, $masic['value']); 
+                 }
+                 if($masic['name'] == 'advane-feature') {
+                    array_push($product_ad_feature, $masic['value']); 
+                     }
+             }
+             //  tax query
+
+             $args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 12,
+                'order'   => 'DESC',
+                'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
+                'tax_query' => [
+                    'relation' => 'OR',
+                    [
+                        'taxonomy' => 'label',
+                           'terms' => $prodcut_lable,
+                           'field' => 'slug',
+                    ],
+                    [
+                        'taxonomy' => 'features',
+                           'terms' => $product_ad_feature,
+                           'field' => 'slug',
+                    ],
+                    [
+                        'taxonomy' => 'product_tag',
+                           'terms' => $product_ad_tag,
+                           'field' => 'slug',
+                    ],
+                    [
+                        'taxonomy' => 'product_cat',
+                           'terms' => $product_ad_cat,
+                           'field' => 'slug',
+                    ],
+                ]
+                );
+
+            } else{
             $paged = $_POST['paged'];
             if(isset($_POST['cat']) && !empty($_POST['cat'])){
                 $args = array(
                     'post_type' => 'product',
-                    'posts_per_page' => 4,
+                    'posts_per_page' => 12,
                     'paged' => $paged,
                     'order'   => 'DESC',
                     'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
@@ -48,13 +98,13 @@ function blockly_product_listing() {
             }else{
                 $args = array(
                     'post_type' => 'product',
-                    'posts_per_page' => 4,
+                    'posts_per_page' => 12,
                     'paged' => $paged,
                     'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
                     'order'   => 'DESC',
                 );  
             }
-
+        }
             $loop = new \WP_Query($args);
             if($loop ->have_posts()){
                 while($loop->have_posts()) : $loop->the_post();

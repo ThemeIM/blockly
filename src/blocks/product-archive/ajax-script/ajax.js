@@ -54,6 +54,34 @@ $(document).on('change', '.blockly_current_order' ,function(){
         $('.ajax-preloader').fadeOut();;
     });
 });
+//  advance filter
+$(document).on('click', '.product-filter-btn a', function(e){
+   e.preventDefault();
+   console.log($('.product-filter-widget-area'));
+    $('.product-filter-widget-area').slideToggle();
+});
+// ajax call 
+$(document).on('click', '.advance-apply', function(e){
+    e.preventDefault();
+    let form = $('.blockly-advance-filter');
+    let formData = form.serializeArray();
+
+    $('.ajax-preloader').fadeIn();
+    
+    var data = {
+        'action': 'blockly_product_listing',
+        'nonce': blockly_product.nonce,     // We pass php values differently!
+        'filter' : formData,
+        'advance' : 'advance filter'
+    };
+
+    jQuery.post(blockly_product.ajaxurl, data, function(response) {
+        console.log(response);
+        $('.ajax-content-load').html(response);
+        $('.ajax-preloader').fadeOut();;
+    });
+
+});
 });
 
 
