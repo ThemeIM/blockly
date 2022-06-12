@@ -19,7 +19,7 @@ registerBlockType ( "blockly/featured-products-slider", {
 		},
 		keywords: [
 			__( 'featured', 'blockly' ),
-			__( 'products', 'blockly' ),
+			__( 'products', 'blockly' ), 
 			__( 'notice', 'blockly' ),
 			__( 'message', 'blockly' ),
 			__( 'blockly', 'blockly' ),
