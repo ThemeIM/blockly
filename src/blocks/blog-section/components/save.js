@@ -1,7 +1,7 @@
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 import { formatDate } from '../../../utils/Helpers/DateTimeHelper';
 
-export default function save( { attributes } ) {
+export default function Save( { attributes } ) {
 	const { posts } =  attributes;
 
 	const getFeaturedImage = post => {
@@ -9,6 +9,7 @@ export default function save( { attributes } ) {
 							post._embedded['wp:featuredmedia'] &&
 							post._embedded['wp:featuredmedia'].length > 0 &&
 							post._embedded['wp:featuredmedia'][0];
+
 		return {
 			source: post_data['source_url'],
 			alt: post_data['alt_text']
@@ -57,7 +58,7 @@ export default function save( { attributes } ) {
 					))
 				}
 				<div class="all-btn text-center mt-50">
-					<a href="blog.html" class="custom-btn">More Blogs <i class="las la-angle-right"></i></a>
+					<a href="blog.html" class="custom-btn">{ __('More Blogs') } <i class="las la-angle-right"></i></a>
 				</div>
 			</div>
 		</section>

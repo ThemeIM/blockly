@@ -1,6 +1,7 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
 import Edit from './components/edit';
+import Save from './components/save';
 
 import './styles/editor.scss';
 import './styles/style.scss';
@@ -34,22 +35,18 @@ registerBlockType( 'blockly/blog-section', {
 			type: 'string',
 			default: ''
 		},
-		posts: {
-			type: 'string',
-			default: []
-		}
+		num_of_posts: {
+			type: 'number',
+			default: 0
+		},
 	},
 	example: {
 		attributes: {
 			title: __(''),
 			subtitle: __(''),
-			posts: [
-				''
-			],
+			num_of_posts: 0
 		},
 	},
 	edit: Edit,
-	save: props => {
-		return null;
-	}
+	save: () => null
 } );
