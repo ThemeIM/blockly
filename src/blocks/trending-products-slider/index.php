@@ -53,9 +53,9 @@ if (!function_exists('blockly_render_trending_products')) {
       <div class="col-xl-12">
         <div class="section-header-wrapper">
           <div class="section-header">
-            <h2 class="section-title"><?php echo $attributes['title']; ?></h2>
+            <h2 class="section-title"><?php echo esc_html($attributes['title']); ?></h2>
             <p>
-                <?php echo $attributes['subtitle']; ?>
+                <?php echo esc_html($attributes['subtitle']); ?>
             </p>
           </div>
           <div class="slider-nav-area">

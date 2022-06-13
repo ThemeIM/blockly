@@ -1,0 +1,75 @@
+import { __ } from '@wordpress/i18n';
+
+import { Button, SelectControl, Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
+import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
+import Select from 'react-select'
+import makeAnimated from 'react-select/animated';
+
+import { useEffect, useState } from '@wordpress/element';
+
+import '../styles/editor.scss'
+import '../styles/style.scss'
+
+export default function Edit({ attributes, setAttributes }) {
+    const [availableProducts, setAvailableProducts] = useState([])
+    const [availableCategories, setAvailableCategories] = useState([])
+
+    const {
+        categories,
+        subcategories,
+        products,
+    } = attributes
+
+    const available_posts = useSelect(select => select('core').getEntityRecords('postType', 'product', {}), []);
+    const available_categories = useSelect(select => select('core').getEntityRecords('taxonomy', 'product_cat', {}), []);
+
+    if (available_posts && available_posts.length && !availableProducts.length) {
+        setAvailableProducts(available_posts ?? [])
+    }
+
+    if (available_categories && available_categories.length && !availableCategories.length) {
+        setAvailableProducts(available_categories ?? [])
+    }
+
+    const getProductOption = products => products && products.map((product) => {
+		return { value: product.id, label: product.title?.rendered }
+	})
+
+    const animatedComponents = makeAnimated();
+
+    return (
+        <Card>
+            <CardBody>
+                <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Featured Section</Text>
+
+                <Select
+                    isMulti
+                    label={ "Select products" }
+                    name="tags"
+                    isClearable={true}
+                    isSearchable={true}
+                    isLoading={!availableProducts || availableProducts.length == 0}
+                    isDisabled={!availableProducts || availableProducts.length == 0}
+                    options={getProductOption(availableProducts)}
+                    components={animatedComponents}
+                    onChange={ products => setAttributes({ products }) }
+                    defaultValue={products}
+                />
+                <Select
+                    isMulti
+                    label={ "Select categories" }
+                    name="tags"
+                    isClearable={true}
+                    isSearchable={true}
+                    isLoading={!availableCategories || availableCategories.length == 0}
+                    isDisabled={!availableCategories || availableCategories.length == 0}
+                    options={getProductOption(availableCategories)}
+                    components={animatedComponents}
+                    onChange={ products => setAttributes({ categories }) }
+                    defaultValue={categories}
+                />
+            </CardBody>
+        </Card>
+    )
+}
