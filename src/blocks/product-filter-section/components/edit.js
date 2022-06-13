@@ -17,7 +17,6 @@ export default function Edit({ attributes, setAttributes }) {
 
     const {
         categories,
-        subcategories,
         products,
     } = attributes
 
@@ -29,11 +28,15 @@ export default function Edit({ attributes, setAttributes }) {
     }
 
     if (available_categories && available_categories.length && !availableCategories.length) {
-        setAvailableProducts(available_categories ?? [])
+        setAvailableCategories(available_categories ?? [])
     }
 
     const getProductOption = products => products && products.map((product) => {
 		return { value: product.id, label: product.title?.rendered }
+	})
+
+    const getCategoryOption = categories => categories && categories.map((category) => {
+		return { value: category.id, label: category.name }
 	})
 
     const animatedComponents = makeAnimated();
@@ -43,6 +46,19 @@ export default function Edit({ attributes, setAttributes }) {
             <CardBody>
                 <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Featured Section</Text>
 
+                <Select
+                    isMulti
+                    label={ "Select categories" }
+                    name="tags"
+                    isClearable={true}
+                    isSearchable={true}
+                    isLoading={!availableCategories || availableCategories.length == 0}
+                    isDisabled={!availableCategories || availableCategories.length == 0}
+                    options={getCategoryOption(availableCategories)}
+                    components={animatedComponents}
+                    onChange={ categories => setAttributes({ categories }) }
+                    defaultValue={categories}
+                />
                 <Select
                     isMulti
                     label={ "Select products" }
@@ -55,19 +71,6 @@ export default function Edit({ attributes, setAttributes }) {
                     components={animatedComponents}
                     onChange={ products => setAttributes({ products }) }
                     defaultValue={products}
-                />
-                <Select
-                    isMulti
-                    label={ "Select categories" }
-                    name="tags"
-                    isClearable={true}
-                    isSearchable={true}
-                    isLoading={!availableCategories || availableCategories.length == 0}
-                    isDisabled={!availableCategories || availableCategories.length == 0}
-                    options={getProductOption(availableCategories)}
-                    components={animatedComponents}
-                    onChange={ products => setAttributes({ categories }) }
-                    defaultValue={categories}
                 />
             </CardBody>
         </Card>
