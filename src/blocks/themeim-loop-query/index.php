@@ -69,20 +69,18 @@ if(!function_exists('blockly_render_default_post')):
                                     </div>
                                 </div>
                             </div>
-                        <?php endwhile; ?>
-                         <div class="all-btn two text-center">
-                             <a href="javascript:void(0)" 
-                             class="btn--base active ajax-post-loading" 
-                              
-                              data-offset="2">Load More</a>
-                     </div>
-                        <?php 
-                        wp_reset_postdata();
-                    }else{
-
+                        <?php endwhile;
+                        }else{
+                        echo "No Result found";
                         } ?>
                     </div>
-                   
+                    <div class="paginaton clearfix">
+                        <?php the_posts_pagination( array(
+                            'mid_size'  => 2,
+                            'prev_text' => __( '&lt;', 'textdomain' ),
+                            'next_text' => __( '&gt;', 'textdomain' ),
+                        ) ); ?>
+                    </div>
                 </div>
             </div>
         </div>
