@@ -63,3 +63,5 @@ import './blocks/product-archive';
 import './blocks/client-feedback'
 import './blocks/blog-section'
 import './blocks/header-section'
+import './blocks/featured-products-slider'
+import './blocks/trending-products-slider'
