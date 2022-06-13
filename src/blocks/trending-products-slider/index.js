@@ -8,9 +8,9 @@ import Save from './components/save';
 import './styles/style.scss';
 import './styles/editor.scss';
 
-registerBlockType ( "blockly/featured-products-slider", {
-		title: __( 'Featured products slider', 'blockly' ),
-		description: __( 'A simple block for Featured products slider', 'blockly' ),
+registerBlockType ( "blockly/trending-products-slider", {
+		title: __( 'Trending products slider', 'blockly' ),
+		description: __( 'A simple block for Trending products slider', 'blockly' ),
 		category: 'blockly',
 		icon: {
 			src: 'bell',
@@ -18,7 +18,7 @@ registerBlockType ( "blockly/featured-products-slider", {
 			foreground: '#004085',
 		},
 		keywords: [
-			__( 'featured', 'blockly' ),
+			__( 'trending', 'blockly' ),
 			__( 'products', 'blockly' ), 
 			__( 'notice', 'blockly' ),
 			__( 'message', 'blockly' ),
@@ -33,10 +33,6 @@ registerBlockType ( "blockly/featured-products-slider", {
 				type: 'string',
 				default: ''
 			},
-			btn_name: {
-				type: 'string',
-				default: ''
-			},
 			products: {
 				type: 'array',
 				default: []
@@ -46,8 +42,6 @@ registerBlockType ( "blockly/featured-products-slider", {
 			attributes: {
 				title: '',
 				subtitle: '',
-				btn_name: '',
-				btn_url: '',
 				products: '',
 			},
 		},
