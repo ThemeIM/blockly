@@ -53,9 +53,9 @@ if (!function_exists('blockly_render_trending_products')) {
       <div class="col-xl-12">
         <div class="section-header-wrapper">
           <div class="section-header">
-            <h2 class="section-title"><?php echo esc_url($attributes['title']); ?></h2>
+            <h2 class="section-title"><?php echo $attributes['title']; ?></h2>
             <p>
-                <?php echo esc_url($attributes['subtitle']); ?>
+                <?php echo $attributes['subtitle']; ?>
             </p>
           </div>
           <div class="slider-nav-area">
@@ -170,7 +170,7 @@ if (!function_exists('blockly_render_trending_products')) {
                                             <span class="sale">Sales : <?php echo esc_html($sales); ?></span>
                                         </div>
                                         <div class="right">
-                                            <span class="price">Price : $<?php echo $product->get_regular_price(); ?></span>
+                                            <span class="price">Price : $<?php echo $cost; ?></span>
                                         </div>
                                     </div>
                                 </div>
