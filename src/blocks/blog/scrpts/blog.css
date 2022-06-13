@@ -1,0 +1,34 @@
+.loader-post {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 4px solid #6cd342;
+    border-top-color: gray;
+    box-sizing: border-box;
+    background: transparent;
+    animation: loading_post 1s linear infinite;
+    margin-top: 35%;
+    margin-left: 48%;
+  }
+  
+  @keyframes loading_post {
+    0% {
+      transform: rotate(0deg);
+    }
+    0% {
+      transform: rotate(360deg);
+    }
+  }
+  .blockly-blog-tab{
+    position: relative;
+  }
+  .loader-post-wrapper{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba( 255, 255, 255, .5);
+    z-index: 9;
+    display: none;
+  }

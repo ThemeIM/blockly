@@ -13,7 +13,7 @@ import './styles/style.scss';
 
 // Register the block testimonial
 registerBlockType( 'blockly/blog', {
-	title: __( 'Blog', 'blockly' ),
+	title: __( 'Blog Archive', 'blockly' ),
 	description: __(
 		'Add a blog.',
 		'blockly'
