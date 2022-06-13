@@ -170,6 +170,8 @@ if (!function_exists('blockly_render_trending_products')) {
                                             <span class="sale">Sales : <?php echo esc_html($sales); ?></span>
                                         </div>
                                         <div class="right">
+                                          <?php global $product; ?>
+                                            <span class="price">Price : $<?php echo $product->get_regular_price(); ?></span>
                                             <span class="price">Price : $<?php echo $cost; ?></span>
                                         </div>
                                     </div>
