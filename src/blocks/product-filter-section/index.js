@@ -9,7 +9,7 @@ import './styles/style.scss';
 import './styles/editor.scss';
 
 registerBlockType ( "blockly/product-filter-section", {
-		title: __( 'Products filter slider', 'blockly' ),
+		title: __( 'Products filter', 'blockly' ),
 		description: __( 'A simple block for Products filter slider', 'blockly' ),
 		category: 'blockly',
 		icon: {
@@ -28,23 +28,6 @@ registerBlockType ( "blockly/product-filter-section", {
 			categories: {
 				type: 'array',
 				default: []
-			},
-			subcategories: {
-				type: 'array',
-				default: []
-			},
-			products: {
-				type: 'array',
-				default: []
-			},
-		},
-		example: {
-			attributes: {
-				title: '',
-				subtitle: '',
-				btn_name: '',
-				btn_url: '',
-				products: '',
 			},
 		},
         edit: Edit,

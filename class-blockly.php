@@ -142,6 +142,7 @@ final class Blockly {
        	require_once( BLY_SRC_BLOCKS . '/trending-products-slider/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/trending-products-slider/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/product-filter-section/index.php' );
+       	require_once( BLY_SRC_BLOCKS . '/product-filter-section/ajax.php' );
     }
 
     /**
