@@ -46,7 +46,7 @@ if(!function_exists('blockly_render_blog_section')) {
 
         ob_start();
 ?>
-        <section class="blog-section ptb-120">
+        <section class="blog-section ptb-120 blockly-full">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 text-center">
@@ -82,7 +82,7 @@ if(!function_exists('blockly_render_blog_section')) {
                     ?>
                 </div>
                 <div class="all-btn text-center mt-50">
-                    <a href="blog.html" class="custom-btn">More Blogs <i class="las la-angle-right"></i></a>
+                    <a href="<?php echo the_permalink(); ?>" class="custom-btn">More Blogs <i class="las la-angle-right"></i></a>
                 </div>
             </div>
         </section>
