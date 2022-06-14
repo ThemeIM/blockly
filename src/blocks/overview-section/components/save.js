@@ -4,7 +4,7 @@ export default function Save({ attributes }) {
     const { title, subtitle, image } = attributes;
 
     return (
-        <section className="overview-section ptb-120">
+        <section className="overview-section ptb-120 blockly-full">
             <div className="overview-element-one">
                 <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-27.png`} alt="element" />
             </div>

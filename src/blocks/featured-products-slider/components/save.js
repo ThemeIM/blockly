@@ -8,7 +8,7 @@ export default function Save({ attributes, setAttributes }) {
     } = attributes
 
     return (
-        <section class="banner-section max-width-none">
+        <section class="banner-section max-width-none blockly-full">
             <div class="banner-element">
                 <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-5.png`} alt="element" />
             </div>
