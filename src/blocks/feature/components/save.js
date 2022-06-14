@@ -2,7 +2,7 @@ export default function Save({ attributes, setAttributes }) {
     const { items } = attributes
 
     return (
-        <section className="feature-section pt-120">
+        <section className="feature-section pt-120 blockly-full">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-xl-10 col-lg-10">

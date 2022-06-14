@@ -14,7 +14,7 @@ export default function Save({ attributes, setAttributes }) {
     } = attributes;
 
     return (
-        <header className="header-section">
+        <header className="header-section blockly-full">
             <div className="header">
                 <div className="header-bottom-area">
                     <div className="container custom-container">

@@ -4,7 +4,7 @@ export default function Save({ attributes }) {
     const { title, plans } = attributes;
 
     return (
-        <section className="plan-section ptb-120">
+        <section className="plan-section ptb-120 blockly-full">
             <div className="container custom-container-two">
                 <div className="plan-wrapper et-highlightable et-highlighted">
                     <div className="row justify-content-center">
