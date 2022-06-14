@@ -16,7 +16,6 @@ export default function Edit({ attributes, setAttributes }) {
     const {
         title,
         subtitle,
-        btn_name,
         products,
     } = attributes
 
@@ -35,7 +34,7 @@ export default function Edit({ attributes, setAttributes }) {
     return (
         <Card>
             <CardBody>
-                <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Featured Section</Text>
+                <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Trending Section</Text>
 
                 <TextControl
                     label={ __("title", "blockly") }
@@ -50,13 +49,6 @@ export default function Edit({ attributes, setAttributes }) {
                     type="text"
                     value={subtitle}
                     onChange={(value) => setAttributes({ subtitle: value })}
-                />
-                <TextControl
-                    label={ __("Button Name", "blockly") }
-                    placeholder={ __("Button Name") }
-                    type="text"
-                    value={btn_name}
-                    onChange={(value) => setAttributes({ btn_name: value })}
                 />
                 <Select
                     isMulti
