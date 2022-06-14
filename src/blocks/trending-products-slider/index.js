@@ -36,6 +36,10 @@ registerBlockType ( "blockly/trending-products-slider", {
 			products: {
 				type: 'array',
 				default: []
+			},
+			backgroudImage: {
+				type: 'string',
+				default: ''
 			}
 		},
 		example: {

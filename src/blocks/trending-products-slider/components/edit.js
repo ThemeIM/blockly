@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
 
-import { Button, SelectControl, Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { Button, SelectControl, Card, CardBody, __experimentalText as Text, TextControl, PanelBody } from '@wordpress/components';
+import { useBlockProps, RichText, MediaUpload, MediaUploadCheck, InspectorControls  } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
@@ -17,6 +17,7 @@ export default function Edit({ attributes, setAttributes }) {
         title,
         subtitle,
         products,
+        backgroudImage
     } = attributes
 
     const animatedComponents = makeAnimated();
@@ -30,8 +31,32 @@ export default function Edit({ attributes, setAttributes }) {
     if (available_posts && available_posts.length && !availableProducts.length) {
         setAvailableProducts(available_posts ?? [])
     }
-
+    const removeBackground = () => {
+		setAttributes({backgroudImage: ''});
+	}
     return (
+        <>
+        <InspectorControls>
+        <PanelBody title={__('Background', 'blockly')} >
+				<MediaUploadCheck>
+					<MediaUpload
+						allowedTypes={ ['image'] }
+						onSelect={ ( media ) =>
+							//console.log( media.sizes.full.url );
+							setAttributes({backgroudImage: media.sizes.full.url})
+						}
+						render={({open}) => (
+							<Button 
+							className={backgroudImage ? 'editor-post-featured-image__preview' : 'editor-post-featured-image__toggle' } 
+								onClick={open} >
+									{backgroudImage ? <div><img src={backgroudImage}/></div> : 'Select Image'}
+							</Button>
+						)}
+					/>
+					{backgroudImage && <Button isLink isDestructive onClick={removeBackground}>Remove</Button>}
+				</MediaUploadCheck>
+		 	 </PanelBody>
+		</InspectorControls>
         <Card>
             <CardBody>
                 <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Trending Section</Text>
@@ -64,5 +89,6 @@ export default function Edit({ attributes, setAttributes }) {
                 />
             </CardBody>
         </Card>
+        </>
     )
 }
