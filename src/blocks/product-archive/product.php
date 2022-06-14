@@ -69,11 +69,9 @@ if(!function_exists('blockly_render_product_list')):
                     <div class="nav nav-tabs res-nav-tab-three" id="nav-tab" role="tablist">
                         <div class="selected-cat d-none" data-scat=""></div>
                         <?php 
-                        $uncat_remove = get_term_by( 'name', 'Uncategorized', 'product_cat' );
                          $args = array(
                             'taxonomy' => 'product_cat',
                             'hide_empty' => true,
-                            'exclude' => $uncat_remove->term_id,
                         );
                         $get_current_cat = [];
                         $categories = get_terms($args);
@@ -91,7 +89,6 @@ if(!function_exists('blockly_render_product_list')):
 
                         <div class="product-tab-select">
                             <?php 
-                            array_push($get_current_cat, $uncat_remove->term_id);
                             $args2 = array(
                                 'taxonomy' => 'product_cat',
                                 'hide_empty' => true,
@@ -99,9 +96,9 @@ if(!function_exists('blockly_render_product_list')):
                             );
                             $get_more_cat = get_terms($args2);
                             ?>
-                            <ul class="custom-select-box open">
-                                <li>
-                                    <button>More</button>
+                            <ul class="custom-select-box">
+                                <li class="selected">
+                                    More
                                 </li>
                                 <?php if(!empty($get_more_cat)){
                                     foreach($get_more_cat as $cat){?>

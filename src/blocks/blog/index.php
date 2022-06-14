@@ -57,7 +57,7 @@ if(!function_exists('blockly_render_blog')):
                     <button class="nav-link active"  data-cat="">All</button>
                      <?php foreach($get_catatories as $cat){
                         // echo $cat['name'];
-                           $cat_title = $cat['value'] != '' ? $cat['value'] : $cat['name'];  
+                           $cat_title = (isset($cat['value']) && $cat['value'] != '') ? $cat['value'] : $cat['name'];  
                            $post_per_page = isset($attributes['numberOfPosts']) ? $attributes['numberOfPosts']: 8;
                          $order = isset($attributes['order']) ? $attributes['order']: 'desc';
                          $order_by = isset($attributes['order']) ? $attributes['orderBy']: 'orderBy';
@@ -110,6 +110,7 @@ if(!function_exists('blockly_render_blog')):
                         <?php endwhile; ?>
                         <?php wp_reset_postdata(); ?>
                     </div>
+                    <div class="clearfix mt-100"></div>
                     <div class="all-btn two text-center">
                              <a href="javascript:void(0)" 
                              class="btn--base active ajax-post-loading" 

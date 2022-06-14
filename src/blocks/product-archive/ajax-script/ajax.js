@@ -76,12 +76,28 @@ $(document).on('click', '.advance-apply', function(e){
     };
 
     jQuery.post(blockly_product.ajaxurl, data, function(response) {
-        console.log(response);
         $('.ajax-content-load').html(response);
         $('.ajax-preloader').fadeOut();;
     });
 
 });
+
+//  drop down control 
+
+$(document).on('click', '.custom-select-box li.selected', function(e){
+    // if (e.target !== this)
+    // return;
+ $(this).parent('ul').toggleClass('open');
+ $(this).siblings().show();
+});
+
+$(document).on('click', '.custom-select-box li:not(.selected)', function(){
+ $(this).show();
+ $(this).addClass('selected');
+ $(this).siblings().hide();
+ $(this).siblings().removeClass('selected');
+});
+
 });
 
 
