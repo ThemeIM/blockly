@@ -45,13 +45,13 @@ if (!function_exists('blockly_render_product_filter')) {
                 <div class="nav nav-tabs res-nav-tab" id="nav-tab" role="tablist">
                     <button class="nav-link active" id="all-tab" data-toggle="tab" data-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">
                         <div class="product-tab-thumb">
-                            <img src="<?php echo esc_url(BLY_ASSETS_URL) ?>assets/images/product-tab/product-tab-1.png" alt="product-tab">
+                            <img src="<?php echo esc_url(BLY_ASSETS_URL) ?>/images/product-tab/product-tab-1.png" alt="product-tab">
                         </div>
                         <span>All Items</span>
                     </button>
                     <button class="nav-link" id="new-tab" data-toggle="tab" data-target="#new" type="button" role="tab" aria-controls="new" aria-selected="false">
                         <div class="product-tab-thumb">
-                            <img src="<?php echo esc_url(BLY_ASSETS_URL) ?>assets/images/product-tab/product-tab-2.png" alt="product-tab">
+                            <img src="<?php echo esc_url(BLY_ASSETS_URL) ?>/images/product-tab/product-tab-2.png" alt="product-tab">
                         </div>
                         <span>New Items</span>
                     </button>
@@ -59,11 +59,11 @@ if (!function_exists('blockly_render_product_filter')) {
                         if (!empty($attributes['categories'])) {
                             foreach ($attributes['categories'] as $key => $category) {
                     ?>
-                                <button class="nav-link" id="wordpress-tab" data-id="<?php echo $category['name']; ?>" data-toggle="tab" data-target="#wordpress" type="button" role="tab" aria-controls="wordpress" aria-selected="false">
+                                <button class="nav-link" id="wordpress-tab" data-id="<?php echo $category['name'] ?? ''; ?>" data-toggle="tab" data-target="#wordpress" type="button" role="tab" aria-controls="wordpress" aria-selected="false">
                                     <div class="product-tab-thumb">
-                                        <img src="<?php echo esc_url(BLY_ASSETS_URL) ?>assets/images/product-tab/product-tab-3.png" alt="product-tab">
+                                        <img src="<?php echo esc_url(BLY_ASSETS_URL) ?>/images/product-tab/product-tab-3.png" alt="product-tab">
                                     </div>
-                                    <span><?php echo $category['name']; ?></span>
+                                    <span><?php echo $category['name'] ?? ''; ?></span>
                                 </button>
                     <?php
                             }
@@ -106,7 +106,7 @@ if (!function_exists('blockly_render_product_filter')) {
                                                 <span></span>
                                             </div>
                                             <div class="product-thumb">
-                                                <img src="assets/images/product/product-1.png" alt="product">
+                                                <img src="<?php echo esc_url(BLY_ASSETS_URL) ?>/images/product/product-1.png" alt="product">
                                                 <div class="product-thumb-overlay">
                                                     <div class="product-overlay-btn">
                                                         <a href="#0" class="btn--base active">PREVIEW</a>
