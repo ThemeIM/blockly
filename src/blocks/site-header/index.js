@@ -72,5 +72,5 @@ registerBlockType( 'blockly/site-header', {
 		}
 	},
 	edit: Edit,
-	save: Save,
+	save: () => null
 } );
