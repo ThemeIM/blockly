@@ -27,6 +27,7 @@ add_action( 'init', 'blockly_site_nav' );
 //render fornt end alert box 
 if(!function_exists('blockly_site_header')):
     function blockly_site_header( $attributes ) {
+
         ob_start();  ?>
         <header class="header-section">
            <div class="header">
@@ -98,7 +99,7 @@ if(!function_exists('blockly_site_header')):
                                                <span class="icon">
                                                    <i class="las la-shopping-cart"></i>
                                                </span>
-                                               <span class="cart-badge">2</span>
+                                               <span class="cart-badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
                                            </div>
                                            <div class="cart-widget-dropdown">
                                                <?php woocommerce_mini_cart(); ?>
@@ -126,3 +127,35 @@ if(!function_exists('blockly_site_header')):
         <?php return ob_get_clean(); 
     }
 endif;
+
+
+add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {
+
+    ob_start();
+    ?>
+    <div class="header-cart-action">
+        <span class="icon">
+            <i class="las la-shopping-cart"></i>
+        </span>
+        <span class="cart-badge"> <?php echo WC()->cart->get_cart_contents_count(); ?></span>
+    </div>
+    <?php $fragments['div.header-cart-action'] = ob_get_clean();
+
+    return $fragments;
+
+} );
+
+add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {
+
+    ob_start();
+    ?>
+
+    <div class="cart-widget-dropdown">
+        <?php woocommerce_mini_cart(); ?>
+    </div>
+
+    <?php $fragments['div.cart-widget-dropdown'] = ob_get_clean();
+
+    return $fragments;
+
+} );
