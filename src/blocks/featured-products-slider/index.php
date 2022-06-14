@@ -47,7 +47,7 @@ if (!function_exists('blockly_render_featured_products')) {
     function blockly_render_featured_products( $attributes ) {
         ob_start();  ?>
 
-        <section class="free-product-section ptb-120">
+        <section class="free-product-section ptb-120 blockly-full">
             <div class="container custom-container">
                 <div class="row justify-content-center mb-30-none">
                     <div class="col-xl-8 col-lg-6 mb-30">

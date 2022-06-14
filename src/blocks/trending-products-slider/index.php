@@ -44,7 +44,7 @@ if (!function_exists('blockly_render_trending_products')) {
         ob_start();
 ?>
 
-<section class="trending-product-section bg--gray ptb-120">
+<section class="trending-product-section bg--gray ptb-120 blockly-full">
   <div class="trending-product-element">
     <img src="assets/images/element/element-19.png" alt="element" />
   </div>
@@ -53,9 +53,9 @@ if (!function_exists('blockly_render_trending_products')) {
       <div class="col-xl-12">
         <div class="section-header-wrapper">
           <div class="section-header">
-            <h2 class="section-title"><?php echo $attributes['title']; ?></h2>
+            <h2 class="section-title"><?php echo esc_html($attributes['title']); ?></h2>
             <p>
-                <?php echo $attributes['subtitle']; ?>
+                <?php echo esc_html($attributes['subtitle']); ?>
             </p>
           </div>
           <div class="slider-nav-area">
