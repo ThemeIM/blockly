@@ -12,13 +12,8 @@ import './styles/editor.scss';
 import './styles/style.scss';
 
 // Register the block testimonial
-<<<<<<<< HEAD:src/blocks/blog-lastest-news/index.js
 registerBlockType( 'blockly/blog-latest-news', {
 	title: __( 'Blog Latest News', 'blockly' ),
-========
-registerBlockType( 'blockly/blog-row', {
-	title: __( 'Blog Section', 'blockly' ),
->>>>>>>> master:src/blocks/blog-row/index.js
 	description: __(
 		'Add a blog.',
 		'blockly'

@@ -7,37 +7,10 @@
 /**
  * Register the block on the server
  */
-<<<<<<<< HEAD:src/blocks/blog-lastest-news/index.php
 if(!function_exists('blockly_register_blog_latest_news')):
     function blockly_register_blog_latest_news() {
         if ( ! function_exists( 'register_block_type' ) ) {
             return;
-========
-if(!function_exists('blockly_register_blog_section')) {
-    function blockly_register_blog_section() {
-        if (! function_exists('register_block_type')) {
-
-            register_block_type(
-                'blockly/blog-row',
-                array(
-                    'attributes'      => array(
-                        "title" => [
-                            "type" => "string",
-                            "default" => ""
-                        ],
-                        "subtitle" => [
-                            "type" => "string",
-                            "default" => ""
-                        ],
-                        "posts" => [
-                            "type" => "string",
-                            "default" => []
-                        ],
-                    ),
-                    'render_callback' => 'blockly_render_blog_section',
-                )
-            );
->>>>>>>> master:src/blocks/blog-row/index.php
         }
         register_block_type(
             'blockly/blog-latest-news', 
