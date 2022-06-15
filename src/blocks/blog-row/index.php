@@ -12,7 +12,7 @@ if(!function_exists('blockly_register_blog_section')) {
         if (! function_exists('register_block_type')) {
 
             register_block_type(
-                'blockly/blog-section', 
+                'blockly/blog-row',
                 array(
                     'attributes'      => array(
                         "title" => [

@@ -6,7 +6,7 @@ export default function Save({ attributes, setAttributes }) {
     const { title, subtitle, video_thumbnail, video_url, items } = attributes;
 
     return (
-        <section class="client-section bg--gray ptb-120">
+        <section class="client-section bg--gray ptb-120 blockly-full">
             <div class="client-element">
                 <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-19.png`} alt="element" />
             </div>

@@ -7,7 +7,7 @@ import './styles/editor.scss';
 import './styles/style.scss';
 
 // Register the block testimonial
-registerBlockType( 'blockly/blog-section', {
+registerBlockType( 'blockly/blog-row', {
 	title: __( 'Blog Section', 'blockly' ),
 	description: __(
 		'Add a blog section.',
