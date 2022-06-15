@@ -61,7 +61,6 @@ import './blocks/feature-list'
 //  WooCommerce 
 import './blocks/product-archive';
 import './blocks/client-feedback'
-//import './blocks/blog-section'
 import './blocks/blog-lastest-news'
 import './blocks/header-section'
 import './blocks/featured-products-slider'

@@ -135,7 +135,6 @@ final class Blockly {
         require_once( BLY_SRC_BLOCKS . '/recent-post/index.php' );
         require_once( BLY_SRC_BLOCKS . '/themeim-loop-query/index.php' );
         require_once( BLY_SRC_BLOCKS . '/plan-list/index.php' );
-        //require_once( BLY_SRC_BLOCKS . '/blog-section/index.php' );
         require_once( BLY_SRC_BLOCKS . '/blog-lastest-news/index.php' );
         require_once( BLY_SRC_BLOCKS . '/product-archive/product.php' );
         require_once( BLY_SRC_BLOCKS . '/product-archive/ajax-action.php' );
