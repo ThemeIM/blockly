@@ -17,7 +17,7 @@ import { RawHTML, useEffect } from "@wordpress/element";
 import { format, dateI18n, __experimentalGetSettings } from "@wordpress/date";
 
 export default function Edit({ attributes, setAttributes }) {
-    const { title, subtitle, num_of_posts } = attributes;
+    const { title, subtitle, numberOfPosts } = attributes;
 
     return (
         <Card>
@@ -42,8 +42,8 @@ export default function Edit({ attributes, setAttributes }) {
                     label={__("Number of posts", "blockly")}
                     placeholder={"Number of posts"}
                     type="number"
-                    value={num_of_posts}
-                    onChange={(value) => setAttributes({ num_of_posts: Number(value) })}
+                    value={numberOfPosts}
+                    onChange={(value) => setAttributes({ numberOfPosts: value })}
                 />
             </CardBody>
         </Card>

@@ -1,57 +1,57 @@
 <?php
 /**
- * Server-side rendering for the blog section block
+ * Server-side rendering for the alert_box block
  * @since   1.0.0
  */
 
 /**
  * Register the block on the server
  */
-if(!function_exists('blockly_register_blog_section')) {
-    function blockly_register_blog_section() {
-        if (! function_exists('register_block_type')) {
-
-            register_block_type(
-                'blockly/blog-section', 
-                array(
-                    'attributes'      => array(
-                        "title" => [
-                            "type" => "string",
-                            "default" => ""
-                        ],
-                        "subtitle" => [
-                            "type" => "string",
-                            "default" => ""
-                        ],
-                        "posts" => [
-                            "type" => "string",
-                            "default" => []
-                        ],
-                    ),
-                    'render_callback' => 'blockly_render_blog_section',
-                )
-            );
+if(!function_exists('blockly_register_blog_latest_news')):
+    function blockly_register_blog_latest_news() {
+        if ( ! function_exists( 'register_block_type' ) ) {
+            return;
         }
+        register_block_type(
+            'blockly/blog-latest-news', 
+            array(
+                'attributes'      => array(
+                    'numberOfPosts'  => array(
+                        'type'    =>'number',
+                        'default' => 9
+                    ),
+                    'order' =>array(
+                        'type'   => 'string',
+                        'default'=> 'desc'
+                    ),
+                    'orderBy' =>array(
+                        'type'    => 'string',
+                        'default' => 'date'
+                    ),
+                ),
+                'render_callback' => 'blockly_render_blog_latest_new',
+            )
+        );
     }
-}
+endif;
+add_action( 'init', 'blockly_register_blog_latest_news' );
 
-add_action( 'init', 'blockly_register_blog_section' );
 
-if(!function_exists('blockly_render_blog_section')) {
-    function blockly_render_blog_section( $attributes ) {
+//render fornt end alert box 
+if(!function_exists('blockly_render_blog_latest_new')):
+    function blockly_render_blog_latest_new( $attributes ) {
+                
         $posts = get_posts([
             'post_type' => 'post',
-            'numberposts' => $attributes['num_of_posts'] ?? 3,
+            'numberposts' => $attributes['numberOfPosts'] ?? 3,
         ]);
-
-        ob_start();
-?>
-        <section class="blog-section ptb-120 blockly-full">
+        ob_start();  ?>
+           <section class="blog-section ptb-120 blockly-full">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-8 text-center">
                         <div class="section-header">
-                            <h2 class="section-title"><?php echo $attributes['title']['rendered'] ?? ''; ?></h2>
+                            <h2 class="section-title"><?php echo $attributes['title'] ?? ''; ?></h2>
                             <p><?php echo $attributes['subtitle'] ?? ''; ?></p>
                         </div>
                     </div>
@@ -82,12 +82,10 @@ if(!function_exists('blockly_render_blog_section')) {
                     ?>
                 </div>
                 <div class="all-btn text-center mt-50">
-                    <a href="<?php echo the_permalink(); ?>" class="custom-btn">More Blogs <i class="las la-angle-right"></i></a>
+                    <a href="/blog" class="custom-btn">More Blogs <i class="las la-angle-right"></i></a>
                 </div>
             </div>
         </section>
-<?php
-        return ob_get_clean(); 
+        <?php return ob_get_clean(); 
     }
-}
-?>
+endif;

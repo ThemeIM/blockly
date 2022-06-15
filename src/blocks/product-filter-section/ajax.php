@@ -143,4 +143,5 @@ function blockly_product_filter(){
     </div>
 </div>
    <?php 
+   wp_die();
 }
