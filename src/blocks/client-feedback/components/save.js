@@ -6,7 +6,7 @@ export default function Save({ attributes, setAttributes }) {
     const { title, subtitle, video_thumbnail, video_url, items } = attributes;
 
     return (
-        <section class="client-section bg--gray ptb-120 blockly-full">
+        <section class="client-section bg--gray ptb-120">
             <div class="client-element">
                 <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-19.png`} alt="element" />
             </div>
@@ -28,14 +28,8 @@ export default function Save({ attributes, setAttributes }) {
                 <div class="client-area">
                     <div class="row justify-content-center align-items-end mb-30-none">
                         <div class="col-xl-8 col-lg-8 col-md-6 mb-30">
-                            <div class="client-slider swiper-container-horizontal">
-                                <div
-                                    class="swiper-wrapper"
-                                    style={{
-                                        transform: 'translate3d(-1140px, 0px, 0px)',
-                                        transitionDuration: '0ms'
-                                    }}
-                                >
+                            <div class="client-slider">
+                                <div class="swiper-wrapper">
                                     {
                                         typeof items.map === 'function' && items.map((item, i) => (
                                             <ReviewItem
@@ -47,11 +41,6 @@ export default function Save({ attributes, setAttributes }) {
                                         ))
                                     }
                                 </div>
-                                <span
-                                    class="swiper-notification"
-                                    aria-live="assertive"
-                                    aria-atomic="true"
-                                ></span>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
@@ -86,5 +75,5 @@ export default function Save({ attributes, setAttributes }) {
                 </div>
             </div>
         </section>
-    );
+    )
 }
