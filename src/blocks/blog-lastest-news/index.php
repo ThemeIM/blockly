@@ -63,7 +63,7 @@ if(!function_exists('blockly_render_blog_latest_new')):
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
                                 <div class="blog-item">
                                     <div class="blog-thumb">
-                                        <?php echo get_the_post_thumbnail($post->ID, 'thumbnail'); ?>
+                                        <?php echo get_the_post_thumbnail($post->ID, 'blog_news_350x240'); ?>
                                     </div>
                                     <div class="blog-content">
                                         <div class="blog-post-meta">
