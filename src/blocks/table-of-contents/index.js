@@ -35,7 +35,13 @@ registerBlockType ( "blockly/table-of-contents", {
 				default: [
 					{
 						text: 'Introduction',
-						link: '#0'
+						link: '#0',
+						items: [
+							{
+								text: 'Beginner',
+								link: '#0',
+							}
+						]
 					}
 				]
 			}
