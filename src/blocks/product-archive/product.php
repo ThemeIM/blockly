@@ -68,25 +68,24 @@ if(!function_exists('blockly_render_product_list')):
                     <div class="responsive-nav-three d-block d-lg-none">Products</div>
                     <div class="nav nav-tabs res-nav-tab-three" id="nav-tab" role="tablist">
                         <div class="selected-cat d-none" data-scat=""></div>
-                        <?php 
-                         $args = array(
-                            'taxonomy' => 'product_cat',
-                            'hide_empty' => true,
-                        );
-                        $get_current_cat = [];
-                        $categories = get_terms($args);
-                         if(!empty($categories)){
-                             foreach($categories as $key=>$cat){ ?>
-                                 <button class="nav-link" data-cat="<?php echo esc_attr($cat->term_id) ?>"><?php echo esc_html($cat->name); ?></button>
-                                 <?php 
-                                 array_push($get_current_cat, $cat->term_id);
-                                 if($key ==3){
-                                     break;
-                                 }
-                             }
-                         }
-                         ?>
+                        <?php
+                            $get_current_cat = [];
+                            $categories = is_array($attributes['selected_categories']) ? $attributes['selected_categories'] : [];
 
+                            if (!empty($categories)) {
+                                foreach($categories as $key=>$cat) {
+                        ?>
+                                    <button class="nav-link" data-cat="<?php echo esc_attr($cat['value']) ?>">
+                                        <?php echo esc_html($cat['label']); ?>
+                                    </button>
+                        <?php
+                                    array_push($get_current_cat, $cat['value']);
+                                    if ($key ==3) {
+                                        break;
+                                    }
+                                }
+                            }
+                        ?>
                         <div class="product-tab-select">
                             <?php 
                             $args2 = array(

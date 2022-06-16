@@ -41,8 +41,11 @@ registerBlockType( 'blockly/product-archive', {
 		show_media: {
 			type: 'boolean',
 		    default: true
-		}
-		
+		},
+		selected_categories: {
+			type: 'array',
+			default: []
+		},
 	},
 	supports: {
 		color: {
