@@ -58,5 +58,5 @@ registerBlockType( 'blockly/table-section', {
 		}
 	},
 	edit: Edit,
-	save: Save
+	save: () => null
 } );
