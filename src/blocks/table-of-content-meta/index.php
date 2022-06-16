@@ -31,11 +31,10 @@ if(!function_exists('blockly_render_toc')):
     function blockly_render_toc( $attributes ) {
         ob_start();  
         global $post;
-         $get_toc = get_post_meta($post->ID, 'themeim_post_toc_options', true);
-         if(empty($get_toc)) return;
-        ?>
-        
-           <div class="blog-list-area">
+        $get_toc = get_post_meta($post->ID, 'themeim_post_toc_options', true);
+        if(empty($get_toc)) return;
+?>
+        <div class="blog-list-area">
             <div class="blog-list-header">
                 <h4 class="title">Table of Contents</h4>
                 <span class="hide">Hide</span>
@@ -46,7 +45,7 @@ if(!function_exists('blockly_render_toc')):
                     <li><a href="javascript:void(0)"><?php echo esc_html($toc['_section_title']); ?></a>
                     <?php if(isset($toc['_innter_section']) && is_array($toc['_innter_section'])){ ?>
                         <ul>
-                            <?php foreach($toc['_innter_section'] as $section){ ?>
+                            <?php foreach($toc['_innter_section'] as $section) { ?>
                                 <li><a href="<?php echo esc_attr($section['hash_link']); ?>"><?php echo esc_html($section['_sub_title']); ?></a></li>
                             <?php } ?>
                         </ul>
