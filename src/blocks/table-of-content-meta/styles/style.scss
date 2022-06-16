@@ -1,29 +1,33 @@
 $color__heading: #292929; // Heading color
-$bg--base: #6CD342; // Background base color
+$bg--base: #6cd342; // Background base color
 
-.blog-list-area{
-    .blog-list-header{
+.blog-list-area {
+    position: sticky;
+    top: 17%;
+    z-index: 9;
+    background-color: #fff;
+    .blog-list-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 20px;
-        .title{
+        .title {
             margin-bottom: 0;
         }
-        .hide{
-            color: #CCCCCC;
+        .hide {
+            color: #cccccc;
             cursor: pointer;
         }
     }
-    .blog-list{
-        background-color: rgba(80,110,207,.05);
-        border: 1px solid rgba(80,110,207,.20);
+    .blog-list {
+        background-color: rgba(80, 110, 207, 0.05);
+        border: 1px solid rgba(80, 110, 207, 0.2);
         padding: 30px 80px;
         border-radius: 4px;
         @media only screen and (max-width: 991px) {
             padding: 20px;
         }
-        li{
+        li {
             font-size: 16px;
             font-weight: 400;
             color: $color__heading;
@@ -33,17 +37,17 @@ $bg--base: #6CD342; // Background base color
             @media only screen and (max-width: 991px) {
                 font-size: 14px;
             }
-            &.show{
-                color: #506ECF;
+            &.show {
+                color: #506ecf;
                 font-weight: 600;
-                &::before{
+                &::before {
                     border-radius: 0;
                     clip-path: polygon(100% 0, 0 0, 50% 100%);
                     background-color: $bg--base;
                 }
-                ul{
-                    li{
-                        &::before{
+                ul {
+                    li {
+                        &::before {
                             top: 10px;
                             height: 2px;
                             width: 8px;
@@ -53,27 +57,23 @@ $bg--base: #6CD342; // Background base color
                     }
                 }
             }
-            &::before{
+            &::before {
                 position: absolute;
-                content: '';
+                content: "";
                 top: 7px;
                 left: 0;
                 width: 7px;
                 height: 7px;
-                background-color: rgba(80,110,207,.30);
+                background-color: rgba(80, 110, 207, 0.3);
                 border-radius: 50%;
             }
-            &:last-child{
+            &:last-child {
                 padding-bottom: 0;
             }
-            ul{
+            ul {
                 padding-top: 25px;
                 display: none;
             }
         }
     }
-}
-.sidebar-sticky {
-    position: sticky;
-    top: 17%;
 }

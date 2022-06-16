@@ -34,27 +34,25 @@ if(!function_exists('blockly_render_toc')):
         $get_toc = get_post_meta($post->ID, 'themeim_post_toc_options', true);
         if(empty($get_toc)) return;
 ?>
-        <div class="sidebar-sticky">
-            <div class="blog-list-area">
-                <div class="blog-list-header">
-                    <h4 class="title">Table of Contents</h4>
-                    <span class="hide">Hide</span>
-                </div>
-                <ul class="blog-list">
-                    <?php if(isset($get_toc['_post_toc_repetor']) && is_array($get_toc['_post_toc_repetor'])){ ?>
-                    <?php foreach($get_toc['_post_toc_repetor'] as $toc){ ?>
-                        <li><a href="javascript:void(0)"><?php echo esc_html($toc['_section_title']); ?></a>
-                        <?php if(isset($toc['_innter_section']) && is_array($toc['_innter_section'])){ ?>
-                            <ul>
-                                <?php foreach($toc['_innter_section'] as $section) { ?>
-                                    <li><a href="<?php echo esc_attr($section['hash_link']); ?>"><?php echo esc_html($section['_sub_title']); ?></a></li>
-                                <?php } ?>
-                            </ul>
-                        <?php } ?>    
-                        </li>
-                    <?php } } ?>
-                </ul>
+        <div class="blog-list-area">
+            <div class="blog-list-header">
+                <h4 class="title">Table of Contents</h4>
+                <span class="hide">Hide</span>
             </div>
+            <ul class="blog-list">
+                <?php if(isset($get_toc['_post_toc_repetor']) && is_array($get_toc['_post_toc_repetor'])){ ?>
+                <?php foreach($get_toc['_post_toc_repetor'] as $toc){ ?>
+                    <li><a href="javascript:void(0)"><?php echo esc_html($toc['_section_title']); ?></a>
+                    <?php if(isset($toc['_innter_section']) && is_array($toc['_innter_section'])){ ?>
+                        <ul>
+                            <?php foreach($toc['_innter_section'] as $section) { ?>
+                                <li><a href="<?php echo esc_attr($section['hash_link']); ?>"><?php echo esc_html($section['_sub_title']); ?></a></li>
+                            <?php } ?>
+                        </ul>
+                    <?php } ?>    
+                    </li>
+                <?php } } ?>
+            </ul>
         </div>
 
         <?php return ob_get_clean(); 
