@@ -71,7 +71,7 @@ if(!function_exists('blockly_render_product_list')):
                         <?php
                             $get_current_cat = [];
                             $categories = is_array($attributes['selected_categories']) ? $attributes['selected_categories'] : [];
-
+                           
                             if (!empty($categories)) {
                                 foreach($categories as $key=>$cat) {
                         ?>
@@ -227,7 +227,15 @@ if(!function_exists('blockly_render_product_list')):
                            $args = array(
                             'post_type' => 'product',
                             'posts_per_page' => 12,
-                            'paged' => $paged
+                            'paged' => $paged,
+                            'tax_query' => [
+                                [
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                                    'operator' => 'NOT IN'
+                                ]
+                            ]
                             );
 
                             $loop = new \WP_Query($args);
