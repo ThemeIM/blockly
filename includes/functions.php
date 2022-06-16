@@ -28,7 +28,7 @@ function wpdocs_create_book_taxonomies() {
     );
  
     $args = array(
-        'hierarchical'      => false,
+        'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_in_rest'      => true,
@@ -54,7 +54,7 @@ function wpdocs_create_book_taxonomies() {
     );
  
     $args = array(
-        'hierarchical'          => false,
+        'hierarchical'          => true,
         'labels'                => $labels,
         'show_ui'               => true,
         'show_admin_column'     => true,
