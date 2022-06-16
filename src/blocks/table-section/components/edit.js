@@ -45,6 +45,9 @@ export default function Edit({ attributes, setAttributes }) {
         setState(state + 1)
     }
 
+    const removeColumn = index => {}
+    const removeRow = () => {}
+
     return (
         <>
             <Card>
