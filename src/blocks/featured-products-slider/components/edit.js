@@ -26,7 +26,7 @@ export default function Edit({ attributes, setAttributes }) {
 		return { value: product.id, label: product.title?.rendered }
 	})
 
-    const available_posts = useSelect(select => select('core').getEntityRecords('postType', 'product', {}), []);
+    const available_posts = useSelect(select => select('core').getEntityRecords('postType', 'product', {per_page: -1}), []);
 
     if (available_posts && available_posts.length && !availableProducts.length) {
         setAvailableProducts(available_posts ?? [])

@@ -18,9 +18,9 @@ export default function Edit({ attributes, setAttributes }) {
     const {
         categories,
         products,
-    } = attributes
+    } = attributes 
 
-    const available_posts = useSelect(select => select('core').getEntityRecords('postType', 'product', {}), []);
+    const available_posts = useSelect(select => select('core').getEntityRecords('postType', 'product', {per_page: -1}), []);
     const available_categories = useSelect(select => select('core').getEntityRecords('taxonomy', 'product_cat', {}), []);
 
     if (available_posts && available_posts.length && !availableProducts.length) {
