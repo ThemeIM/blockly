@@ -57,7 +57,15 @@ if (!function_exists('blockly_render_featured_products')) {
                         <?php
                             $args = [
                                 'post_type' => 'product',
-                                'posts_per_page' => 4
+                                'posts_per_page' => 4,
+                                'tax_query' => [
+                                    [
+                                        'taxonomy' => 'product_cat',
+                                        'field'    => 'slug',
+                                        'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                                        'operator' => 'NOT IN'
+                                    ]
+                                ]
                             ];
 
                             $loop = new \WP_Query($args);

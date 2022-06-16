@@ -110,8 +110,12 @@ if(!function_exists('blockly_site_header')):
                                            <?php if(isset($attributes['hire'])){ ?>
                                                 <a href="<?php echo esc_url($attributes['hire']); ?>">Hire Us <i class="fas fa-paper-plane ml-2"></i></a>
                                            <?php } ?>
-                                           <?php if(isset($attributes['login'])){ ?>
-                                                <a href="<?php echo esc_url($attributes['login']); ?>">Login <i class="icon-Group-788 ml-2"></i></a>
+                                           <?php if(isset($attributes['login'])){
+                                              
+                                              $login_text = is_user_logged_in(  ) ? 'Dashboard' : 'login';
+                                            
+                                            ?>
+                                                <a href="<?php echo esc_url($attributes['login']); ?>"><?php  echo esc_html( $login_text ); ?> <i class="icon-Group-788 ml-2"></i></a>
                                            <?php } ?>
                                                
                                            </div>

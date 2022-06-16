@@ -82,6 +82,14 @@ if (!function_exists('blockly_render_product_filter')) {
                                 $loop = new \WP_Query([
                                     'post_type' => 'product',
                                     'posts_per_page' => 6,
+                                    'tax_query' => [
+                                        [
+                                            'taxonomy' => 'product_cat',
+                                            'field'    => 'slug',
+                                            'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                                            'operator' => 'NOT IN'
+                                        ]
+                                    ]
                                 ]);
                                 if($loop->have_posts()){
                                     while($loop->have_posts()) : $loop->the_post();
