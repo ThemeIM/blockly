@@ -31,18 +31,17 @@ export default function Edit({ attributes, setAttributes }) {
     }
 
     const removePage = (index) => {
-        setAttributes({ pages: [ ...pages.filter((val, key) => key !== index) ] })
+        let new_pages = [ ...pages ]
+        new_pages.splice(index, 1)
+        setAttributes({ pages: new_pages })
     }
 
     const onChangePageItem = ({ index, title, icon, link }) => {
         let all_pages = [ ...pages ]
-        all_pages[index] = {
-            title: title ? title : all_pages[index]['title'],
-            icon: icon ? icon : all_pages[index]['icon'],
-            link: link ? link : all_pages[index]['link'],
-        }
-
-        setAttributes({ pages: [ ...all_pages ] })
+        all_pages[index]['title'] = title
+        all_pages[index]['icon'] = icon
+        all_pages[index]['link'] = link
+        setAttributes({ pages: all_pages })
     }
 
     /** product functions */
@@ -55,11 +54,9 @@ export default function Edit({ attributes, setAttributes }) {
     }
 
     const onChangeProductItem = ({ index, title, link }) => {
-        let all_products = [ ...pages ]
-        all_products[index] = {
-            title: title ? title : all_products[index]['title'],
-            link: link ? link : all_products[index]['link'],
-        }
+        let all_products = [ ...products ]
+        all_products[index]['title'] = title
+        all_products[index]['link'] = link
 
         setAttributes({ products: [ ...all_products ] })
     }
