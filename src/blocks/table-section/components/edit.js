@@ -6,6 +6,7 @@ import {
     SelectControl,
     Card,
     CardBody,
+    Dashicon,
     __experimentalText as Text,
 } from "@wordpress/components";
 
@@ -45,8 +46,29 @@ export default function Edit({ attributes, setAttributes }) {
         setState(state + 1)
     }
 
-    const removeColumn = index => {}
-    const removeRow = () => {}
+    const removeColumn = index => {
+        let new_column_names = [ ...column_names ]
+        new_column_names.splice(index, 1)
+
+        let new_rows = [ ...rows ]
+        new_rows.map(row => {
+            row.splice(index, 1)
+        })
+
+
+        setAttributes({
+            column_names: new_column_names,
+            rows: new_rows
+        })
+        setState(state + 1)
+    }
+
+    const removeRow = index => {
+        let new_rows = [ ...rows ]
+        new_rows.splice(index, 1)
+        setAttributes({ rows: new_rows })
+        setState(state + 1)
+    }
 
     return (
         <>
@@ -71,19 +93,27 @@ export default function Edit({ attributes, setAttributes }) {
                                     {
                                         typeof column_names.map === 'function' && column_names.map((column, index) => (
                                             <th key={index}>
-                                                {/* updateColumnName */}
-                                                <RichText 
-                                                    tagName = "h6"
-                                                    className = "content"
-                                                    value = { column }
-                                                    onChange = { (content) => updateColumnName(index, content) }
-                                                    placeholder = 'Add text...'
-                                                    format="string"
-                                                />
+                                                <div className="flex-center">
+                                                    <RichText 
+                                                        tagName = "p"
+                                                        className = "content"
+                                                        value = { column }
+                                                        onChange = { (content) => updateColumnName(index, content) }
+                                                        placeholder = 'Add text...'
+                                                        format="string"
+                                                    />
+                                                    <Button style={{ margin: '10px'  }} onClick={() => removeColumn(index)}>
+                                                        <Dashicon icon={ 'dismiss' } />
+                                                    </Button>
+                                                </div>
                                             </th>
                                         ))
                                     }
-                                    <Button variant="secondary" onClick={addColumn}>+</Button>
+                                    <th className="flex-center">
+                                        <Button onClick={addColumn}>
+                                            <Dashicon icon="plus-alt" />
+                                        </Button>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,6 +135,11 @@ export default function Edit({ attributes, setAttributes }) {
                                                     </td>
                                                 ))
                                             }
+                                            <td className="flex-center">
+                                                <Button style={{ margin: '10px'  }} onClick={() => removeRow(index)}>
+                                                    <Dashicon icon={ 'dismiss' } />
+                                                </Button>
+                                            </td>
                                         </tr>
                                     ))
                                 }
