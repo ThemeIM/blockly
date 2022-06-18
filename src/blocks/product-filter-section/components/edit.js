@@ -21,7 +21,7 @@ export default function Edit({ attributes, setAttributes }) {
     } = attributes 
 
     const available_posts = useSelect(select => select('core').getEntityRecords('postType', 'product', {per_page: -1}), []);
-    const available_categories = useSelect(select => select('core').getEntityRecords('taxonomy', 'product_cat', {}), []);
+    const available_categories = useSelect(select => select('core').getEntityRecords('taxonomy', 'product_cat', {per_page: -1}), []);
 
     if (available_posts && available_posts.length && !availableProducts.length) {
         setAvailableProducts(available_posts ?? [])
