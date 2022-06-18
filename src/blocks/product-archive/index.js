@@ -30,6 +30,18 @@ registerBlockType( 'blockly/product-archive', {
 		__( 'blockly', 'blockly' ),
 	],
 	attributes: {
+		page_image: {
+			type: 'string',
+			default: ''
+		},
+		page_title: {
+			type: 'string',
+			default: ''
+		},
+		page_subtitle: {
+			type: 'string',
+			default: ''
+		},
 		background_image: {
 			type: 'string',
 			default: ''
@@ -43,6 +55,10 @@ registerBlockType( 'blockly/product-archive', {
 		    default: true
 		},
 		selected_categories: {
+			type: 'array',
+			default: []
+		},
+		more_categories: {
 			type: 'array',
 			default: []
 		},

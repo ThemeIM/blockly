@@ -36,7 +36,6 @@ if(!function_exists('blockly_register_product_list')):
 endif;
 add_action( 'init', 'blockly_register_product_list' );
 
-
 //render fornt end alert box 
 if(!function_exists('blockly_render_product_list')):
     function blockly_render_product_list( $attributes ) {
@@ -50,10 +49,10 @@ if(!function_exists('blockly_render_product_list')):
             <div class="product-category-banner">
                 <div class="product-category-banner-content">
                     <div class="product-category-banner-icon">
-                        <img src="<?php echo esc_url(BLY_ASSETS_URL.'/images/product-tab/product-tab-3.png'); ?>" alt="product-tab">
+                        <img src="<?php echo esc_url($attributes['page_image'] ?? ''); ?>" alt="product-tab">
                     </div>
-                    <h2 class="title">WordPress Themes</h2>
-                    <h4 class="sub-title">Modern trends and tendencies</h4>
+                    <h2 class="title"><?php echo esc_html($attributes['page_title'] ?? ''); ?></h2>
+                    <h4 class="sub-title"><?php echo esc_html($attributes['page_subtitle'] ?? ''); ?></h4>
                 </div>
                 <div class="product-category-search-area">
                     <form class="product-search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -87,25 +86,26 @@ if(!function_exists('blockly_render_product_list')):
                             }
                         ?>
                         <div class="product-tab-select">
-                            <?php 
-                            $args2 = array(
-                                'taxonomy' => 'product_cat',
-                                'hide_empty' => true,
-                                'exclude' => array_values($get_current_cat),
-                            );
-                            $get_more_cat = get_terms($args2);
+                            <?php
+                            $get_more_cat = is_array($attributes['more_categories']) ? $attributes['more_categories'] : [];
                             ?>
                             <ul class="custom-select-box">
                                 <li class="selected">
                                     More
                                 </li>
-                                <?php if(!empty($get_more_cat)){
-                                    foreach($get_more_cat as $cat){?>
-                                     <li>
-                                       <button data-cat="<?php echo esc_attr($cat->term_id) ?>"><?php echo esc_html($cat->name); ?></button>
-                                   </li>
-                                <?php }
-                                } ?>
+                                <?php
+                                    if(!empty($get_more_cat)) {
+                                        foreach($get_more_cat as $cat) {
+                                ?>
+                                    <li>
+                                        <button data-cat="<?php echo esc_attr($cat['value']) ?>">
+                                            <?php echo esc_html($cat['label']); ?>
+                                        </button>
+                                    </li>
+                                <?php
+                                        }
+                                    } 
+                                ?>
                             </ul>
                         </div>
                     </div>
