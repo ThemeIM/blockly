@@ -3,18 +3,6 @@ import "../styles/style.scss";
 export default function Save({ attributes, setAttributes }) {
     const { title, table_of_contents } = attributes;
 
-    const getTOCChildItems = (child_items) => (
-        child_items?.length && typeof child_items?.map === 'function' && (
-            <ul>
-                {
-                    typeof child_items?.map === 'function' && child_items.map((toc_child, child_i) => (
-                        <li>Beginner level</li>
-                    ))
-                }
-            </ul>
-        )
-    )
-
     return (
         <div className="blog-list-area">
             <div className="blog-list-header">
