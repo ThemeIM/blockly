@@ -42,7 +42,7 @@ if(!function_exists('blockly_render_toc')):
             <ul class="blog-list">
                 <?php if(isset($get_toc['_post_toc_repetor']) && is_array($get_toc['_post_toc_repetor'])){ ?>
                 <?php foreach($get_toc['_post_toc_repetor'] as $toc){ ?>
-                    <li><a href="javascript:void(0)"><?php echo esc_html($toc['_section_title']); ?></a>
+                    <li><a href="<?php echo esc_url($toc['_section_link']); ?>"><?php echo esc_html($toc['_section_title']); ?></a>
                     <?php if(isset($toc['_innter_section']) && is_array($toc['_innter_section'])){ ?>
                         <ul>
                             <?php foreach($toc['_innter_section'] as $section) { ?>
