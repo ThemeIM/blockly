@@ -23,7 +23,7 @@ $bg--base: #6cd342; // Background base color
     .blog-list {
         background-color: rgba(80, 110, 207, 0.05);
         border: 1px solid rgba(80, 110, 207, 0.2);
-        padding: 30px 80px;
+        padding: 40px;
         border-radius: 4px;
         @media only screen and (max-width: 991px) {
             padding: 20px;
@@ -32,7 +32,7 @@ $bg--base: #6cd342; // Background base color
             font-size: 16px;
             font-weight: 400;
             color: $color__heading;
-            padding-bottom: 25px;
+            padding-bottom: 10px;
             padding-left: 25px;
             position: relative;
             @media only screen and (max-width: 991px) {
