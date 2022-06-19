@@ -102,6 +102,14 @@ function blockly_product_listing() {
                     'paged' => $paged,
                     'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
                     'order'   => 'DESC',
+                    'tax_query' => [
+                        [
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                            'operator' => 'NOT IN'
+                        ]
+                    ]
                 );  
             }
         }
@@ -142,27 +150,29 @@ function blockly_product_listing() {
                     </div>
                     <div class="product-content">
                         <?php $get_short_title = wp_trim_words(get_the_title(), 5, '...'); ?>
-                        <h4 class="title"><a href="<?php the_permalink(); ?>"><?php echo esc_html($get_short_title); ?></a></h4>
-                        <?php 
-                            
-                            $terms = get_the_terms( get_the_ID(), 'product_cat' ); 
-
-                            if((is_array($terms) || is_object($terms)) && !empty($terms)){
-                                foreach($terms as $key=>$cat){
-                                printf("<span class='category'>In %s</span>",$cat->name);
-                                if($key == 0 ){
-                                    break;
-                                }
-                                }
-                            }
-                        
-                        ?>
+                        <h3 class="title"><a href="<?php the_permalink(); ?>"><?php echo esc_html($get_short_title); ?></a></h3>
+                        <p>
+                            <?php if(isset($get_themeim_meta['_details_title'])){
+                                echo  esc_html($get_themeim_meta['_details_title']);
+                            } ?>
+                        </p>    
                         <div class="product-footer-area">
                             <div class="left">
-                                <span class="sale">Sales : <?php echo esc_html($sales); ?></span>
+                                <?php 
+                                    $terms = get_the_terms( get_the_ID(), 'product_cat' ); 
+                                    if((is_array($terms) || is_object($terms)) && !empty($terms)){
+                                        foreach($terms as $key=>$cat){
+                                            printf("<span class='category'><a href='%s'>In %s</a></span>",get_term_link($cat->slug, $cat->taxonomy), $cat->name);
+                                            if($key == 0 ){
+                                                break;
+                                            }
+                                        }
+                                    }
+                                ?>
                             </div>
                             <div class="right">
-                                <span class="price">Price : $<?php echo esc_html($cost); ?></span>
+                                <span class="sale">Sales : <?php echo esc_html($sales); ?></span>
+                                <span class="price">$<?php echo esc_html($cost); ?></span>
                             </div>
                         </div>
                     </div>
