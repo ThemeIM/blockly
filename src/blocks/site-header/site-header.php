@@ -50,14 +50,17 @@ if(!function_exists('blockly_site_header')):
                                         <li class="menu_has_children">
                                             <a href="#0">
                                                 <div class="toggle-menu">
-                                                    Browse <i class="fas fa-chevron-down"></i>
+                                                    WordPress <i class="fas fa-chevron-down"></i>
                                                 </div>
                                             </a>
                                             <ul class="sub-menu">
                                                 <?php foreach($attributes['pages'] as $page) { ?>
                                                     <li>
-                                                        <a href="<?php echo esc_url($page['link']); ?>">
-                                                        <i class="<?php echo $page['icon']; ?>"></i> <?php echo esc_html($page['title']); ?></a>
+                                                        <?php $link = isset($page['link']) ? $page['link'] : ''; ?>
+                                                        <a href="<?php echo esc_url($link); ?>">
+                                                         <?php $menu_title = isset($page['title']) ? $page['title'] : ''; ?>
+                                                         <?php $icon_class = isset($page['icon']) ? $page['icon']: ''; ?>
+                                                        <i class="<?php echo esc_attr($icon_class); ?>"></i> <?php echo esc_html($menu_title); ?></a>
                                                     </li>
                                                 <?php } ?>
                                             </ul>
@@ -66,14 +69,46 @@ if(!function_exists('blockly_site_header')):
                                 </div>
                                <?php }  ?>
                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                   <ul class="navbar-nav main-menu ml-auto">
-                                       <?php if(isset($attributes['freeItems'])){ ?>
-                                       <li><a href="<?php echo esc_url($attributes['freeItems']); ?>">Free items</a></li>
-                                       <?php } ?>
-                                       <?php if(isset($attributes['pricePlan'])){ ?>
-                                       <li><a href="<?php echo esc_url($attributes['pricePlan']); ?>">Pricing</a></li>
-                                       <?php } ?>
-                                   </ul>
+                                    <ul class="navbar-nav main-menu">
+                                        <li class="menu_has_children">
+                                            <a href="#0">
+                                                <div class="toggle-menu">
+                                                Shopify <i class="fas fa-chevron-down"></i>
+                                                </div>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <?php foreach($attributes['pages'] as $page) { ?>
+                                                    <li>
+                                                        <?php $link = isset($page['link']) ? $page['link'] : ''; ?>
+                                                        <a href="<?php echo esc_url($link); ?>">
+                                                         <?php $menu_title = isset($page['title']) ? $page['title'] : ''; ?>
+                                                         <?php $icon_class = isset($page['icon']) ? $page['icon']: ''; ?>
+                                                        <i class="<?php echo esc_attr($icon_class); ?>"></i> <?php echo esc_html($menu_title); ?></a>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="navbar-nav main-menu">
+                                        <li class="menu_has_children">
+                                            <a href="#0">
+                                                <div class="toggle-menu">
+                                                Shopify <i class="fas fa-chevron-down"></i>
+                                                </div>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <?php foreach($attributes['pages'] as $page) { ?>
+                                                    <li>
+                                                        <?php $link = isset($page['link']) ? $page['link'] : ''; ?>
+                                                        <a href="<?php echo esc_url($link); ?>">
+                                                         <?php $menu_title = isset($page['title']) ? $page['title'] : ''; ?>
+                                                         <?php $icon_class = isset($page['icon']) ? $page['icon']: ''; ?>
+                                                        <i class="<?php echo esc_attr($icon_class); ?>"></i> <?php echo esc_html($menu_title); ?></a>
+                                                    </li>
+                                                <?php } ?>
+                                            </ul>
+                                        </li>
+                                    </ul>               
                                    <div class="header-right">
                                        <?php if(isset($attributes['products']) && $attributes['products'] != '') : ?>
                                         <div class="toggle-menu product-nav">
@@ -86,8 +121,10 @@ if(!function_exists('blockly_site_header')):
                                             <div class="product-navigation">
                                                 <ul class="product-nav-list">
                                                     <?php foreach($attributes['products'] as $product) { ?>
-                                                        <li><a href="<?php echo esc_url($product['link']); ?>">
-                                                             <span><?php echo esc_html($product['title']); ?></span> </a>
+                                                        <?php $link_p = isset($product['link']) ? $product['link']: ''; ?>
+                                                        <li><a href="<?php echo esc_url($link_p); ?>">
+                                                        <?php $link_title = isset($product['title']) ? $product['title']: ''; ?>
+                                                             <span><?php echo esc_html($link_title); ?></span> </a>
                                                         </li>
                                                     <?php } ?>
                                                 </ul>
