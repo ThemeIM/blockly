@@ -168,9 +168,9 @@ if (!function_exists('blockly_render_product_filter')) {
                     </div>
                 </div>
             </div>
-            <div class="all-btn text-center mt-60">
-                                <a href="/shop" class="btn--base active">Browse All Resources <i class="las la-angle-right"></i></a>
-                            </div>
+             <div class="all-btn text-center mt-60">
+                 <a href="/shop" class="btn--base active">Browse All Resources <i class="las la-angle-right"></i></a>
+             </div>
             </div>
         </div>
     </div>
