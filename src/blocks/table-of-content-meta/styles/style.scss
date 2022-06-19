@@ -2,11 +2,13 @@ $color__heading: #292929; // Heading color
 $bg--base: #6cd342; // Background base color
 
 .blog-list-area {
-    position: sticky;
-    top: 17%;
-    z-index: 9;
-    background-color: #fff;
-    padding-bottom: 30px;
+    .sticky {
+        position: sticky;
+        top: 17%;
+        z-index: 9;
+        background-color: #fff;
+        padding-bottom: 30px;
+    }
     .blog-list-header {
         display: flex;
         align-items: center;
