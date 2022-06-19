@@ -50,12 +50,28 @@ function blockly_product_filter(){
                         $loop = new \WP_Query([
                             'post_type' => 'product',
                             'posts_per_page' => 6,
-                            'order' => 'ASC'
+                            'order' => 'ASC',
+                            'tax_query' => [
+                                [
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                                    'operator' => 'NOT IN'
+                                ]
+                            ]
                         ]);
                     }elseif(!is_numeric($_POST['cat']) && 'new' != $_POST['cat']){
                         $loop = new \WP_Query([
                             'post_type' => 'product',
                             'posts_per_page' => 6,
+                            'tax_query' => [
+                                [
+                                    'taxonomy' => 'product_cat',
+                                    'field'    => 'slug',
+                                    'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                                    'operator' => 'NOT IN'
+                                ]
+                            ]
                         ]);
                     }else{
                         $loop = new \WP_Query([
@@ -70,7 +86,6 @@ function blockly_product_filter(){
                             ),
                         ]);
                     }
-                    
                     
                     if($loop->have_posts()){
                         while($loop->have_posts()) : $loop->the_post();
@@ -116,7 +131,8 @@ function blockly_product_filter(){
                                 <h3 class="title"><a href="<?php the_permalink(); ?>"><?php echo esc_html($get_short_title); ?></a></h3>
                                 <p>
                                     <?php if(isset($get_themeim_meta['_details_title'])){
-                                        echo  esc_html($get_themeim_meta['_details_title']);
+                                        $sub_title_data = wp_trim_words($get_themeim_meta['_details_title'], 7, '...');
+                                        echo  esc_html($sub_title_data);
                                     } ?>
                                 </p>    
                                 <div class="product-footer-area">

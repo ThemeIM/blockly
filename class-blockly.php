@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Blockly
  * Description: Blockly blocks for bloging website. Create Better Content With Gutenberg.
- * Version:     1.0.0
+ * Version:     10.0.0
  * Author:      ThemeIM
  * Author URI:  https://themeim.com/
  * License:     GPLv2+

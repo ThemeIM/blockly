@@ -75,6 +75,12 @@ function blockly_product_listing() {
                            'terms' => $product_ad_cat,
                            'field' => 'slug',
                     ],
+                    [
+                        'taxonomy' => 'product_cat',
+                        'field'    => 'slug',
+                        'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                        'operator' => 'NOT IN'
+                    ]
                 ]
                 );
 
@@ -92,6 +98,12 @@ function blockly_product_listing() {
                             'taxonomy' => 'product_cat',
                                'terms' => $_POST['cat'],
                                'field' => 'id',
+                        ],
+                        [
+                            'taxonomy' => 'product_cat',
+                            'field'    => 'slug',
+                            'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                            'operator' => 'NOT IN'
                         ]
                     ]
                     );
@@ -153,9 +165,10 @@ function blockly_product_listing() {
                         <h3 class="title"><a href="<?php the_permalink(); ?>"><?php echo esc_html($get_short_title); ?></a></h3>
                         <p>
                             <?php if(isset($get_themeim_meta['_details_title'])){
-                                echo  esc_html($get_themeim_meta['_details_title']);
+                                $sub_title_data = wp_trim_words($get_themeim_meta['_details_title'], 7, '...');
+                                echo  esc_html($sub_title_data);
                             } ?>
-                        </p>    
+                         </p>  
                         <div class="product-footer-area">
                             <div class="left">
                                 <?php 
