@@ -41,8 +41,12 @@ if(!function_exists('blockly_render_toc')):
             </div>
             <ul class="blog-list">
                 <?php if(isset($get_toc['_post_toc_repetor']) && is_array($get_toc['_post_toc_repetor'])){ ?>
-                <?php foreach($get_toc['_post_toc_repetor'] as $toc){ ?>
-                    <li><a href="<?php echo esc_url($toc['_section_link']); ?>"><?php echo esc_html($toc['_section_title']); ?></a>
+                <?php foreach($get_toc['_post_toc_repetor'] as $toc){
+                    
+                    $parent_link = isset($toc['_section_link']) ? $toc['_section_link'] : 'javascript:void(0)';
+
+                    ?>
+                    <li><a href="<?php echo  $parent_link; ?>"><?php echo esc_html($toc['_section_title']); ?></a>
                     <?php if(isset($toc['_innter_section']) && is_array($toc['_innter_section'])){ ?>
                         <ul>
                             <?php foreach($toc['_innter_section'] as $section) { ?>
