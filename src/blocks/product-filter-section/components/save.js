@@ -17,7 +17,7 @@ export default function Save({ attributes, setAttributes }) {
                     <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-6.png`} alt="element" />
                 </div>
                 <div class="banner-group-element-two">
-                    <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/REPLACE-THIS-SCREEN1111211171111.png`} alt="element" />
+                    <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/themeim.webp`} alt="element" />
                 </div>
                 <div class="banner-group-element-three">
                     <a href="#0" class="banner-project">
