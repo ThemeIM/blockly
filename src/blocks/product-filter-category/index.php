@@ -240,7 +240,7 @@ if (!function_exists('blockly_render_product_filter_cat')) {
                         </div>
                     </div>
                </form>
-                <div class="tab-content position-relative" id="nav-tabContent">
+                <div class="tab-content" id="nav-tabContent">
                     <div class="ajax-preloader position-absolute">
                         <div class="loader"></div>
                     </div>
