@@ -180,7 +180,7 @@ function blockly_product_filter_cat(){
                     </div>
                     <?php endwhile; }wp_reset_postdata(); ?>
                 </div>
-                <nav class="texomony-prodcut-pagination">
+                <nav class="texomony-prodcut-pagination blockly-ajax-pagination">
                     <?php 
                     
                     $big = 999999999; // need an unlikely integer
@@ -189,7 +189,10 @@ function blockly_product_filter_cat(){
                         'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
                         'format'  => '?paged=%#%',
                         'current' => $_POST['page'],
-                        'total'   => $loop->max_num_pages
+                        'total'   => $loop->max_num_pages,
+                        'type'  => 'list',
+                        'prev_text'          => __( '&laquo;' ),
+                        'next_text'          => __( '&raquo;' ),
                     ) );
                     
                     ?>
