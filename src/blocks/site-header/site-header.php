@@ -148,7 +148,7 @@ if(!function_exists('blockly_site_header')):
                                         </div>
                                        <?php endif; ?>
 
-                                        <?php if ( ! class_exists( 'WooCommerce', false ) ) { ?>
+                                        <?php if (  class_exists( 'WooCommerce', false ) ) { ?>
                                         <div class="header-cart-area">
                                             <div class="header-cart-action">
                                                 <span class="icon">
