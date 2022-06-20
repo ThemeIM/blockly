@@ -4,12 +4,13 @@
     let getCurrentCat = $('.get-cat-value').val();
     let getCurrentCatFlist = $('.res-nav-tab-three button.active').data('cat');
     let CurrentCatId = getCurrentCat ? getCurrentCat : getCurrentCatFlist;
-
+    let dataParentId = $('.tab-content').data('parent');
+    let dataFinalId = CurrentCatId ? CurrentCatId : dataParentId;
         $('.ajax-preloader').fadeIn();
         var data = {
             'action': 'blockly_product_filter_cat',
             'nonce': blockly_product_cat_filter.nonce,     // We pass php values differently!
-            'cat' : CurrentCatId
+            'cat' : dataFinalId
         };
         jQuery.post(blockly_product_cat_filter.ajaxurl, data, function(response) {
              $('.ajax-content-loader').html(response);
@@ -94,13 +95,15 @@ $(document).on('change', '.product-sort-select', function(){
 
      let getCurrentCat = $('.get-cat-value').val();
      let getCurrentCatFlist = $('.res-nav-tab-three button.active').data('cat');
+     let dataParentId = $('.tab-content').data('parent');
      let CurrentCatId = getCurrentCat ? getCurrentCat : getCurrentCatFlist;
+     let dataFinalId = CurrentCatId ? CurrentCatId : dataParentId;
  
      $('.ajax-preloader').fadeIn();
          var data = {
              'action': 'blockly_product_filter_cat',
              'nonce': blockly_product_cat_filter.nonce,     // We pass php values differently!
-             'cat' : CurrentCatId,
+             'cat' : dataFinalId,
              'orderby': $('.product-sort-select select').val(),
              'page' : $(this).data('page')
          };

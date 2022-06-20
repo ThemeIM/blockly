@@ -240,7 +240,8 @@ if (!function_exists('blockly_render_product_filter_cat')) {
                         </div>
                     </div>
                </form>
-                <div class="tab-content" id="nav-tabContent">
+                <?php $data_parent = (isset($current->parent) && !$current->parent) ? $current->term_id:''; ?>
+                <div class="tab-content" id="nav-tabContent" data-parent="<?php echo esc_attr($data_parent); ?>">
                     <div class="ajax-preloader position-absolute">
                         <div class="loader"></div>
                     </div>
