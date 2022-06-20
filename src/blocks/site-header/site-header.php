@@ -27,7 +27,7 @@ add_action( 'init', 'blockly_site_nav' );
 //render fornt end alert box 
 if(!function_exists('blockly_site_header')):
     function blockly_site_header( $attributes ) {
-
+       
         ob_start();  ?>
         <header class="header-section">
            <div class="header">
