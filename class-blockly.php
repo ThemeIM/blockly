@@ -148,7 +148,6 @@ final class Blockly {
        	require_once( BLY_SRC_BLOCKS . '/site-header/site-header.php' );
        	require_once( BLY_SRC_BLOCKS . '/table-of-content-meta/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/table-section/index.php' );
-       	require_once( BLY_SRC_BLOCKS . '/blog-author/index.php' );
     }
 
     /**
