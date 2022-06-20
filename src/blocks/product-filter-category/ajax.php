@@ -19,7 +19,7 @@ function blockly_product_filter_cat(){
     if ( ! wp_verify_nonce( $_POST['nonce'], 'blockly-filter-cat-nonce' ) ) {
         die ( 'Busted!');
     } ?>
-    
+
    <div class="ajax-preloader position-absolute">
         <div class="loader"></div>
     </div>    
@@ -30,18 +30,86 @@ function blockly_product_filter_cat(){
             <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
                 <div class="row justify-content-center mb-30-none">
                     <?php 
+                    echo '<pre>';
+                    print_r($_POST);
+                    echo '</pre>';
+                    
+                    $paged = ( $_POST['page'] ) ? $_POST['page'] : 1; 
 
-                     $args = [
-                        'post_type' => 'product',
-                        'posts_per_page' => 6,
-                        'tax_query' => array(
-                            array(
-                                'taxonomy' => 'product_cat',
-                                'terms' => $_POST['cat'],
-                                'field' => 'id',
-                            )
-                        ),
-                     ];
+                    if(isset($_POST['advance']) && $_POST['filter']){
+                        $prodcut_lable = [];
+                        $product_ad_cat = [];
+                        $product_ad_tag = [];
+                        $product_ad_feature = [];
+                        foreach($_POST['filter'] as $masic){
+                           if($masic['name'] == 'labels') {
+                                array_push($prodcut_lable, $masic['value']); 
+                           }
+                           if($masic['name'] == 'advance-cat') {
+                               array_push($product_ad_cat, $masic['value']); 
+                          }
+                          if($masic['name'] == 'advance-tags') {
+                           array_push($product_ad_tag, $masic['value']); 
+                            }
+                            if($masic['name'] == 'advane-feature') {
+                               array_push($product_ad_feature, $masic['value']); 
+                                }
+                        }
+                        //  tax query
+           
+                        $args = array(
+                           'paged'          => $paged, 
+                           'post_type' => 'product',
+                           'posts_per_page' => 12,
+                           'order'   => 'DESC',
+                           'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
+                           'tax_query' => [
+                               'relation' => 'OR',
+                               [
+                                   'taxonomy' => 'label',
+                                      'terms' => $prodcut_lable,
+                                      'field' => 'slug',
+                               ],
+                               [
+                                   'taxonomy' => 'features',
+                                      'terms' => $product_ad_feature,
+                                      'field' => 'slug',
+                               ],
+                               [
+                                   'taxonomy' => 'product_tag',
+                                      'terms' => $product_ad_tag,
+                                      'field' => 'slug',
+                               ],
+                               [
+                                   'taxonomy' => 'product_cat',
+                                      'terms' => $product_ad_cat,
+                                      'field' => 'slug',
+                               ],
+                               [
+                                   'taxonomy' => 'product_cat',
+                                   'field'    => 'slug',
+                                   'terms'    => array( 'additional-services', 'theme-customization-options' ),
+                                   'operator' => 'NOT IN'
+                               ]
+                           ]
+                           );
+                    }else{
+                        $args = [
+                            'paged'          => $paged, 
+                            'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
+                            'post_type' => 'product',
+                            'posts_per_page' => 1,
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'terms' => $_POST['cat'],
+                                    'field' => 'id',
+                                )
+                            ),
+                            ];
+                    }
+
+                     
                      $loop = new \WP_Query($args);
                     
                     if($loop->have_posts()){
@@ -49,7 +117,6 @@ function blockly_product_filter_cat(){
                         $get_themeim_meta = get_post_meta(get_the_ID(), 'themeim_product_options', true);
                         $data['product_id'] = isset($get_themeim_meta['_themeforest_id']) ? $get_themeim_meta['_themeforest_id'] : '';
                         $product_info = '';
-
                         if (class_exists('Themeim_API_INIT')) {
                             $product_info = Themeim_API_INIT::get_themeforest_info($data); 
                         }
@@ -116,20 +183,20 @@ function blockly_product_filter_cat(){
                     </div>
                     <?php endwhile; }wp_reset_postdata(); ?>
                 </div>
-                <nav>
-                    <ul class="pagination">
-                        <li class="page-item prev">
-                            <a class="page-link" href="#" rel="prev" aria-label="Prev &raquo;"><i class="las la-angle-left"></i></a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">01</a></li>
-                        <li class="page-item"><a class="page-link" href="#">02</a></li>
-                        <li class="page-item active" aria-current="page"><span class="page-link">03</span></li>
-                        <li class="page-item"><a class="page-link" href="#">04</a></li>
-                        <li class="page-item"><a class="page-link" href="#">05</a></li>
-                        <li class="page-item next">
-                            <a class="page-link" href="#" rel="next" aria-label="Next &raquo;"><i class="las la-angle-right"></i></a>
-                        </li>
-                    </ul>
+                <nav class="texomony-prodcut-pagination">
+                    <?php 
+                    
+                    $big = 999999999; // need an unlikely integer
+ 
+                    echo themeim_paginate_links( array(
+                        'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                        'format'  => '?paged=%#%',
+                        'current' => $_POST['page'],
+                        'total'   => $loop->max_num_pages
+                    ) );
+                    
+                    ?>
+                    
                 </nav>
             </div>
         </div>

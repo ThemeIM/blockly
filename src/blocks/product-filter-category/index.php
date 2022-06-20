@@ -31,19 +31,25 @@ add_action( 'init', 'blockly_register_product_filter_cat' );
 
 if (!function_exists('blockly_render_product_filter_cat')) {
     function blockly_render_product_filter_cat( $attributes ) {
-        if(!isset($_GET['cat'])) {
-            return;
-        }
+       
+       
+       $current = get_queried_object();
+       $get_current_cat_by_url =  isset($_GET['cat']) ? $_GET['cat'] : '';
+       $taxomomy_id = $current->parent ? $current->parent : $current->term_id;
+       $current_taxonomy_id = $taxomomy_id ? $taxomomy_id : $get_current_cat_by_url;
+        
        $cat_name = ''; 
        $cat_description = '';
-       $get_current_cat_item = get_term_by('name', $_GET['cat'], 'product_cat');
+       $get_current_cat_item = get_term_by('id', $current_taxonomy_id, 'product_cat');
        $get_current_cat_id = isset($get_current_cat_item->term_id) ? $get_current_cat_item->term_id : '';
        $cat_name = isset($get_current_cat_item->name) ? $get_current_cat_item->name : '';
        $cat_description = isset($get_current_cat_item->description) ? $get_current_cat_item->description : '';
        //  get sub cat 
        $get_sub_cat = '';
        if(isset($_GET['sub_cat'])) {
-        $get_sub_cat = get_term_by('name', $_GET['sub_cat'], 'product_cat');
+        $get_sub_cat = get_term_by('id', $_GET['sub_cat'], 'product_cat');
+       }elseif(isset($current->term_id)) {
+        $get_sub_cat = get_term_by('id', $current->term_id, 'product_cat');
        }
         ob_start();  ?>
 
@@ -138,121 +144,102 @@ if (!function_exists('blockly_render_product_filter_cat')) {
                                 <span class="sub-title">Short by :</span>
                                 <div class="product-sort-select">
                                     <select class="form--control">
-                                        <option value="1">Recent</option>
-                                        <option value="2">Featured</option>
-                                        <option value="3">New</option>
-                                        <option value="4">Top</option>
+                                        <option value="title" selected>Title</option>
+                                        <option value="date">New</option>
+                                        <option value="name">Top</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </nav>
-                <div class="product-filter-widget-area">
-                    <div class="product-top-option-area">
-                        <div class="product-top-option-content">
-                            <p><span class="text--base">*</span>You can select multiple options</p>
-                        </div>
-                        <div class="product-top-option-btn">
-                            <button class="clear">Clear</button>
-                            <button class="apply">Apply</button>
-                        </div>
-                    </div>
-                    <div class="product-filter-widget-wrapper">
-                        <div class="product-filter-widget">
-                            <h4 class="title">Labels</h4>
-                            <div class="product-filter-widget-list">
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-1">
-                                    <label for="level-1">Arntech</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-2">
-                                    <label for="level-2">ThemeIm</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-3">
-                                    <label for="level-3">ThemeBuz</label>
-                                </div>
+                <form action="" name="advance_filter" class="blockly-advance-filter" method="GET">
+                    <div class="product-filter-widget-area">
+                        <div class="product-top-option-area">
+                            <div class="product-top-option-content">
+                                <p><span class="text--base">*</span>You can select multiple options</p>
+                            </div>
+                            <div class="product-top-option-btn">
+                                <button class="clear" type="reset">Clear</button>
+                                <button class="advance-apply" type="submit" name="advance-filter">Apply</button>
                             </div>
                         </div>
-                        <div class="product-filter-widget">
-                            <h4 class="title">Categories</h4>
-                            <div class="product-filter-widget-list">
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-4">
-                                    <label for="level-4">Bestsellers</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-5">
-                                    <label for="level-5">Freebies</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-6">
-                                    <label for="level-6">WordPress Themes</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-8">
-                                    <label for="level-8">Blog / Magazine</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-9">
-                                    <label for="level-9">Business</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-10">
-                                    <label for="level-10">Marketing</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-11">
-                                    <label for="level-11">eCommerce</label>
+                        <div class="product-filter-widget-wrapper">
+                            <div class="product-filter-widget">
+                                <h4 class="title">Labels</h4>
+                                <div class="product-filter-widget-list">
+                                    <?php 
+                                     $get_labels = array(
+                                        'taxonomy' => 'label',
+                                        'hide_empty' => false,
+                                    );
+                                    $get_labels_data = get_terms($get_labels);
+                                    ?>
+                                    <?php foreach($get_labels_data as $list){ ?>
+                                    <div class="form-group custom-check-group">
+                                        <input type="checkbox" id="level-<?php echo esc_attr($list->term_id) ?>" name="labels" value="<?php echo esc_attr($list->slug); ?>">
+                                        <label for="level-<?php echo esc_attr($list->term_id) ?>"><?php echo esc_html($list->name); ?></label>
+                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-filter-widget">
-                            <h4 class="title">Tags</h4>
-                            <div class="product-filter-widget-list">
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-12">
-                                    <label for="level-12">shop</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-13">
-                                    <label for="level-13">woocommerce</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-14">
-                                    <label for="level-14">business</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-15">
-                                    <label for="level-15">corporate</label>
+                            <div class="product-filter-widget">
+                                <h4 class="title">Categories</h4>
+                                <?php 
+                                unset($args);
+                              
+                                $ad_get_more_cat = get_terms( 'product_cat', array(
+                                    'hide_empty' => false,
+                                    'child_of'   => $get_current_cat_id,
+                                  ) ) ?>
+                                <div class="product-filter-widget-list">
+                                    <?php foreach($ad_get_more_cat as $ad_cat){ ?>
+                                    <div class="form-group custom-check-group">
+                                        <input type="checkbox" id="level-<?php echo esc_attr($ad_cat->term_id) ?>" value="<?php echo esc_attr($ad_cat->slug); ?>" name="advance-cat">
+                                        <label for="level-<?php echo esc_attr($ad_cat->term_id) ?>"><?php echo esc_html($ad_cat->name); ?></label>
+                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="product-filter-widget">
-                            <h4 class="title">Popular features</h4>
-                            <div class="product-filter-widget-list">
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-16">
-                                    <label for="level-16">AccessPress Social Counter</label>
+                            <div class="product-filter-widget">
+                                <h4 class="title">Tags</h4>
+                                <div class="product-filter-widget-list">
+                                    <?php 
+                                    $ad_product_tags = array(
+                                        'taxonomy' => 'product_tag',
+                                        'hide_empty' => false,
+                                    );
+                                    $ad_get_more_tags = get_terms($ad_product_tags);
+                                    ?>
+                                    <?php foreach($ad_get_more_tags as $ad_tags){ ?>
+                                    <div class="form-group custom-check-group">
+                                        <input type="checkbox" id="level-<?php echo esc_attr($ad_tags->term_id) ?>" value="<?php echo esc_attr($ad_tags->slug); ?>" name="advance-tags">
+                                        <label for="level-<?php echo esc_attr($ad_tags->term_id) ?>"><?php echo esc_html($ad_tags->name); ?></label>
+                                    </div>
+                                    <?php } ?>
                                 </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-17">
-                                    <label for="level-17">Advanced Popups</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-18">
-                                    <label for="level-18">All In One Addons for WPBakery Page Builder</label>
-                                </div>
-                                <div class="form-group custom-check-group">
-                                    <input type="checkbox" id="level-19">
-                                    <label for="level-19">Booked Appointments Themes</label>
+                            </div>
+                            <div class="product-filter-widget">
+                                <h4 class="title">Popular features</h4>
+                                <?php 
+                                    $ad_product_feature = array(
+                                        'taxonomy' => 'features',
+                                        'hide_empty' => false,
+                                    );
+                                    $ad_get_more_feature = get_terms($ad_product_feature);
+                                    ?>
+                                <div class="product-filter-widget-list">
+                                <?php foreach($ad_get_more_feature as $ad_feature){ ?>
+                                    <div class="form-group custom-check-group">
+                                        <input type="checkbox" id="level-<?php echo esc_attr($ad_feature->term_id) ?>" value="<?php echo esc_attr($ad_feature->slug); ?>" name="advane-feature">
+                                        <label for="level-<?php echo esc_attr($ad_feature->term_id) ?>"><?php echo esc_html($ad_feature->name); ?></label>
+                                    </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+               </form>
                 <div class="tab-content position-relative" id="nav-tabContent">
                     <div class="ajax-preloader position-absolute">
                         <div class="loader"></div>
