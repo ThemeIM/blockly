@@ -108,7 +108,7 @@ if(!function_exists('blockly_site_header')):
                                         <li class="menu_has_children">
                                             <a href="#0">
                                                 <div class="toggle-menu">
-                                                Shopify <i class="fas fa-chevron-down"></i>
+                                                HTML Templates <i class="fas fa-chevron-down"></i>
                                                 </div>
                                             </a>
                                             <ul class="sub-menu">
