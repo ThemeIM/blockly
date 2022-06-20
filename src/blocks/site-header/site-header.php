@@ -181,8 +181,6 @@ if(!function_exists('blockly_site_header')):
                </div>
            </div>
       </header>
-      <div class="cursor" style="top: 539px; left: 108px;"></div>
-      <div class="cursor-follower" style="top: 498px; left: 607px;"></div>
         <?php return ob_get_clean(); 
     }
 endif;
