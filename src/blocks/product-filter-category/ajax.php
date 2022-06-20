@@ -30,9 +30,6 @@ function blockly_product_filter_cat(){
             <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
                 <div class="row justify-content-center mb-30-none">
                     <?php 
-                    echo '<pre>';
-                    print_r($_POST);
-                    echo '</pre>';
                     
                     $paged = ( $_POST['page'] ) ? $_POST['page'] : 1; 
 
@@ -95,10 +92,10 @@ function blockly_product_filter_cat(){
                            );
                     }else{
                         $args = [
-                            'paged'          => $paged, 
+                            'paged'  => $paged, 
                             'orderby' => (isset($_POST['orderby']) && !empty($_POST['orderby'])) ? $_POST['orderby'] : 'none',
                             'post_type' => 'product',
-                            'posts_per_page' => 1,
+                            'posts_per_page' => 12,
                             'tax_query' => array(
                                 array(
                                     'taxonomy' => 'product_cat',
