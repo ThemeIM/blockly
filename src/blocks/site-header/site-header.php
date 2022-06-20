@@ -190,7 +190,6 @@ if(!function_exists('blockly_site_header')):
     }
 endif;
 
-
 add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {
     ob_start();
 

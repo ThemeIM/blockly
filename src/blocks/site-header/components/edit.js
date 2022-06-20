@@ -27,12 +27,6 @@ export default function Edit({ attributes, setAttributes }) {
         cartIcon
     } = attributes;
 
-    console.log({
-        pages,
-        pages_type_2,
-        pages_type_3,
-    });
-
     /** page functions */
     const addPage = () => {
         setAttributes({ pages: [...pages, { link: "", title: "", icon: "" }] })
@@ -131,8 +125,14 @@ export default function Edit({ attributes, setAttributes }) {
 
     const onChangeProductItem = ({ index, title, link }) => {
         let all_products = [ ...products ]
-        all_products[index]['title'] = title
-        all_products[index]['link'] = link
+
+        if (title) {
+            all_products[index]['title'] = title
+        }
+
+        if (link) {
+            all_products[index]['link'] = link
+        }
 
         setAttributes({ products: [ ...all_products ] })
     }

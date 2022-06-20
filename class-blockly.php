@@ -146,6 +146,7 @@ final class Blockly {
        	require_once( BLY_SRC_BLOCKS . '/site-header/site-header.php' );
        	require_once( BLY_SRC_BLOCKS . '/table-of-content-meta/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/table-section/index.php' );
+       	require_once( BLY_SRC_BLOCKS . '/blog-author/index.php' );
     }
 
     /**
@@ -383,3 +384,18 @@ function blockly_init() {
 }
 //fire off the plugin
 blockly_init();
+
+add_filter('user_contactmethods','cfw_add_user_social_links');
+
+function cfw_add_user_social_links($user_contact) {
+    $user_contact['twitter'] = esc_html__('Twitter Link', 'blockly');
+    $user_contact['facebook'] = esc_html__('Facebook Link', 'blockly');
+    $user_contact['dlinkedin'] = esc_html__('LinkedIn Link', 'blockly');
+    $user_contact['instagram'] = esc_html__('Instagram Link', 'blockly');
+    $user_contact['pinterest'] = esc_html__('Pinterest Link', 'blockly');
+    $user_contact['github'] = esc_html__('Github Link', 'blockly');
+    $user_contact['dribbble'] = esc_html__('Dribbble Link', 'blockly');
+    $user_contact['behance'] = esc_html__('Behance Link', 'blockly');
+
+    return $user_contact;
+}
