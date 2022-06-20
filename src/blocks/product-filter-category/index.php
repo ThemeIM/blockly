@@ -45,11 +45,6 @@ if (!function_exists('blockly_render_product_filter_cat')) {
        if(isset($_GET['sub_cat'])) {
         $get_sub_cat = get_term_by('name', $_GET['sub_cat'], 'product_cat');
        }
-       echo '<pre>';
-       print_r($get_sub_cat);
-       echo '</pre>';
-       
-
         ob_start();  ?>
 
 <div class="page-wrapper-section" style="max-width: 100%">
@@ -62,7 +57,6 @@ if (!function_exists('blockly_render_product_filter_cat')) {
                 <div class="product-category-banner-content">
                 <?php if('' != $get_current_cat_id): 
                          $cat_image_id = get_term_meta( $get_current_cat_id, 'thumbnail_id', true ); 
-
                     ?>
                 <div class="product-category-banner-icon">
                     <?php echo wp_get_attachment_image( $cat_image_id, 'thumbnail'); ?>
@@ -259,7 +253,7 @@ if (!function_exists('blockly_render_product_filter_cat')) {
                         </div>
                     </div>
                 </div>
-                <div class="tab-content" id="nav-tabContent">
+                <div class="tab-content position-relative" id="nav-tabContent">
                     <div class="ajax-preloader position-absolute">
                         <div class="loader"></div>
                     </div>

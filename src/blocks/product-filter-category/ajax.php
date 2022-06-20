@@ -18,74 +18,31 @@ add_action( 'wp_ajax_nopriv_blockly_product_filter_cat', 'blockly_product_filter
 function blockly_product_filter_cat(){
     if ( ! wp_verify_nonce( $_POST['nonce'], 'blockly-filter-cat-nonce' ) ) {
         die ( 'Busted!');
-    }
-       ?>
+    } ?>
+    
    <div class="ajax-preloader position-absolute">
         <div class="loader"></div>
     </div>    
    <div class="tab-content" id="nav-tabContent">
-       <?php 
-        
-        $children = get_terms( 'product_cat', array(
-            'parent'    => $_POST['cat'],
-            'hide_empty' => false
-        ) );
-        if((is_array($children)) && !empty($children)):
-       ?>
-       <nav class="product-inner-tab">
-        <div class="responsive-nav-two d-block d-lg-none">Category</div>
-        <div class="nav nav-tabs res-nav-tab-two" id="nav-tab" role="tablist">
-            <?php foreach($children as $child) :  ?>
-            <button data-cat="<?php echo esc_attr($child->term_id) ?>" class="nav-link" id="creative-tab-<?php echo esc_attr($child->term_id) ?>" data-toggle="tab"  type="button" role="tab" aria-controls="<?php echo esc_attr($child->name) ?>" aria-selected="true"><?php echo esc_html($child->name); ?></button>
-            <?php endforeach; ?>
-        </div>
-      </nav>
-      <?php endif; ?>
+
     <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
                 <div class="row justify-content-center mb-30-none">
                     <?php 
-                    if(!is_numeric($_POST['cat']) && 'all' != $_POST['cat']){
-                        $loop = new \WP_Query([
-                            'post_type' => 'product',
-                            'posts_per_page' => 6,
-                            'order' => 'ASC',
-                            'tax_query' => [
-                                [
-                                    'taxonomy' => 'product_cat',
-                                    'field'    => 'slug',
-                                    'terms'    => array( 'additional-services', 'theme-customization-options' ),
-                                    'operator' => 'NOT IN'
-                                ]
-                            ]
-                        ]);
-                    }elseif(!is_numeric($_POST['cat']) && 'new' != $_POST['cat']){
-                        $loop = new \WP_Query([
-                            'post_type' => 'product',
-                            'posts_per_page' => 6,
-                            'tax_query' => [
-                                [
-                                    'taxonomy' => 'product_cat',
-                                    'field'    => 'slug',
-                                    'terms'    => array( 'additional-services', 'theme-customization-options' ),
-                                    'operator' => 'NOT IN'
-                                ]
-                            ]
-                        ]);
-                    }else{
-                        $loop = new \WP_Query([
-                            'post_type' => 'product',
-                            'posts_per_page' => 6,
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => 'product_cat',
-                                    'terms' => $_POST['cat'],
-                                    'field' => 'id',
-                                )
-                            ),
-                        ]);
-                    }
+
+                     $args = [
+                        'post_type' => 'product',
+                        'posts_per_page' => 6,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'terms' => $_POST['cat'],
+                                'field' => 'id',
+                            )
+                        ),
+                     ];
+                     $loop = new \WP_Query($args);
                     
                     if($loop->have_posts()){
                         while($loop->have_posts()) : $loop->the_post();
@@ -159,7 +116,21 @@ function blockly_product_filter_cat(){
                     </div>
                     <?php endwhile; }wp_reset_postdata(); ?>
                 </div>
-                
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item prev">
+                            <a class="page-link" href="#" rel="prev" aria-label="Prev &raquo;"><i class="las la-angle-left"></i></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">01</a></li>
+                        <li class="page-item"><a class="page-link" href="#">02</a></li>
+                        <li class="page-item active" aria-current="page"><span class="page-link">03</span></li>
+                        <li class="page-item"><a class="page-link" href="#">04</a></li>
+                        <li class="page-item"><a class="page-link" href="#">05</a></li>
+                        <li class="page-item next">
+                            <a class="page-link" href="#" rel="next" aria-label="Next &raquo;"><i class="las la-angle-right"></i></a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
