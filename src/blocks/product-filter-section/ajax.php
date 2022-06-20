@@ -94,7 +94,7 @@ function blockly_product_filter(){
                         $product_info = '';
 
                         if (class_exists('Themeim_API_INIT')) {
-                            $product_info = Themeim_API_INIT::get_themeforest_info($data); 
+                            $product_info = Themeim_API_INIT::get_themeforest_info_from_cache($data); 
                         }
 
                         $product_item = isset($product_info->item) ? $product_info->item: '';

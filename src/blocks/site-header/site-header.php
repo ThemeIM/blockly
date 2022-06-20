@@ -147,20 +147,17 @@ if(!function_exists('blockly_site_header')):
                                             </div>
                                         </div>
                                        <?php endif; ?>
-
-                                        <?php if (  class_exists( 'WooCommerce', false ) ) { ?>
-                                        <div class="header-cart-area">
-                                            <div class="header-cart-action">
-                                                <span class="icon">
-                                                    <i class="las la-shopping-cart"></i>
-                                                </span>
-                                                <span class="cart-badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-                                            </div>
-                                            <div class="cart-widget-dropdown">
-                                                <?php woocommerce_mini_cart(); ?>
-                                            </div>
-                                        </div>
-                                        <?php } ?>
+                                       <div class="header-cart-area">
+                                           <div class="header-cart-action">
+                                               <span class="icon">
+                                                   <i class="las la-shopping-cart"></i>
+                                               </span>
+                                               <span class="cart-badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                           </div>
+                                           <div class="cart-widget-dropdown">
+                                               <?php woocommerce_mini_cart(); ?>
+                                           </div>
+                                       </div>
                                        <div class="header-action-area">
                                            <div class="header-action">
                                            <?php if(isset($attributes['hire'])){ ?>
@@ -191,22 +188,19 @@ if(!function_exists('blockly_site_header')):
 endif;
 
 add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {
+
     ob_start();
-
-    if ( ! class_exists( 'WooCommerce', false ) ) {
-?>
-        <div class="header-cart-action">
-            <span class="icon">
-                <i class="las la-shopping-cart"></i>
-            </span>
-            <span class="cart-badge"> <?php echo WC()->cart->get_cart_contents_count(); ?></span>
-        </div>
-<?php
-    }
-
-    $fragments['div.header-cart-action'] = ob_get_clean();
+    ?>
+    <div class="header-cart-action">
+        <span class="icon">
+            <i class="las la-shopping-cart"></i>
+        </span>
+        <span class="cart-badge"> <?php echo WC()->cart->get_cart_contents_count(); ?></span>
+    </div>
+    <?php $fragments['div.header-cart-action'] = ob_get_clean();
 
     return $fragments;
+
 } );
 
 add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {

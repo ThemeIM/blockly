@@ -96,11 +96,9 @@ if (!function_exists('blockly_render_product_filter')) {
                                     $get_themeim_meta = get_post_meta(get_the_ID(), 'themeim_product_options', true);
                                     $data['product_id'] = isset($get_themeim_meta['_themeforest_id']) ? $get_themeim_meta['_themeforest_id'] : '';
                                     $product_info = '';
-
                                     if (class_exists('Themeim_API_INIT')) {
-                                        $product_info = Themeim_API_INIT::get_themeforest_info($data); 
+                                        $product_info = Themeim_API_INIT::get_themeforest_info_from_cache($data); 
                                     }
-
                                     $product_item = isset($product_info->item) ? $product_info->item: '';
                                     $cost = $sales = $preview = '';
 
