@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * Server-side rendering for the alert_box block
  * @since   1.0.0
@@ -124,10 +124,7 @@ if(!function_exists('blockly_site_header')):
                                             </ul>
                                         </li>
                                     </ul>
-                                    <?php } else {
-                                        echo json_encode($attributes);
-                                    }
-                                    ?>
+                                    <?php } ?>
                                     <div class="header-right">
                                         <?php if(isset($attributes['products']) && $attributes['products'] != '') : ?>
                                         <div class="toggle-menu product-nav">
