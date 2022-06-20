@@ -36,6 +36,18 @@ registerBlockType( 'blockly/site-header', {
 				{icon:'lab la-wordpress', link:'wordpress.org', title: 'Wordpress theme'},
 			]
         },
+		pages_type_2: {
+            type: 'array',
+            default: [
+				{icon:'lab la-wordpress', link:'wordpress.org', title: 'Wordpress theme'},
+			]
+        },
+		pages_type_3: {
+            type: 'array',
+            default: [
+				{icon:'lab la-wordpress', link:'wordpress.org', title: 'Wordpress theme'},
+			]
+        },
         products: {
             type: 'array',
             default: [
