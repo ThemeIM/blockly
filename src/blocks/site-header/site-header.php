@@ -44,7 +44,11 @@ if(!function_exists('blockly_site_header')):
                                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                    <span class="toggle-bar"></span>
                                </button>
-                               <?php if(isset($attributes['pages']) && $attributes['pages'] != '') { ?>
+
+                                <?php
+                                // pages - 1
+                                if(!empty($attributes['pages'])) {
+                                ?>
                                 <div class="toggle-menu collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav main-menu">
                                         <li class="menu_has_children">
@@ -67,8 +71,39 @@ if(!function_exists('blockly_site_header')):
                                         </li>
                                     </ul>
                                 </div>
-                               <?php }  ?>
+                                <?php }  ?>
+
                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <?php
+                                    // pages - 2
+                                    if(!empty($attributes['pages_type_2'])) {
+                                    ?>
+                                        <ul class="navbar-nav main-menu">
+                                            <li class="menu_has_children">
+                                                <a href="#0">
+                                                    <div class="toggle-menu">
+                                                    Shopify <i class="fas fa-chevron-down"></i>
+                                                    </div>
+                                                </a>
+                                                <ul class="sub-menu">
+                                                    <?php foreach($attributes['pages_type_2'] as $page) { ?>
+                                                        <li>
+                                                            <?php $link = isset($page['link']) ? $page['link'] : ''; ?>
+                                                            <a href="<?php echo esc_url($link); ?>">
+                                                            <?php $menu_title = isset($page['title']) ? $page['title'] : ''; ?>
+                                                            <?php $icon_class = isset($page['icon']) ? $page['icon']: ''; ?>
+                                                            <i class="<?php echo esc_attr($icon_class); ?>"></i> <?php echo esc_html($menu_title); ?></a>
+                                                        </li>
+                                                    <?php } ?>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    <?php
+                                    }
+
+                                    // pages - 3
+                                    if(!empty($attributes['pages_type_3'])) {
+                                    ?>
                                     <ul class="navbar-nav main-menu">
                                         <li class="menu_has_children">
                                             <a href="#0">
@@ -77,7 +112,7 @@ if(!function_exists('blockly_site_header')):
                                                 </div>
                                             </a>
                                             <ul class="sub-menu">
-                                                <?php foreach($attributes['pages'] as $page) { ?>
+                                                <?php foreach($attributes['pages_type_3'] as $page) { ?>
                                                     <li>
                                                         <?php $link = isset($page['link']) ? $page['link'] : ''; ?>
                                                         <a href="<?php echo esc_url($link); ?>">
@@ -89,28 +124,12 @@ if(!function_exists('blockly_site_header')):
                                             </ul>
                                         </li>
                                     </ul>
-                                    <ul class="navbar-nav main-menu">
-                                        <li class="menu_has_children">
-                                            <a href="#0">
-                                                <div class="toggle-menu">
-                                                Shopify <i class="fas fa-chevron-down"></i>
-                                                </div>
-                                            </a>
-                                            <ul class="sub-menu">
-                                                <?php foreach($attributes['pages'] as $page) { ?>
-                                                    <li>
-                                                        <?php $link = isset($page['link']) ? $page['link'] : ''; ?>
-                                                        <a href="<?php echo esc_url($link); ?>">
-                                                         <?php $menu_title = isset($page['title']) ? $page['title'] : ''; ?>
-                                                         <?php $icon_class = isset($page['icon']) ? $page['icon']: ''; ?>
-                                                        <i class="<?php echo esc_attr($icon_class); ?>"></i> <?php echo esc_html($menu_title); ?></a>
-                                                    </li>
-                                                <?php } ?>
-                                            </ul>
-                                        </li>
-                                    </ul>               
-                                   <div class="header-right">
-                                       <?php if(isset($attributes['products']) && $attributes['products'] != '') : ?>
+                                    <?php } else {
+                                        echo json_encode($attributes);
+                                    }
+                                    ?>
+                                    <div class="header-right">
+                                        <?php if(isset($attributes['products']) && $attributes['products'] != '') : ?>
                                         <div class="toggle-menu product-nav">
                                             <?php if(isset($attributes['productDropdownIcon'] ) && '' != $attributes['productDropdownIcon']): ?>
                                             <span class="icon">
@@ -131,17 +150,20 @@ if(!function_exists('blockly_site_header')):
                                             </div>
                                         </div>
                                        <?php endif; ?>
-                                       <div class="header-cart-area">
-                                           <div class="header-cart-action">
-                                               <span class="icon">
-                                                   <i class="las la-shopping-cart"></i>
-                                               </span>
-                                               <span class="cart-badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-                                           </div>
-                                           <div class="cart-widget-dropdown">
-                                               <?php woocommerce_mini_cart(); ?>
-                                           </div>
-                                       </div>
+
+                                        <?php if ( ! class_exists( 'WooCommerce', false ) ) { ?>
+                                        <div class="header-cart-area">
+                                            <div class="header-cart-action">
+                                                <span class="icon">
+                                                    <i class="las la-shopping-cart"></i>
+                                                </span>
+                                                <span class="cart-badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+                                            </div>
+                                            <div class="cart-widget-dropdown">
+                                                <?php woocommerce_mini_cart(); ?>
+                                            </div>
+                                        </div>
+                                        <?php } ?>
                                        <div class="header-action-area">
                                            <div class="header-action">
                                            <?php if(isset($attributes['hire'])){ ?>
@@ -173,19 +195,22 @@ endif;
 
 
 add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {
-
     ob_start();
-    ?>
-    <div class="header-cart-action">
-        <span class="icon">
-            <i class="las la-shopping-cart"></i>
-        </span>
-        <span class="cart-badge"> <?php echo WC()->cart->get_cart_contents_count(); ?></span>
-    </div>
-    <?php $fragments['div.header-cart-action'] = ob_get_clean();
+
+    if ( ! class_exists( 'WooCommerce', false ) ) {
+?>
+        <div class="header-cart-action">
+            <span class="icon">
+                <i class="las la-shopping-cart"></i>
+            </span>
+            <span class="cart-badge"> <?php echo WC()->cart->get_cart_contents_count(); ?></span>
+        </div>
+<?php
+    }
+
+    $fragments['div.header-cart-action'] = ob_get_clean();
 
     return $fragments;
-
 } );
 
 add_filter( 'woocommerce_add_to_cart_fragments', function($fragments) {

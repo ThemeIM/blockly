@@ -42,50 +42,50 @@ if(!function_exists('blockly_render_default_post')):
     function blockly_render_default_post( $attributes ) {
         ob_start();  ?>
             <div class="blog-section ptb-120">
-    <div class="">
-        <div class="blog-tab">
-            <div class="tab-content blockly-blog-tab">
-                <div class="loader-post-wrapper">
-                    <div class="loader-post"></div>
-                </div>
-                <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="all-tab">
-                    <div class="row justify-content-center mb-60-none tab-content-ajax">
-                        <?php 
-                        if(have_posts()){
-                        while(have_posts()) : the_post();
-                        ?>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-60">
-                                <div class="blog-item">
-                                    <?php if(has_post_thumbnail()) : ?>
-                                        <div class="blog-thumb">
-                                            <?php the_post_thumbnail(); ?>
+                <div class="">
+                    <div class="blog-tab">
+                        <div class="tab-content blockly-blog-tab">
+                            <div class="loader-post-wrapper">
+                                <div class="loader-post"></div>
+                            </div>
+                            <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="all-tab">
+                                <div class="row justify-content-center mb-60-none tab-content-ajax">
+                                    <?php 
+                                    if(have_posts()){
+                                    while(have_posts()) : the_post();
+                                    ?>
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-60">
+                                            <div class="blog-item">
+                                                <?php if(has_post_thumbnail()) : ?>
+                                                    <div class="blog-thumb">
+                                                        <?php the_post_thumbnail(); ?>
+                                                    </div>
+                                                <?php endif; ?>
+                                                <div class="blog-content">
+                                                    <div class="blog-post-meta">
+                                                        <span class="date"><?php echo  get_the_date('d M, Y'); ?></span>
+                                                    </div>
+                                                    <?php the_title('<h4 class="title"><a href="'.get_the_permalink().'">', '</a></h4>'); ?>
+                                                </div>
+                                            </div>
                                         </div>
-                                    <?php endif; ?>
-                                    <div class="blog-content">
-                                        <div class="blog-post-meta">
-                                            <span class="date"><?php echo  get_the_date('d M, Y'); ?></span>
-                                        </div>
-                                        <?php the_title('<h4 class="title"><a href="'.get_the_permalink().'">', '</a></h4>'); ?>
-                                    </div>
+                                    <?php endwhile;
+                                    }else{
+                                    echo "No Result found";
+                                    } ?>
+                                </div>
+                                <div class="paginaton clearfix">
+                                    <?php the_posts_pagination( array(
+                                        'mid_size'  => 2,
+                                        'prev_text' => __( '&lt;', 'textdomain' ),
+                                        'next_text' => __( '&gt;', 'textdomain' ),
+                                    ) ); ?>
                                 </div>
                             </div>
-                        <?php endwhile;
-                        }else{
-                        echo "No Result found";
-                        } ?>
+                        </div>
                     </div>
-                    <div class="paginaton clearfix">
-                        <?php the_posts_pagination( array(
-                            'mid_size'  => 2,
-                            'prev_text' => __( '&lt;', 'textdomain' ),
-                            'next_text' => __( '&gt;', 'textdomain' ),
-                        ) ); ?>
-                    </div>
+                    <?php  ?>
                 </div>
-            </div>
-        </div>
-        <?php  ?>
-    </div>
             </div>
         <?php return ob_get_clean(); 
     }

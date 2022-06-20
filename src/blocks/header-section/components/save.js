@@ -7,6 +7,13 @@ export default function Save({ attributes, setAttributes }) {
         customer_text,
     } = attributes
 
+    function decodeHtml(html) {
+        let txt = document.createElement("div");
+        txt.classList.add('sub-title')
+        txt.innerHTML = html;
+        return txt.value;
+    }
+
     return (
         <section class="banner-section blockly-full">
             <div class="banner-element">
@@ -110,7 +117,7 @@ export default function Save({ attributes, setAttributes }) {
                             <div class="banner-content-element">
                                 <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-4.png`} alt="element" />
                             </div>
-                            <h3 class="sub-title">{ subtitle }</h3>
+                            <h3 class="sub-title">{ decodeHtml(subtitle) }</h3>
                             <h1 class="title">{ title }</h1>
                             <h3 class="inner-title">{ subtitle_2 }</h3>
                             <p>{ subtitle_3 }</p>
