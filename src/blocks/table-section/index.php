@@ -52,7 +52,7 @@ if(!function_exists('blockly_render_table_section')) {
 
         ob_start();
 ?>
-        <div className="table-area table-responsive <?php echo table_style == 'striped' ? 'style-01' : '' ?>">
+        <div class="table-area table-responsive <?php echo table_style == 'striped' ? 'style-01' : '' ?>">
             <table class="custom-table">
                 <thead>
                     <tr>
