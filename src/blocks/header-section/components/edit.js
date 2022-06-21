@@ -1,7 +1,6 @@
 import { __ } from '@wordpress/i18n';
-import { Button, SelectControl, Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-import { useState } from '@wordpress/element';
+import { Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
+import { RichText } from '@wordpress/block-editor';
 
 import '../styles/editor.scss'
 import '../styles/style.scss'

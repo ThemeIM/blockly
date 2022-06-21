@@ -1,0 +1,39 @@
+/**
+ * Editor styles for the admin
+ */
+
+.bly-block-testimonial {
+    margin-bottom: 0;
+    .components-button:not(:disabled):not([aria-disabled=true]):focus {
+        background: none;
+        box-shadow: none;
+    }
+}
+
+.block-editor-block-list__layout [data-type="blockly/testimonial"] {
+    margin-bottom: 1.2em;
+}
+
+.bly-testimonial-info {
+    h2.editor-rich-text__tinymce {
+        line-height: 1.2;
+    }
+
+    p.editor-rich-text__tinymce {
+        line-height: 1.6;
+    }
+
+    .bly-testimonial-title + .bly-testimonial-title {
+        line-height: 1.8;
+    }
+}
+
+#editor div[class^="wp-block-blockly-"].bly-block-testimonial .bly-add-image svg {
+	height: 32px;
+	width: 32px;
+}
+#editor div[class^=wp-block-blockly-] .bly-add-image svg {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}

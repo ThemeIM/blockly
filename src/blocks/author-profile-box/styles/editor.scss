@@ -6,7 +6,7 @@
     margin-bottom: 0;
 }
 
-.block-editor-block-list__layout [data-type="blockly/blog-author"] {
+.block-editor-block-list__layout [data-type="blockly/author-profile-box"] {
     margin-bottom: 1.2em;
 }
 
@@ -40,6 +40,11 @@
 #editor .bly-has-avatar {
 
 	.bly-profile-image-square {
+		// button {
+		// 	top: 0;
+		// 	left: 0;
+		// 	height: 100%;
+		// }
 
 		.bly-change-image {
 			transition: .2s ease;
