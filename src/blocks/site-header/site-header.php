@@ -29,7 +29,7 @@ if(!function_exists('blockly_site_header')):
     function blockly_site_header( $attributes ) {
 
         ob_start();  ?>
-        <header class="header-section">
+        <div class="header-section">
            <div class="header">
                <div class="header-bottom-area">
                    <div class="container custom-container">
@@ -183,7 +183,7 @@ if(!function_exists('blockly_site_header')):
                    </div>
                </div>
            </div>
-      </header>
+        </div>
         <?php return ob_get_clean(); 
     }
 endif;
