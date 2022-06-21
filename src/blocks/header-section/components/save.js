@@ -7,13 +7,6 @@ export default function Save({ attributes, setAttributes }) {
         customer_text,
     } = attributes
 
-    function decodeHtml(html) {
-        let txt = document.createElement("div");
-        txt.classList.add('sub-title')
-        txt.innerHTML = html;
-        return txt.value;
-    }
-
     return (
         <section class="banner-section blockly-full">
             <div class="banner-element">

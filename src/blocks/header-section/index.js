@@ -1,9 +1,6 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
-import { SelectControl, PanelBody, CheckboxControl, Button, IconButton, RangeControl } from '@wordpress/components'
-import { InspectorControls,RichText,PanelColorSettings } from '@wordpress/block-editor';
 import Edit from './components/edit';
-import Save from './components/save';
 
 import './styles/style.scss';
 import './styles/editor.scss';
@@ -55,6 +52,6 @@ registerBlockType ( "blockly/header-section", {
 			},
 		},
         edit: Edit,
-        save: Save
+        save: () => null
 	},
 );

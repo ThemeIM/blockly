@@ -48,7 +48,19 @@ registerBlockType ( "blockly/table-of-contents", {
 		},
 		example: {
 			attributes: {
-				content: __( 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 'blockly' ),
+				title: __('Table of Contents'),
+				table_of_contents: [
+					{
+						text: __('Introduction'),
+						link: '#0',
+						items: [
+							{
+								text: __('Beginner'),
+								link: '#0',
+							}
+						]
+					}
+				]
 			},
 		},
         edit: Edit,

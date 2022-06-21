@@ -14,13 +14,6 @@ import './blocks/global-styles/index.js';
 import './utils/extensions/typography';
 
 //All block components include
-import './blocks/testimonial';
-import './blocks/author-profile-box';
-import './blocks/alert';
-import './blocks/faq';
-import './blocks/button';
-import './blocks/highlight';
-import './blocks/quote'; 
 import './blocks/section';
 import './blocks/product-content';
 import './blocks/vertical-list';
@@ -37,21 +30,10 @@ import './blocks/single-post-share';
 // default qeury 
 import './blocks/themeim-loop-query';
 
-//pricing table
-import './blocks/pricing-table';
-import './blocks/pricing-table-inner';
-import './blocks/pricing-table-inner/components/title';
-import './blocks/pricing-table-inner/components/subtitle';
-import './blocks/pricing-table-inner/components/subtitle2';
-// import './blocks/pricing-table-inner/components/image';
-import './blocks/pricing-table-inner/components/price';
-import './blocks/pricing-table-inner/components/features';
-import './blocks/pricing-table-inner/components/button';
 import './blocks/recent-post'
 import './blocks/blog-category'
 //import './blocks/blog-tag'
 import './blocks/overview-section'
-import './blocks/faq'
 import './blocks/feature'
 import './blocks/price-plan'
 import './blocks/tip'
