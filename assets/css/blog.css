@@ -1,0 +1,82 @@
+  
+  .loader-post {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 4px solid #6cd342;
+    border-top-color: gray;
+    box-sizing: border-box;
+    background: transparent;
+    animation: loading_post 1s linear infinite;
+    margin-top: 35%;
+    margin-left: 48%;
+  }
+  
+  @keyframes loading_post {
+    0% {
+      transform: rotate(0deg);
+    }
+    0% {
+      transform: rotate(360deg);
+    }
+  }
+  .blockly-blog-tab{
+    position: relative;
+  }
+  .loader-post-wrapper{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba( 255, 255, 255, .5);
+    z-index: 9;
+    display: none;
+  }
+  .product-content .title{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.product-content p{
+    font-size: 18px;
+}
+.product-content .product-footer-area span{
+    color: #CCCCCC;
+    font-weight: 300;
+    font-size: 15px;
+    text-transform: unset;
+}
+.product-content .product-footer-area span.price{
+    color: #0F0F0F;
+    font-weight: 500;
+    position: relative;
+    padding-left: 50px;
+}
+.product-content .product-footer-area span.price::before{
+    position: absolute;
+    content: '';
+    top: 6px;
+    left: 25px;
+    width: 1px;
+    height: 13px;
+    background-color: #CCCCCC;
+}
+.product-section-two .product-content .title{
+    font-weight: 600;
+}
+.product-section-two .product-content p{
+    font-size: 16px;
+    font-weight: 400;
+}
+.product-section-two .product-content .product-footer-area span{
+    color: #CCCCCC;
+    font-weight: 300;
+    text-transform: unset;
+}
+.product-section-two .product-content .product-footer-area span.price{
+    color: #0F0F0F;
+    font-weight: 500;
+    position: relative;
+    padding-left: 50px;
+}
+

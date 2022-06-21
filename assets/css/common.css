@@ -1,0 +1,94 @@
+.plan-list-area .plan-list li::before {
+    content: url("../images/check.svg")
+}
+.feature-list-area .feature-list li::before {
+    content: url("../images/check.svg")
+}
+.blog-content-list-area .blog-content-list li::before {
+    content: url("../images/check.svg")
+}
+/**ajax preloader**/
+.ajax-preloader{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999999;
+    background: #ffffffc2;
+    right: 0;
+    padding-top: 21%;
+    padding-left: 45%;
+    display: none;
+}
+.loader {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    border: 5px solid #6CD342;
+    border-top-color: #002147;
+    box-sizing: border-box;
+    background: transparent;
+    animation: loading 1s linear infinite;
+  }
+  
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    0% {
+      transform: rotate(360deg);
+    }
+  }
+  /* Product page select box */ 
+  .custom-select-box {
+    display: inline-block;
+    padding: 0;
+    position: absolute;
+    z-index: 99;
+    appearance: none;
+    transition: 0.3s all ease;
+    margin-top: 4px;
+ }
+  .custom-select-box span {
+    display: block;
+ }
+  .custom-select-box span::before {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: 0.3s all ease;
+ }
+  .custom-select-box.open {
+    transition: 0.3s all ease;
+ }
+  .custom-select-box.open li {
+    display: block;
+    background: #f6f6f6;
+    width: 100%;
+    transition: 0.3s all ease;
+ }
+  .custom-select-box.open span::before {
+    content: "\f106";
+    transition: 0.3s all ease;
+    transform: rotate(90deg);
+ }
+  .custom-select-box li {
+    display: none;
+    cursor: pointer;
+    padding: 5px 30px;
+    transition: 0.3s all ease;
+    padding-left: 10px;
+ }
+  .custom-select-box li:hover {
+    background-color: #ddd;
+ }
+  .custom-select-box li:first-child {
+    display: block;
+    border-top: 0px;
+    background: transparent;
+ }
+  .custom-select-box li:first-child:hover {
+    background-color: transparent;
+ }

@@ -1,0 +1,189 @@
+/**
+ * Editor styles for the admin
+ */
+
+.edit-post-visual-editor .editor-block-list__block [data-type="blockly/pricing-table-inner"],
+.edit-post-visual-editor .block-editor-block-list__block [data-type="blockly/pricing-table-inner"] {
+    margin-left: 0;
+	margin-right: 0;
+	/* Prevent grid resize */
+	overflow: hidden;
+	min-width: 0;
+}
+
+// .bly-pricing-table-wrap-admin{
+
+// 	.editor-inner-blocks {
+
+// 		.editor-block-list__layout {
+// 			display: grid;
+// 			grid-template-rows: 1fr;
+// 			//grid-column-gap: 2em;
+// 			min-height: 0;
+// 		}
+
+// 	}
+	
+
+// 	.block-editor-inner-blocks{
+// 		.block-editor-block-list__layout{
+// 			display: grid;
+// 			grid-template-rows: 1fr;
+// 			grid-column-gap: 2em;
+// 			min-height: 0;
+// 		}
+// 	}
+
+// }
+
+.bly-pricing-table-wrap-admin > .editor-inner-blocks > .editor-block-list__layout,
+.bly-pricing-table-wrap-admin > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	display: -ms-grid;
+	display: grid;
+    grid-template-rows: 1fr;
+   	grid-column-gap: 2em;
+    min-height: 0;
+}
+
+/* Grid gap classes */
+
+.bly-block-pricing-table-gap-0 > .editor-inner-blocks > .editor-block-list__layout,
+.bly-block-pricing-table-gap-0 > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-column-gap: 0;
+}
+
+.bly-block-pricing-table-gap-1 > .editor-inner-blocks > .editor-block-list__layout,
+.bly-block-pricing-table-gap-1 > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-column-gap: 1em;
+}
+
+.bly-block-pricing-table-gap-2 > .editor-inner-blocks > .editor-block-list__layout,
+.bly-block-pricing-table-gap-2 > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-column-gap: 2em;
+}
+
+.bly-block-pricing-table-gap-3 > .editor-inner-blocks > .editor-block-list__layout,
+.bly-block-pricing-table-gap-3 > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-column-gap: 3em;
+}
+
+.bly-block-pricing-table-gap-4 > .editor-inner-blocks > .editor-block-list__layout,
+.bly-block-pricing-table-gap-4 > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-column-gap: 4em;
+}
+
+.bly-block-pricing-table-gap-5 > .editor-inner-blocks > .editor-block-list__layout,
+.bly-block-pricing-table-gap-5 > .block-editor-inner-blocks > .block-editor-block-list__layout {
+	grid-column-gap: 5em;
+}
+
+/* Grid column classes */
+
+.bly-pricing-columns-2 .editor-block-list__layout,
+.bly-pricing-columns-2 .block-editor-block-list__layout {
+	-ms-grid-columns: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+
+    @media only screen and (max-width: 600px) {
+		-ms-grid-columns: 1fr;
+		grid-template-columns: 1fr;
+    }
+}
+
+.bly-pricing-columns-3 .editor-block-list__layout,
+.bly-pricing-columns-3 .block-editor-block-list__layout {
+	-ms-grid-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+
+	@media only screen and (max-width: 600px) {
+		-ms-grid-columns: 1fr;
+		grid-template-columns: 1fr;
+	}
+}
+
+.bly-pricing-columns-4 .editor-block-list__layout,
+.bly-pricing-columns-4 .block-editor-block-list__layout {
+	-ms-grid-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+
+	@media only screen and (max-width: 800px) {
+		-ms-grid-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@media only screen and (max-width: 600px) {
+		-ms-grid-columns: 1fr;
+		grid-template-columns: 1fr;
+	}
+}
+
+.bly-pricing-columns-5 .editor-block-list__layout,
+.bly-pricing-columns-5 .block-editor-block-list__layout {
+	-ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+	@media only screen and (max-width: 800px) {
+		-ms-grid-columns: 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@media only screen and (max-width: 600px) {
+		-ms-grid-columns: 1fr;
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Alignment styles */
+
+.bly-block-pricing-table-inside .editor-block-list__block[data-align=full],
+.bly-block-pricing-table-inside .editor-block-list__block[data-align=wide],
+.bly-block-pricing-table-inside .block-editor-block-list__block[data-align=full],
+.bly-block-pricing-table-inside .block-editor-block-list__block[data-align=wide] {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.bly-block-pricing-table-inside .editor-url-input input[type=text],
+.bly-block-pricing-table-inside .block-editor-block-list__block .block-editor-url-input input[type="text"] {
+	width: 100%;
+}
+
+.bly-pricing-has-currency div .block-editor-rich-text:first-child {
+	vertical-align: top;
+	margin-top: .7em;
+	margin-right: 3px;
+	line-height: 1;
+}
+
+.bly-pricing-table-title.editor-rich-text__tinymce:focus strong[data-mce-selected] {
+	background: transparent;
+	color: inherit;
+}
+
+/* Pricing table components */
+
+div[data-type="blockly/pricing-table-price"] .block-editor-block-list__block-edit div .editor-rich-text {
+	display: inline-block;
+}
+
+.bly-block-pricing-table .block-editor-block-list__layout div:first-child .block-editor-block-list__block-edit {
+	margin-top: 0;
+}
+
+.bly-pricing-table-button .bly-block-button .components-button {
+	padding: 8px;
+}
+
+//custom editor style
+.block-editor-block-list__block [data-type="blockly/pricing-table-title"],
+.block-editor-block-list__block [data-type="blockly/pricing-table-subtitle"],
+.block-editor-block-list__block [data-type="blockly/pricing-table-subtitle2"],
+.block-editor-block-list__block [data-type="blockly/pricing-table-price"],
+.block-editor-block-list__block [data-type="blockly/pricing-table-features"],
+.block-editor-block-list__block [data-type="blockly/pricing-table-button"]{
+	margin: 0!important;
+}
+.wp-block-blockly-pricing-table-button.bly-block-button span {
+    display: block;
+}
+

@@ -1,0 +1,76 @@
+$color__heading: #292929; // Heading color
+$bg--base: #6cd342; // Background base color
+
+.blockly-full {
+    max-width: 100% !important;
+}
+
+.plan-list-area {
+    margin-top: 50px;
+    border: 1px solid rgba(204, 204, 204, 0.5);
+    border-radius: 4px;
+    .title {
+        font-size: 16px;
+        font-weight: 600;
+        color: $color__heading;
+        text-transform: uppercase;
+        background-color: rgba(204, 204, 204, 0.4);
+        padding: 22px 20px;
+        margin-bottom: 0;
+        @media only screen and (max-width: 991px) {
+            font-size: 14px;
+            padding: 15px;
+            line-height: 24px;
+        }
+    }
+    .plan-list {
+        li {
+            color: #7a7a7a;
+            font-size: 18px;
+            padding: 25px 20px;
+            border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+            position: relative;
+            padding-left: 65px;
+            @media only screen and (max-width: 991px) {
+                font-size: 15px;
+                line-height: 25px;
+                padding: 15px;
+                padding-left: 55px;
+            }
+            &:last-child {
+                border: none;
+            }
+            &::before {
+                position: absolute;
+                content: "";
+                text-align: center;
+                top: 25px;
+                left: 20px;
+                width: 25px;
+                height: 25px;
+                line-height: 20px;
+                background-color: rgba(108, 211, 66, 0.2);
+                border-radius: 50%;
+                @media only screen and (max-width: 991px) {
+                    left: 15px;
+                    line-height: 23px;
+                }
+            }
+            .plan-title {
+                color: $color__heading;
+                font-weight: 500;
+            }
+            .price-title {
+                color: $color__heading;
+                font-weight: 700;
+            }
+            strong {
+                color: $color__heading;
+                font-weight: 700;
+            }
+            &:nth-child(even) {
+                background-color: rgba(204, 204, 204, 0.1);
+            }
+        }
+    }
+}
