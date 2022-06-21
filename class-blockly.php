@@ -124,8 +124,6 @@ final class Blockly {
         require_once( BLY_INCLUDES . '/functions.php' );
 		require_once BLY_INCLUDES . '/class-blockly-font-loader.php';
 		require_once BLY_INCLUDES . '/class-blockly-post-meta.php';
-        require_once( BLY_SRC_BLOCKS . '/alert/index.php' );
-        // require_once( BLY_SRC_BLOCKS . '/faq/index.php' );
         require_once( BLY_SRC_BLOCKS . '/subscription-forms/index.php' );
         require_once( BLY_SRC_BLOCKS . '/blog/index.php' );
         require_once( BLY_SRC_BLOCKS . '/blog/blog-ajax.php' );
@@ -139,7 +137,6 @@ final class Blockly {
         require_once( BLY_SRC_BLOCKS . '/product-archive/product.php' );
         require_once( BLY_SRC_BLOCKS . '/product-archive/ajax-action.php' );
        	require_once( BLY_SRC_BLOCKS . '/featured-products-slider/index.php' );
-       	require_once( BLY_SRC_BLOCKS . '/trending-products-slider/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/trending-products-slider/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/product-filter-section/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/product-filter-section/ajax.php' );
