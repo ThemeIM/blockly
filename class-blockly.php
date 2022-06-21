@@ -140,6 +140,8 @@ final class Blockly {
        	require_once( BLY_SRC_BLOCKS . '/trending-products-slider/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/product-filter-section/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/product-filter-section/ajax.php' );
+       	require_once( BLY_SRC_BLOCKS . '/product-filter-category/index.php' );
+       	require_once( BLY_SRC_BLOCKS . '/product-filter-category/ajax.php' );
        	require_once( BLY_SRC_BLOCKS . '/site-header/site-header.php' );
        	require_once( BLY_SRC_BLOCKS . '/table-of-content-meta/index.php' );
        	require_once( BLY_SRC_BLOCKS . '/table-section/index.php' );

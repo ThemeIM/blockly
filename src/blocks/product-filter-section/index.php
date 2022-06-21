@@ -96,11 +96,10 @@ if (!function_exists('blockly_render_product_filter')) {
                                     $get_themeim_meta = get_post_meta(get_the_ID(), 'themeim_product_options', true);
                                     $data['product_id'] = isset($get_themeim_meta['_themeforest_id']) ? $get_themeim_meta['_themeforest_id'] : '';
                                     $product_info = '';
-
                                     if (class_exists('Themeim_API_INIT')) {
-                                        $product_info = Themeim_API_INIT::get_themeforest_info($data); 
+                                        $product_info = Themeim_API_INIT::get_themeforest_info_from_cache($data); 
                                     }
-
+                                    $is_woocommerce = (isset($get_themeim_meta['_themeforest_id']) && '' != (isset($get_themeim_meta['_themeforest_id']) && $get_themeim_meta['_themeforest_id'] != '')) ? false : true;
                                     $product_item = isset($product_info->item) ? $product_info->item: '';
                                     $cost = $sales = $preview = '';
 
@@ -109,6 +108,14 @@ if (!function_exists('blockly_render_product_filter')) {
                                         $sales = isset($product_item->sales) ? $product_item->sales : '';
                                         $preview = isset($product_item->url) ? $product_item->url : '';
                                     }
+                                    if(isset($get_themeim_meta['_sales']) && $get_themeim_meta['_sales'] != '') {
+                                        $sales = $get_themeim_meta['_sales'];
+                                    }
+                                    if($is_woocommerce) {
+                                        $_product = wc_get_product( get_the_ID() );
+                                        $cost = $_product->get_price();                                        ;
+                                    }
+                                   
                                 ?>
                                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
                                     <div class="product-item">
@@ -168,9 +175,9 @@ if (!function_exists('blockly_render_product_filter')) {
                     </div>
                 </div>
             </div>
-            <div class="all-btn text-center mt-60">
-                                <a href="/shop" class="btn--base active">Browse All Resources <i class="las la-angle-right"></i></a>
-                            </div>
+             <div class="all-btn text-center mt-60">
+                 <a href="/shop" class="btn--base active">Browse All Resources <i class="las la-angle-right"></i></a>
+             </div>
             </div>
         </div>
     </div>
