@@ -244,6 +244,7 @@ if(!function_exists('blockly_render_product_list')):
                                $get_themeim_meta = get_post_meta(get_the_ID(), 'themeim_product_options', true);
                                 $data['product_id'] = isset($get_themeim_meta['_themeforest_id'])? $get_themeim_meta['_themeforest_id']: '';
                                 $product_info = '';
+                                $is_woocommerce = (isset($get_themeim_meta['_themeforest_id']) && '' != (isset($get_themeim_meta['_themeforest_id']) && $get_themeim_meta['_themeforest_id'] != '')) ? false : true;
                                 if (class_exists('Themeim_API_INIT')) {
                                     $product_info = Themeim_API_INIT::get_themeforest_info_from_cache($data); 
                                 }        
@@ -253,6 +254,13 @@ if(!function_exists('blockly_render_product_list')):
                                     $cost = isset($product_item->cost) ? $product_item->cost : '';
                                     $sales = isset($product_item->sales) ? $product_item->sales : '';
                                     $preview = isset($product_item->url) ? $product_item->url : '';
+                                }
+                                if(isset($get_themeim_meta['_sales']) && $get_themeim_meta['_sales'] != '') {
+                                    $sales = $get_themeim_meta['_sales'];
+                                }
+                                if($is_woocommerce) {
+                                    $_product = wc_get_product( get_the_ID() );
+                                    $cost = $_product->get_price();                                        ;
                                 }
                            ?>  
                             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 mb-30">
