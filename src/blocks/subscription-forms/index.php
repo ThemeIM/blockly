@@ -55,21 +55,18 @@ if(!function_exists('blockly_render_subscription')):
                     <div class="col-xl-8 col-lg-6 mb-30">
                         <div class="footer-subscribe-area">
                             <!-- Begin Mailchimp Signup Form -->
-                            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
-                            <style type="text/css">
-                                #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
-                                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-                                We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-                            </style>
-                            <form action="<?php echo esc_url($attributes['actionUrl']); ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate subscribe-form" target="_blank" novalidate>
-                                <input type="email" value="" name="EMAIL" class="required email form--control" id="mce-EMAIL" placeholder="Enter Your mail">
+                            
+                            <form action="<?php echo esc_url($attributes['actionUrl']); ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate newsletter-form subscribe-form" target="_blank" novalidate>
+                                <input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL"  placeholder="Enter your Mail">
                                 <button type="submit" class="btn--base" name="subscribe" id="mc-embedded-subscribe" style="margin: 0 !important">Subscribe Now <i class="fas fa-paper-plane ml-2"></i></button>
-                                <div id="mce-responses" class="clear foot">
+                                <div id="mce-responses" class="clear">
                                     <div class="response" id="mce-error-response" style="display:none"></div>
                                     <div class="response" id="mce-success-response" style="display:none"></div>
-	                            </div>  
-                            </form>
-                            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+                                </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                                    <input type="text" name="ca323fecfbb5c877385729e34e326cf158419852" tabindex="-1" autocomplete="ca323fecfbb5c877385729e34e326cf158419852"/>
+                                </div>
+                           </form>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 mb-30">
@@ -98,7 +95,6 @@ if(!function_exists('blockly_render_subscription')):
                     </div>
                 </div>
             </div>
-
         <?php return ob_get_clean(); 
     }
 endif;
