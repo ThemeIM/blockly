@@ -55,15 +55,15 @@ if(!function_exists('blockly_render_blog')):
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                     <button class="nav-link active"  data-cat="">All</button>
-                     <?php foreach($get_catatories as $cat){
+                     <?php foreach($get_catatories as $key=>$cat){
                         // echo $cat['name'];
-                           $cat_title = (isset($cat['value']) && $cat['value'] != '') ? $cat['value'] : $cat['name'];  
+                           $cat_title = (isset($cat['value']) && $cat['value'] != '') ? $cat['value'] : $cat['name'];
                            $post_per_page = isset($attributes['numberOfPosts']) ? $attributes['numberOfPosts']: 8;
                          $order = isset($attributes['order']) ? $attributes['order']: 'desc';
                          $order_by = isset($attributes['order']) ? $attributes['orderBy']: 'orderBy';
                          ?> 
                         <button class="nav-link" 
-                        id="<?php echo esc_attr(strtolower($cat_title)); ?>-tab" 
+                        id="<?php echo esc_attr($key); ?>-tab" 
                         data-order="<?php echo esc_attr($order);?> "
                         data-orderby = "<?php echo esc_attr($order_by); ?>"
                         data-post="<?php echo esc_attr($post_per_page); ?>"
@@ -75,7 +75,7 @@ if(!function_exists('blockly_render_blog')):
                 <div class="loader-post-wrapper">
                     <div class="loader-post"></div>
                 </div>
-                <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="all-tab">
+                <div class="tab-pane fade show active"  role="tabpanel">
                     <div class="row justify-content-center mb-60-none tab-content-ajax">
                         <?php 
                          $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

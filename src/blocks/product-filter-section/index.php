@@ -33,28 +33,28 @@ if (!function_exists('blockly_render_product_filter')) {
     function blockly_render_product_filter( $attributes ) {
         ob_start();  ?>
 
-<section class="product-section ptb-120 bg--gray" style="max-width: 100%;">
+<div class="product-section ptb-120 bg--gray" style="max-width: 100%;">
     <div class="container custom-container">
         <div class="product-tab">
             <nav>
                 <div class="responsive-nav d-block d-lg-none">Products</div>
                 <div class="nav nav-tabs res-nav-tab" id="nav-tab" role="tablist">
-                    <button class="nav-link active" id="all-tab" data-toggle="tab" data-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true" data-cat="all">
-                        <div class="product-tab-thumb">
+                    <button class="nav-link active" id="all-tab" data-toggle="tab" data-target="#all" type="button" role="tab"  aria-selected="true" data-cat="all">
+                        <span class="product-tab-thumb">
                             <img src="<?php echo esc_url(BLY_ASSETS_URL.'/images/product-tab/product-tab-1.png'); ?>" alt="product-tab">
-                        </div>
+                        </span>
                         <span>All Items</span>
                     </button>
-                    <button class="nav-link" id="new-tab" data-toggle="tab" data-target="#new" type="button" role="tab" aria-controls="new" aria-selected="false" data-cat="new">
-                        <div class="product-tab-thumb">
+                    <button class="nav-link" id="new-tab" data-toggle="tab" data-target="#new" type="button" role="tab"  aria-selected="false" data-cat="new">
+                        <span class="product-tab-thumb">
                             <img src="<?php echo esc_url(BLY_ASSETS_URL.'/images/product-tab/product-tab-2.png'); ?>" alt="product-tab">
-                        </div>
+                        </span>
                         <span>New Items</span>
                     </button>
                     <?php if(isset($attributes['categories']) && !empty($attributes['categories'])){ ?>
                     <?php foreach($attributes['categories'] as $cat) { ?>
-                        <button class="nav-link" data-cat="<?php echo esc_attr($cat['value']) ?>" id="wordpress-tab-<?php echo esc_attr($cat['value']) ?>" data-toggle="tab" type="button" role="tab" aria-controls="<?php echo esc_attr($cat['label']); ?>">
-                            <div class="product-tab-thumb">
+                        <button class="nav-link" data-cat="<?php echo esc_attr($cat['value']) ?>" id="wordpress-tab-<?php echo esc_attr($cat['value']) ?>" data-toggle="tab" type="button" role="tab">
+                            <span class="product-tab-thumb">
                                 <?php    
                                  $thumbnail_id = get_term_meta( $cat['value'], 'thumbnail_id', true ); 
                                  if('' != $thumbnail_id) {
@@ -62,7 +62,7 @@ if (!function_exists('blockly_render_product_filter')) {
                                  }
                                 ?>
                                 
-                            </div>
+                            </span>
                             <span><?php echo esc_html($cat['label']); ?></span>
                         </button>
                   <?php }}  ?>
@@ -72,10 +72,10 @@ if (!function_exists('blockly_render_product_filter')) {
                 <div class="ajax-preloader position-absolute">
                     <div class="loader"></div>
                 </div>
-            <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="all" role="tabpanel" >
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="portfolio" role="tabpanel" >
                             <div class="row justify-content-center mb-30-none">
                                 <?php 
                                 
@@ -142,7 +142,7 @@ if (!function_exists('blockly_render_product_filter')) {
                                         <h3 class="title"><a href="<?php the_permalink(); ?>"><?php echo esc_html($get_short_title); ?></a></h3>
                                         <p>
                                             <?php if(isset($get_themeim_meta['_details_title'])){
-                                                $sub_title_data = wp_trim_words($get_themeim_meta['_details_title'], 7, '...');
+                                                $sub_title_data = $get_themeim_meta['_details_title'];
                                                 echo  esc_html($sub_title_data);
                                             } ?>
                                         </p>    
@@ -181,7 +181,7 @@ if (!function_exists('blockly_render_product_filter')) {
             </div>
         </div>
     </div>
-</section>
+</d>
         <?php return ob_get_clean(); 
     }
 }

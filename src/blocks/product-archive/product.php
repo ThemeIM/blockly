@@ -286,7 +286,7 @@ if(!function_exists('blockly_render_product_list')):
                                         <h3 class="title"><a href="<?php the_permalink(); ?>"><?php echo esc_html($get_short_title); ?></a></h3>
                                         <p>
                                             <?php if(isset($get_themeim_meta['_details_title'])){
-                                                $sub_title_data = wp_trim_words($get_themeim_meta['_details_title'], 7, '...');
+                                                $sub_title_data = $get_themeim_meta['_details_title'];
                                                 echo  esc_html($sub_title_data);
                                             } ?>
                                         </p>    
