@@ -5,9 +5,9 @@ import Edit from './components/edit';
 import './styles/style.scss';
 import './styles/editor.scss';
 
-registerBlockType ( "blockly/product-info-two", {
-		title: __( 'Product Info Two', 'blockly'  ),
-		description: __( 'Product info block - 2', 'blockly' ),
+registerBlockType ( "blockly/product-info-four", {
+		title: __( 'Product Info Three', 'blockly'  ),
+		description: __( 'Product info block - 4', 'blockly' ),
 		category: 'blockly',
 		icon: {
 			src: 'bell',
@@ -37,23 +37,28 @@ registerBlockType ( "blockly/product-info-two", {
 				type: 'string',
 				default: ''
 			},
-			button_title: {
-				type: 'string',
-				default: ''
-			},
-			button_link: {
-				type: 'string',
-				default: ''
-			},
+			info_items: {
+				type: 'array',
+				default: [
+					{
+						icon: '',
+						text: '',
+					}
+				]
+			}
 		},
 		example: {
 			attributes: {
 				main_title: __('Considerable Notice'),
 				main_description: __('To begin the customization, one of our skilled project managers with...'),
-				secondary_title: __('Replace a Heading Here'),
-				secondary_description: __('To begin the customization, one of our skilled project managers will provide...'),
-				button_title: __('Replace a Heading Here'),
-				button_link: __('To begin the customization, one of our skilled project managers will provide...'),
+				secondary_title: __('Explanation of Service'),
+				secondary_description: __('To begin the customization, one of our skilled project managers with...'),
+				info_items: [
+					{
+						icon: '',
+						text: '',
+					}
+				],
 			},
 		},
         edit: Edit,

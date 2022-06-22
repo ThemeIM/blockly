@@ -5,7 +5,7 @@ import Edit from './components/edit';
 import './styles/style.scss';
 import './styles/editor.scss';
 
-registerBlockType ( "blockly/terms-and-Conditions", {
+registerBlockType ( "blockly/terms-and-conditions", {
 		title: __( 'Terms and Conditions', 'blockly'  ),
 		description: __( 'A simple block for Terms and Conditions', 'blockly' ),
 		category: 'blockly',
@@ -16,7 +16,8 @@ registerBlockType ( "blockly/terms-and-Conditions", {
 		},
 		keywords: [
 			__( 'terms', 'blockly' ),
-			__( 'Conditions', 'blockly' ),
+			__( 'conditions', 'blockly' ),
+			__( 'tac', 'blockly' ),
 			__( 'message', 'blockly' ),
 			__( 'blockly', 'blockly' ),
 		],

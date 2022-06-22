@@ -1,5 +1,5 @@
 import { __ } from '@wordpress/i18n';
-import { Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
+import { SelectControl, Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
 import '../styles/editor.scss'
 import '../styles/style.scss'
 
@@ -20,6 +20,8 @@ export default function Edit({ attributes, setAttributes }) {
     return (
         <Card>
             <CardBody>
+                <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Terms and Conditions</Text>
+
                 {
                     typeof items.map === 'function' && items.map((item, index) => (
                         <Card key={index}>
@@ -33,13 +35,13 @@ export default function Edit({ attributes, setAttributes }) {
                                 <TextControl
                                     label={__("Title", "blockly")}
                                     type="text"
-                                    value={title}
+                                    value={item.title}
                                     onChange = { value => updateListItem(index, 'title', value) }
                                 />
                                 <TextControl
                                     label={__("Description", "blockly")}
                                     type="text"
-                                    value={description}
+                                    value={item.description}
                                     onChange={ value => updateListItem(index, 'description', value) }
                                 />
                             </CardBody>
