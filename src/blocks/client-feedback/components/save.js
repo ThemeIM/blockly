@@ -1,12 +1,15 @@
 import ReviewItem from "./reviewItem";
 import SliderNext from "./sliderNext";
 import SliderPrev from "./sliderPrev";
+import { useBlockProps } from '@wordpress/block-editor';
 
-export default function Save({ attributes, setAttributes }) {
+
+export default function Save({ attributes }) {
     const { title, subtitle, video_thumbnail, video_url, items } = attributes;
-
+    const blockProps = useBlockProps.save();
+//class="client-section bg--gray ptb-120 blockly-full"
     return (
-        <section class="client-section bg--gray ptb-120 blockly-full">
+        <div { ...blockProps({className: 'client-section bg--gray ptb-120 blockly-full',}) }>
             <div class="client-element">
                 <img src={`${ blocklyBlockData['blockly_url'] }assets/images/element/element-19.png`} alt="element" />
             </div>
@@ -74,6 +77,6 @@ export default function Save({ attributes, setAttributes }) {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }

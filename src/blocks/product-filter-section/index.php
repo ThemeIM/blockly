@@ -181,7 +181,7 @@ if (!function_exists('blockly_render_product_filter')) {
             </div>
         </div>
     </div>
-</d>
+</div>
         <?php return ob_get_clean(); 
     }
 }
