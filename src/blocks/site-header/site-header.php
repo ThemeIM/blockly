@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * Server-side rendering for the alert_box block
  * @since   1.0.0
@@ -41,15 +41,15 @@ if(!function_exists('blockly_site_header')):
                                  <?php endif; ?>
                               </a>
                                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                                   aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                   >
                                    <span class="toggle-bar"></span>
                                </button>
 
                                 <?php
                                 // pages - 1
-                                if(!empty($attributes['pages'])) {
+                                if(!empty($attributes['pages'])) { 
                                 ?>
-                                <div class="toggle-menu collapse navbar-collapse" id="navbarSupportedContent">
+                                <div class="toggle-menu collapse navbar-collapse">
                                     <ul class="navbar-nav main-menu">
                                         <li class="menu_has_children">
                                             <a href="#0">
@@ -73,7 +73,7 @@ if(!function_exists('blockly_site_header')):
                                 </div>
                                 <?php }  ?>
 
-                               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                               <div class="collapse navbar-collapse">
                                     <?php
                                     // pages - 2
                                     if(!empty($attributes['pages_type_2'])) {
@@ -82,7 +82,8 @@ if(!function_exists('blockly_site_header')):
                                             <li class="menu_has_children">
                                                 <a href="#0">
                                                     <div class="toggle-menu">
-                                                    Shopify <i class="fas fa-chevron-down"></i>
+                                                    Shopify 
+                                                    <!-- <i class="fas fa-chevron-down"></i> -->
                                                     </div>
                                                 </a>
                                                 <ul class="sub-menu">
@@ -108,7 +109,8 @@ if(!function_exists('blockly_site_header')):
                                         <li class="menu_has_children">
                                             <a href="#0">
                                                 <div class="toggle-menu">
-                                                HTML Templates <i class="fas fa-chevron-down"></i>
+                                                HTML Templates 
+                                                <!-- <i class="fas fa-chevron-down"></i> -->
                                                 </div>
                                             </a>
                                             <ul class="sub-menu">
@@ -147,6 +149,10 @@ if(!function_exists('blockly_site_header')):
                                             </div>
                                         </div>
                                        <?php endif; ?>
+                                       <?php if(!is_page('14760') ){
+                                        
+                                         if(!is_singular('post')){
+                                        ?>
                                        <div class="header-cart-area">
                                            <div class="header-cart-action">
                                                <span class="icon">
@@ -158,6 +164,7 @@ if(!function_exists('blockly_site_header')):
                                                <?php woocommerce_mini_cart(); ?>
                                            </div>
                                        </div>
+                                       <?php }} ?>
                                        <div class="header-action-area">
                                            <div class="header-action">
                                            <?php if(isset($attributes['hire'])){ ?>
@@ -180,7 +187,7 @@ if(!function_exists('blockly_site_header')):
                    </div>
                </div>
            </div>
-        </div>
+      </div>
         <?php return ob_get_clean(); 
     }
 endif;
