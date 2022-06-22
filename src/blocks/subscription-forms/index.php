@@ -64,7 +64,7 @@ if(!function_exists('blockly_render_subscription')):
                                     <div class="response" id="mce-success-response" style="display:none"></div>
                                 </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                    <input type="text" name="ca323fecfbb5c877385729e34e326cf158419852" tabindex="-1" autocomplete="ca323fecfbb5c877385729e34e326cf158419852"/>
+                                    <input type="text" name="ca323fecfbb5c877385729e34e326cf158419852" tabindex="-1" />
                                 </div>
                            </form>
                         </div>
@@ -97,4 +97,4 @@ if(!function_exists('blockly_render_subscription')):
             </div>
         <?php return ob_get_clean(); 
     }
-endif;
+endif; 
