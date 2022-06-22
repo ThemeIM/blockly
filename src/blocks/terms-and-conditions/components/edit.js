@@ -1,12 +1,7 @@
 import { __ } from '@wordpress/i18n';
-import { Button, Card, CardBody, __experimentalText as Text, TextControl, Dashicon } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-
-import { useState } from '@wordpress/element';
-
+import { Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
 import '../styles/editor.scss'
 import '../styles/style.scss'
-
 
 export default function Edit({ attributes, setAttributes }) {
     const { items } = attributes
@@ -21,8 +16,6 @@ export default function Edit({ attributes, setAttributes }) {
         all_items[index]['type'] = text;
         setAttributes({ items: all_items })
     }
-
-    /** TODO: Update list item */
 
     return (
         <Card>
