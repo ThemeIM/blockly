@@ -12,23 +12,21 @@ export default function Edit({ attributes, setAttributes }) {
     const { 
         main_title,
         main_description,
-        info_items,
         secondary_title,
         secondary_description,
+        info_items,
     } = attributes
 
-    const addListItem = () => setAttributes({ info_items: [ ...info_items, '' ] })
-
-    const updateListItem = (index, text) => {
+    const updateListItem = (index, type, text) => {
         let all_info_items = [ ...info_items ];
-        all_info_items[index] = text;
+        all_info_items[index][type] = text;
         setAttributes({ info_items: all_info_items })
     }
 
     return (
         <Card>
             <CardBody>
-                <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Product Info One</Text>
+                <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Product Info Four</Text>
                 <TextControl
                     label={__("Main Title", "blockly")}
                     type="text"
@@ -41,28 +39,6 @@ export default function Edit({ attributes, setAttributes }) {
                     value={main_description}
                     onChange={ value => setAttributes({ main_description: value }) }
                 />
-
-                <Card style={{ marginTop: '15px', marginBottom: '15px' }}>
-                    <CardBody>
-                        <Text isBlock adjustLineHeightForInnerControls size="medium" style={{ marginBottom: '10px' }}>Info Items</Text>
-                        {
-                            typeof info_items.map === 'function' && info_items.map((item, index) => (
-                                <Card key={index}>
-                                    <CardBody>
-                                        <TextControl
-                                            label={__("Info", "blockly")}
-                                            type="text"
-                                            value={item}
-                                            onChange={ value => updateListItem(index, value) }
-                                        />
-                                    </CardBody>
-                                </Card>
-                            ))
-                        }
-                        <Button style={{ marginTop: '15px' }} variant='secondary' onClick={() => addListItem()}>Add Item</Button>
-                    </CardBody>
-                </Card>
-
                 <TextControl
                     label={__("Secondary Title", "blockly")}
                     type="text"
@@ -75,6 +51,33 @@ export default function Edit({ attributes, setAttributes }) {
                     value={secondary_description}
                     onChange={ value => setAttributes({ secondary_description: value }) }
                 />
+                {
+                    typeof info_items.map === 'function' && info_items.map((item, index) => (
+                        <Card>
+                            <CardBody>
+                                {
+                                    item.icon && 
+                                    <div className="img-fluid">
+                                        <img src={item.icon} alt="" />
+                                    </div>
+                                }
+                                <MediaPlaceholder
+                                    onSelect={(image) => updateListItem(index, 'icon', image.url) }
+                                    onSelectURL={(url) => updateListItem(index, 'icon', url) }
+                                    allowedTypes={["image"]}
+                                    multiple={false}
+                                    labels={ 'Icon image' }
+                                />
+                                <TextControl
+                                    label={__("Title", "blockly")}
+                                    type="text"
+                                    value={item.text}
+                                    onChange={ value => updateListItem(index, 'text', value) }
+                                />
+                            </CardBody>
+                        </Card>
+                    ))
+                }
             </CardBody>
         </Card>
     )

@@ -1,12 +1,13 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
 import Edit from './components/edit';
+
 import './styles/style.scss';
 import './styles/editor.scss';
 
-registerBlockType ( "blockly/product-info-one", {
-		title: __( 'Product Info One', 'blockly'  ),
-		description: __( 'Product info block - 1', 'blockly' ),
+registerBlockType ( "blockly/product-info-four", {
+		title: __( 'Product Info Three', 'blockly'  ),
+		description: __( 'Product info block - 4', 'blockly' ),
 		category: 'blockly',
 		icon: {
 			src: 'bell',
@@ -28,10 +29,6 @@ registerBlockType ( "blockly/product-info-one", {
 				type: 'string',
 				default: ''
 			},
-			info_items: {
-				type: 'array',
-				default: []
-			},
 			secondary_title: {
 				type: 'string',
 				default: ''
@@ -40,17 +37,28 @@ registerBlockType ( "blockly/product-info-one", {
 				type: 'string',
 				default: ''
 			},
+			info_items: {
+				type: 'array',
+				default: [
+					{
+						icon: '',
+						text: '',
+					}
+				]
+			}
 		},
 		example: {
 			attributes: {
 				main_title: __('Considerable Notice'),
 				main_description: __('To begin the customization, one of our skilled project managers with...'),
+				secondary_title: __('Explanation of Service'),
+				secondary_description: __('To begin the customization, one of our skilled project managers with...'),
 				info_items: [
-					__('To begin the customization, one skilled project managers provide you with a list of similarly designed themes.'),
-					__('To begin the customization, one skilled project managers provide you with a list of similarly designed themes.'),
+					{
+						icon: '',
+						text: '',
+					}
 				],
-				secondary_title: __('Replace a Heading Here'),
-				secondary_description: __('To begin the customization, one of our skilled project managers will provide...'),
 			},
 		},
         edit: Edit,
