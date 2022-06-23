@@ -51,7 +51,7 @@ if (!function_exists('blockly_render_product_info_two')) {
     function blockly_render_product_info_two( $attributes ) {
         ob_start();
 ?>
-        <div class="notice-block-wrapper">
+        <div class="notice-block-wrapper blockly-full">
             <div class="container custom-container">
                 <div class="row">
                     <div class="col-lg-8">

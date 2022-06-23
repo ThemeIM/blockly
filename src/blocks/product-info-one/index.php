@@ -47,7 +47,7 @@ if (!function_exists('blockly_render_product_info_one')) {
     function blockly_render_product_info_one( $attributes ) {
         ob_start();
 ?>
-        <div class="notice-block-wrapper">
+        <div class="notice-block-wrapper blockly-full">
             <div class="container custom-container">
                 <div class="row">
                     <div class="col-lg-8">
@@ -59,8 +59,8 @@ if (!function_exists('blockly_render_product_info_one')) {
                             <div class="check-list-items">
                                 <ul class="list-parent">
                                     <?php
-                                        if (!empty($attributes['items'])) {
-                                            foreach ($attributes['items'] as $item) {
+                                        if (!empty($attributes['info_items'])) {
+                                            foreach ($attributes['info_items'] as $item) {
                                     ?>
                                                 <li class="list-child"><?php echo esc_html($item); ?></li>
                                     <?php

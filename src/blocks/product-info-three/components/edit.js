@@ -37,26 +37,34 @@ export default function Edit({ attributes, setAttributes }) {
                     value={description}
                     onChange={ value => setAttributes({ description: value }) }
                 />
-                {
-                    typeof info_items.map === 'function' && info_items.map((item, index) => (
-                        <Card>
-                            <CardBody>
-                                <TextControl
-                                    label={__("Title", "blockly")}
-                                    type="text"
-                                    value={item.title}
-                                    onChange={ value => updateListItem(index, 'title', value) }
-                                />
-                                <TextControl
-                                    label={__("Description", "blockly")}
-                                    type="text"
-                                    value={item.description}
-                                    onChange={ value => updateListItem(index, 'description', value) }
-                                />
-                            </CardBody>
-                        </Card>
-                    ))
-                }
+
+                <Card style={{ marginTop: '15px', marginBottom: '15px' }}>
+                    <CardBody>
+                        <Text isBlock adjustLineHeightForInnerControls size="medium" style={{ marginBottom: '10px' }}>Info Items</Text>
+                        {
+                            typeof info_items.map === 'function' && info_items.map((item, index) => (
+                                <Card>
+                                    <CardBody>
+                                        <TextControl
+                                            label={__("Title", "blockly")}
+                                            type="text"
+                                            value={item.title}
+                                            onChange={ value => updateListItem(index, 'title', value) }
+                                        />
+                                        <TextControl
+                                            label={__("Description", "blockly")}
+                                            type="text"
+                                            value={item.description}
+                                            onChange={ value => updateListItem(index, 'description', value) }
+                                        />
+                                    </CardBody>
+                                </Card>
+                            ))
+                        }
+                         <Button style={{ marginTop: '15px' }} variant='secondary' onClick={() => addListItem()}>Add Item</Button>
+                    </CardBody>
+                </Card>
+
             </CardBody>
         </Card>
     )
