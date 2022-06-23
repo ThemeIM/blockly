@@ -1,14 +1,11 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks'
-import { SelectControl, PanelBody, CheckboxControl, Button, IconButton, RangeControl } from '@wordpress/components'
-import { InspectorControls,RichText,PanelColorSettings } from '@wordpress/block-editor';
 import Edit from './components/edit';
-import Save from './components/save';
 
 import './styles/style.scss';
 import './styles/editor.scss';
 
-registerBlockType ( "blockly/terms-and-Conditions", {
+registerBlockType ( "blockly/terms-and-conditions", {
 		title: __( 'Terms and Conditions', 'blockly'  ),
 		description: __( 'A simple block for Terms and Conditions', 'blockly' ),
 		category: 'blockly',
@@ -19,7 +16,8 @@ registerBlockType ( "blockly/terms-and-Conditions", {
 		},
 		keywords: [
 			__( 'terms', 'blockly' ),
-			__( 'Conditions', 'blockly' ),
+			__( 'conditions', 'blockly' ),
+			__( 'tac', 'blockly' ),
 			__( 'message', 'blockly' ),
 			__( 'blockly', 'blockly' ),
 		],

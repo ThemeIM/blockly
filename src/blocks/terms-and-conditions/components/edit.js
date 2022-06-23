@@ -1,12 +1,7 @@
 import { __ } from '@wordpress/i18n';
-import { Button, Card, CardBody, __experimentalText as Text, TextControl, Dashicon } from '@wordpress/components';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
-
-import { useState } from '@wordpress/element';
-
+import { SelectControl, Card, CardBody, __experimentalText as Text, TextControl } from '@wordpress/components';
 import '../styles/editor.scss'
 import '../styles/style.scss'
-
 
 export default function Edit({ attributes, setAttributes }) {
     const { items } = attributes
@@ -22,11 +17,11 @@ export default function Edit({ attributes, setAttributes }) {
         setAttributes({ items: all_items })
     }
 
-    /** TODO: Update list item */
-
     return (
         <Card>
             <CardBody>
+                <Text isBlock adjustLineHeightForInnerControls size="largeTitle" style={{ marginBottom: '15px' }}>Terms and Conditions</Text>
+
                 {
                     typeof items.map === 'function' && items.map((item, index) => (
                         <Card key={index}>
@@ -40,13 +35,13 @@ export default function Edit({ attributes, setAttributes }) {
                                 <TextControl
                                     label={__("Title", "blockly")}
                                     type="text"
-                                    value={title}
+                                    value={item.title}
                                     onChange = { value => updateListItem(index, 'title', value) }
                                 />
                                 <TextControl
                                     label={__("Description", "blockly")}
                                     type="text"
-                                    value={description}
+                                    value={item.description}
                                     onChange={ value => updateListItem(index, 'description', value) }
                                 />
                             </CardBody>
