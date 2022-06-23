@@ -54,8 +54,10 @@ if (!function_exists('blockly_render_trending_products')) {
             <div class="col-xl-12">
                 <div class="section-header-wrapper">
                     <div class="section-header">
-                        <h2 class="section-title">Trending Items</h2>
-                        <p>We teach martial arts because we love it — not because we want to make money on you. Unlike.</p>
+                        <?php $title = isset($attributes['title']) ? $attributes['title'] : ''; ?>
+                        <h2 class="section-title"><?php echo esc_html($title); ?></h2>
+                        <?php $subtitle = isset($attributes['subtitle']) ? $attributes['subtitle'] : '';  ?>
+                        <p><?php echo esc_html($subtitle); ?></p>
                     </div>
                     <div class="slider-nav-area">
                         <div class="slider-prev">
